@@ -14,6 +14,12 @@ namespace Bussiness_Logic
         Mapper map = new Mapper();
         EF_repo repo = new EF_repo();
         PatientInfoDbContext context = new PatientInfoDbContext();
+
+        public void Hello()
+        {
+            Console.WriteLine();
+        }
+
         public List<Patient_M> GetAllPatient()
         {
             List<Patient_M> patients = new List<Patient_M>();
@@ -56,4 +62,11 @@ namespace Bussiness_Logic
             return context.Patients.Where(ID => ID.Id == id).FirstOrDefault();
         }
     }
+}
+
+
+
+public class Wow
+{
+
 }
