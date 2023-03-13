@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    internal class Prescription_M
+    public class Prescription_M
     {
+        public int Id { get; set; }
+
+        public int? VisitDetailsId { get; set; }
+
+        public string? PrescriptionName { get; set; }
+
+        public string? Dosage { get; set; }
+
+        public string? Notes { get; set; }
     }
 }
