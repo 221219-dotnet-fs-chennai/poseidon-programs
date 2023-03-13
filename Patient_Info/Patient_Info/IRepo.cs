@@ -13,5 +13,17 @@ namespace EF_Layer
         Patient AddPatient(Patient patient);
         Patient UpdatePatient(Patient patient);
         Patient GetByID(int id);
+
+        //for visit details
+
+        VisitDetail AddVisitDetails(VisitDetail visitDetail);
+        VisitDetail GetVisitById(int id);
+
+
+        //for prescription
+        public Prescription AddPrescription(Prescription prescription);
+        public Prescription GetPrescriptionById(int id);
+
+
     }
 }

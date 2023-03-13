@@ -56,5 +56,35 @@ namespace Bussiness_Logic
         {
             return context.Patients.Where(ID => ID.Id == id).FirstOrDefault();
         }
+
+
+        //visit details
+
+
+
+        public Visit_Details_M AddVisitDetails(Visit_Details_M visit_Details_M)
+        {
+            return map.mapVisitDetailEM(repo.AddVisitDetails(map.mapVisitDetailME(visit_Details_M)));
+        }
+
+
+
+        public Visit_Details_M GetVisitDetailsById(int id)
+        {
+            return map.mapVisitDetailEM(repo.GetVisitById(id));
+        }
+
+        //Prescription
+
+        public Prescription_M AddPrescription(Prescription_M prescription_M)
+        {
+            return map.mapPrescriptionEM(repo.AddPrescription(map.mapPrescriptionME(prescription_M)));
+        }
+
+        public Prescription_M GetPrescriptionById(int id)
+        {
+            return map.mapPrescriptionEM(repo.GetPrescriptionById(id));
+        }
+
     }
 }
