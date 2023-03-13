@@ -51,6 +51,8 @@ namespace Bussiness_Logic
             return map.MapPatient(repo.GetByID(id));
         }
 
+        // hello world
+
         public Patient PatientbyID(int id)
         {
             return context.Patients.Where(ID => ID.Id == id).FirstOrDefault();
