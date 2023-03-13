@@ -1,0 +1,14 @@
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\bin\Debug\net6.0\EF_Layer.deps.json
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\bin\Debug\net6.0\EF_Layer.runtimeconfig.json
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\bin\Debug\net6.0\EF_Layer.dll
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\bin\Debug\net6.0\EF_Layer.pdb
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.csproj.AssemblyReference.cache
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.AssemblyInfoInputs.cache
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.AssemblyInfo.cs
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.csproj.CoreCompileInputs.cache
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.dll
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\refint\EF_Layer.dll
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.pdb
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\EF_Layer.genruntimeconfig.cache
+D:\Yuva\Hospital_Management\Patient_info_code\Patient_Info\Patient_Info\obj\Debug\net6.0\ref\EF_Layer.dll
