@@ -122,9 +122,9 @@ namespace Bussiness_Logic
 
         public List<Test_M> GetTestList(int visitId)
         {
-            List<Test_M> testList=new List<Test_M>();
+            List<Test_M> testList = new List<Test_M>();
 
-            foreach(var e in repo.GetTestList(visitId))
+            foreach (var e in repo.GetTestList(visitId))
             {
                 testList.Add(map.mapTestEM(e));
             }
@@ -137,21 +137,21 @@ namespace Bussiness_Logic
             return repo.GetTestIdByName(name);
         }
 
-       public Test_M UpdateTest(Test_M test,int Id)
+        public Test_M UpdateTest(Test_M test, int Id)
         {
-    
+
             var uTest = TestById(Id);
 
-            uTest.TestName=test.TestName;
-            uTest.Notes=test.Notes;
-            uTest.Result=test.Result;
+            uTest.TestName = test.TestName;
+            uTest.Notes = test.Notes;
+            uTest.Result = test.Result;
 
             return map.mapTestEM(repo.UpdateTest(uTest));
-
+        }
         public Test TestById(int id)
         {
-           return context.Tests.FirstOrDefault(x => x.Id == id);
-            
+            return context.Tests.FirstOrDefault(x => x.Id == id);
+
         }
 
     }
