@@ -153,11 +153,14 @@ namespace EF_Layer
            return TList;
         }
 
+
         public Test UpdateTest(Test test)
         {
             context.Tests.Update(test);
             context.SaveChanges();
             return test;
         }
+
+       
     }
 }

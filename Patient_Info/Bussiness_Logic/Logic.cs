@@ -108,14 +108,7 @@ namespace Bussiness_Logic
             return testList;
         }
 
-        public Test UpdateTest(Test test)
-        {
 
-        }
-
-        public Test TestById(int id)
-        {
-            return context.Tests.FirstOrDefault(x=>x.=id);
-        }
+        
     }
 }

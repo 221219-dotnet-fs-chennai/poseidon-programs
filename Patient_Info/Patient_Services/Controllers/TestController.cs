@@ -39,7 +39,6 @@ namespace Patient_Services.Controllers
         }
 
         [HttpGet("GetTestList/ByVisitId")]
-
         public IActionResult GetTestListbyVisitId(int visitId)
         {
             try
@@ -62,6 +61,11 @@ namespace Patient_Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+      
+
+
 
     }
 }
