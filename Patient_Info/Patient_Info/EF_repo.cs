@@ -54,6 +54,31 @@ namespace EF_Layer
             return patient;
         }
 
+        public int login(string email, string password)
+        {
+            var query_1 = context.Patients.FirstOrDefault(v => v.Email == email);
+
+            if (query_1 != null)
+            {
+                var query_2 = context.Patients.FirstOrDefault(v => v.Password == password);
+
+                if (query_2 != null)
+                {
+                    var result = context.Patients;
+                    var patient_id = context.Patients.FirstOrDefault(v => v.Email == email);
+
+                    return patient_id.Id;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         //Visit Details
         public VisitDetail AddVisitDetails(VisitDetail visitDetail)
@@ -103,9 +128,6 @@ namespace EF_Layer
         }
 
         //Prescription
-
-
-
         public Prescription AddPrescription(Prescription prescription)
         {
             context.Prescriptions.Add(prescription);
@@ -145,7 +167,7 @@ namespace EF_Layer
             return prescription;
         }
 
-    public bool ExistingPatient(string email)
+        public bool ExistingPatient(string email)
         {
             var pat = context.Patients;
 
@@ -170,35 +192,27 @@ namespace EF_Layer
             }
 
         }
-  
-  
-  
-  
- 
-  
 
-
-//test methods
+        //test methods
         public Test AddTest(Test test)
         {
-          context.Tests.Add(test);
-          context.SaveChanges();
-          return test;
+            context.Tests.Add(test);
+            context.SaveChanges();
+            return test;
         }
 
         public List<Test> GetTestList(int visitId)
         {
             List<Test> TList = new List<Test>();
-           foreach(var e in context.Tests.ToList())
+            foreach (var e in context.Tests.ToList())
             {
                 if (e.VisitDetailsId == visitId)
                 {
                     TList.Add(e);
                 }
             }
-           return TList;
+            return TList;
         }
-  
 
 
         public Test UpdateTest(Test test)

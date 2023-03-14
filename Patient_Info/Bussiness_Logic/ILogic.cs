@@ -14,6 +14,7 @@ namespace Bussiness_Logic
         Patient_M AddPatient(Patient_M patient);
         Patient_M UpdatePatient(Patient_M patient, int id);
         Patient_M GetByID(int id);
+        int login(string email, string password);
 
         //visitdetails
         public Visit_Details_M AddVisitDetails(Visit_Details_M visit_Details_M);
@@ -25,8 +26,6 @@ namespace Bussiness_Logic
 
         //patient Exist
         public bool PatientIsExist(string email);
-
-
 
         //Test
 
@@ -41,6 +40,7 @@ namespace Bussiness_Logic
         public Test_M UpdateTest(Test_M test,int Id);
 
     
+
 
     }
 }
