@@ -17,11 +17,11 @@ namespace Bussiness_Logic
 
         //visitdetails
         public Visit_Details_M AddVisitDetails(Visit_Details_M visit_Details_M);
-        public Visit_Details_M GetVisitDetailsById(int id);
+        public List<Visit_Details_M> GetVisitDetailsById(int id);
 
         //prescription
         public Prescription_M AddPrescription(Prescription_M prescription_M);
-        public Prescription_M GetPrescriptionById(int id);
+        public List<Prescription_M> GetPrescriptionById(int id);
 
 
     }

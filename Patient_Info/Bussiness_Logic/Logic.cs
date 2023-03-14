@@ -69,9 +69,16 @@ namespace Bussiness_Logic
 
 
 
-        public Visit_Details_M GetVisitDetailsById(int id)
+        public List<Visit_Details_M> GetVisitDetailsById(int id)
         {
-            return map.mapVisitDetailEM(repo.GetVisitById(id));
+            var q = repo.GetVisitById(id);
+            List<Visit_Details_M> vii = new List<Visit_Details_M>();
+
+            foreach (var i in q)
+            {
+                vii.Add(map.mapVisitDetailEM(i));
+            }
+            return vii;
         }
 
         //Prescription
@@ -81,9 +88,17 @@ namespace Bussiness_Logic
             return map.mapPrescriptionEM(repo.AddPrescription(map.mapPrescriptionME(prescription_M)));
         }
 
-        public Prescription_M GetPrescriptionById(int id)
+        public List<Prescription_M> GetPrescriptionById(int id)
         {
-            return map.mapPrescriptionEM(repo.GetPrescriptionById(id));
+            var q = repo.GetPrescriptionById(id);
+
+            List<Prescription_M> ms = new List<Prescription_M>();
+
+            foreach (var i in q)
+            {
+                ms.Add(map.mapPrescriptionEM(i));
+            }
+            return ms;
         }
 
     }
