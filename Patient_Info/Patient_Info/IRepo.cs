@@ -32,6 +32,7 @@ namespace EF_Layer
         public Test AddTest(Test test);
         public List<Test> GetTestList(int visitId);
 
+        public int GetTestIdByName(string name);
         public Test UpdateTest(Test test);
 
 

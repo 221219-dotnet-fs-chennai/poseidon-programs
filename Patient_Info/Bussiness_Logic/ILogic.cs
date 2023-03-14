@@ -33,7 +33,14 @@ namespace Bussiness_Logic
 
         public List<Test_M> GetTestList(int visitId);
 
-        //public Test_M UpdateTest(Test_M test);
+
+
+        public int GetTestIdByName(string name);
+
+        public Test_M UpdateTest(Test_M test,int Id);
+
+    
+
 
     }
 }

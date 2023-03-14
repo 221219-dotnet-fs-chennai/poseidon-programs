@@ -214,11 +214,26 @@ namespace EF_Layer
             return TList;
         }
 
+
         public Test UpdateTest(Test test)
         {
             context.Tests.Update(test);
             context.SaveChanges();
             return test;
         }
+
+
+        public int GetTestIdByName(string name)
+        {
+            var Test = context.Tests.FirstOrDefault(x => x.TestName == name);
+            if (Test != null) { return Test.Id; }
+            else
+            {
+                return 0;
+            }
+        }
+
+
+
     }
 }
