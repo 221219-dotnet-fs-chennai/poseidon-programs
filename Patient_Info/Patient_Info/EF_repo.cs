@@ -64,21 +64,21 @@ namespace EF_Layer
             return visitDetail;
         }
 
-        public VisitDetail GetVisitById(int id)
+        public List<VisitDetail> GetVisitById(int id)
         {
 
 
             var visitDetails = context.VisitDetails;
             var query = from v in visitDetails
-                        where v.Id == id
+                        where v.PatientId == id
                         select v;
-            VisitDetail visitDetail = new VisitDetail();
+            List<VisitDetail> visitDetail = new List<VisitDetail>();
 
             foreach (var vi in query)
             {
-                visitDetail = new VisitDetail()
-
+                VisitDetail visit_Details_M = new VisitDetail()
                 {
+
                     Id = vi.Id,
                     PatientId = vi.PatientId,
                     Height = vi.Height,
@@ -92,8 +92,12 @@ namespace EF_Layer
                     PhysicianEmail = vi.PhysicianEmail,
                     AppointmentId = vi.AppointmentId,
                     KeyNotes = vi.KeyNotes
+
+
                 };
-            }
+                visitDetail.Add(visit_Details_M);
+
+            };
             return visitDetail;
 
         }
@@ -110,17 +114,17 @@ namespace EF_Layer
         }
 
 
-        public Prescription GetPrescriptionById(int id)
+        public List<Prescription> GetPrescriptionById(int id)
         {
             var pres = context.Prescriptions;
             var query = from p in pres
-                        where p.Id == id
+                        where p.VisitDetailsId == id
                         select p;
 
-            Prescription prescription = new Prescription();
+            List<Prescription> prescription = new List<Prescription>();
             foreach (var pi in query)
             {
-                prescription = new Prescription()
+                Prescription prescription1 = new Prescription()
                 {
                     Id = pi.Id,
                     VisitDetailsId = pi.VisitDetailsId,
@@ -128,11 +132,53 @@ namespace EF_Layer
                     Dosage = pi.Dosage,
                     Notes = pi.Notes
                 };
+                prescription.Add(prescription1);
+                //Prescription prescription = new Prescription()
+                //    {
+                //        Id = pi.Id,
+                //        VisitDetailsId = pi.VisitDetailsId,
+                //        PrescriptionName = pi.PrescriptionName,
+                //        Dosage = pi.Dosage,
+                //        Notes = pi.Notes
+                //    };
             }
             return prescription;
         }
 
-        //test methods
+    public bool ExistingPatient(string email)
+        {
+            var pat = context.Patients;
+
+
+            var query = (from p in pat
+                         where p.Email == email
+                         select p).FirstOrDefault();
+            try
+            {
+                if (email == query.Email)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+
+        }
+  
+  
+  
+  
+ 
+  
+
+
+//test methods
         public Test AddTest(Test test)
         {
           context.Tests.Add(test);
@@ -152,6 +198,7 @@ namespace EF_Layer
             }
            return TList;
         }
+  
 
         public Test UpdateTest(Test test)
         {
