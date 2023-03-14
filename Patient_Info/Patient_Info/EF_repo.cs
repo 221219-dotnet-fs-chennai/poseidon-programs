@@ -146,6 +146,33 @@ namespace EF_Layer
         }
 
 
+        public bool ExistingPatient(string email)
+        {
+            var pat = context.Patients;
+
+
+            var query = (from p in pat
+                         where p.Email == email
+                         select p).FirstOrDefault();
+            try
+            {
+                if (email == query.Email)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+
+        }
+
+
 
 
     }

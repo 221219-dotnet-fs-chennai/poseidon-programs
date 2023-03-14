@@ -101,5 +101,10 @@ namespace Bussiness_Logic
             return ms;
         }
 
+        public bool PatientIsExist(string email)
+        {
+            return repo.ExistingPatient(email);
+        }
+
     }
 }

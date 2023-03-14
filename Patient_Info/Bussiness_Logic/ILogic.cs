@@ -23,6 +23,10 @@ namespace Bussiness_Logic
         public Prescription_M AddPrescription(Prescription_M prescription_M);
         public List<Prescription_M> GetPrescriptionById(int id);
 
+        //patient Exist
+        public bool PatientIsExist(string email);
+
+
 
     }
 }

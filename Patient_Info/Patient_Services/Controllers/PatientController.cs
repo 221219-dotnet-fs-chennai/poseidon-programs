@@ -104,5 +104,23 @@ namespace Patient_Services.Controllers
             }
         }
 
+        [HttpGet("PatientExist")]
+        public IActionResult PatientExist(string email)
+        {
+            try
+            {
+                var value = logic.PatientIsExist(email);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
