@@ -208,6 +208,18 @@ namespace EF_Layer
             return test;
         }
 
-       
+
+        public int GetTestIdByName(string name)
+        {
+            var Test = context.Tests.FirstOrDefault(x => x.TestName == name);
+            if (Test != null) { return Test.Id; }
+            else
+            {
+                return 0;
+            }
+        }
+
+
+
     }
 }

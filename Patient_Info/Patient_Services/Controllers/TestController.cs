@@ -62,6 +62,56 @@ namespace Patient_Services.Controllers
             }
         }
 
+        [HttpGet("GetTestId/ByName")]
+        
+        public IActionResult GetTestIdByName(string name)
+        {
+            try
+            {
+                if (_logic.GetTestIdByName(name) != 0)
+                {
+                    return Ok(_logic.GetTestIdByName(name));
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(SqlException sqlE)
+            {
+                return BadRequest(sqlE.Message);    
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("UpdateTest")]
+
+        public IActionResult UpdateTest(Test_M test,int id)
+        {
+            try
+            {
+                if (_logic.UpdateTest(test,id) != null)
+                {
+                    return Ok(_logic.UpdateTest(test,id));
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(SqlException sqlE)
+            {
+                return BadRequest(sqlE.Message);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
 
       
 

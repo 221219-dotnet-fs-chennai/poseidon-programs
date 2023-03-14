@@ -128,7 +128,28 @@ namespace Bussiness_Logic
             return testList;
         }
 
+        public int GetTestIdByName(string name)
+        {
+            return repo.GetTestIdByName(name);
+        }
 
-        
+       public Test_M UpdateTest(Test_M test,int Id)
+        {
+    
+            var uTest = TestById(Id);
+
+            uTest.TestName=test.TestName;
+            uTest.Notes=test.Notes;
+            uTest.Result=test.Result;
+
+            return map.mapTestEM(repo.UpdateTest(uTest));
+
+        }
+
+        public Test TestById(int id)
+        {
+           return context.Tests.FirstOrDefault(x => x.Id == id);
+            
+        }
     }
 }
