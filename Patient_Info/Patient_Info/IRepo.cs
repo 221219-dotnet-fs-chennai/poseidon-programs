@@ -17,12 +17,12 @@ namespace EF_Layer
         //for visit details
 
         VisitDetail AddVisitDetails(VisitDetail visitDetail);
-        VisitDetail GetVisitById(int id);
+        public List<VisitDetail> GetVisitById(int id);
 
 
         //for prescription
         public Prescription AddPrescription(Prescription prescription);
-        public Prescription GetPrescriptionById(int id);
+        public List<Prescription> GetPrescriptionById(int id);
 
 
         //for test
