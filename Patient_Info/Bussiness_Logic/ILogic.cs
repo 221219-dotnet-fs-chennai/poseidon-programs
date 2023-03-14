@@ -28,5 +28,13 @@ namespace Bussiness_Logic
 
 
 
+        //Test
+
+        public Test_M AddTest(Test_M test);
+
+        public List<Test_M> GetTestList(int visitId);
+
+        public Test_M UpdateTest(Test_M test);
+
     }
 }

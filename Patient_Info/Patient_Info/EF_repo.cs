@@ -145,8 +145,7 @@ namespace EF_Layer
             return prescription;
         }
 
-
-        public bool ExistingPatient(string email)
+    public bool ExistingPatient(string email)
         {
             var pat = context.Patients;
 
@@ -171,9 +170,41 @@ namespace EF_Layer
             }
 
         }
+  
+  
+  
+  
+ 
+  
 
 
+//test methods
+        public Test AddTest(Test test)
+        {
+          context.Tests.Add(test);
+          context.SaveChanges();
+          return test;
+        }
 
+        public List<Test> GetTestList(int visitId)
+        {
+            List<Test> TList = new List<Test>();
+           foreach(var e in context.Tests.ToList())
+            {
+                if (e.VisitDetailsId == visitId)
+                {
+                    TList.Add(e);
+                }
+            }
+           return TList;
+        }
+  
 
+        public Test UpdateTest(Test test)
+        {
+            context.Tests.Update(test);
+            context.SaveChanges();
+            return test;
+        }
     }
 }

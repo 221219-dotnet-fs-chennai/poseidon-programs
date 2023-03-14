@@ -25,5 +25,12 @@ namespace EF_Layer
         public List<Prescription> GetPrescriptionById(int id);
 
 
+        //for test
+        public Test AddTest(Test test);
+        public List<Test> GetTestList(int visitId);
+
+        public Test UpdateTest(Test test);
+
+
     }
 }

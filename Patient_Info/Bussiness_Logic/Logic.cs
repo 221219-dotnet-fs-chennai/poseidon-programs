@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.AccessControl;
 
 namespace Bussiness_Logic
 {
@@ -106,5 +107,35 @@ namespace Bussiness_Logic
             return repo.ExistingPatient(email);
         }
 
+
+
+        //Test
+
+        public Test_M AddTest(Test_M test)
+        {
+            return map.mapTestEM(repo.AddTest(map.mapTestME(test)));
+        }
+
+        public List<Test_M> GetTestList(int visitId)
+        {
+            List<Test_M> testList=new List<Test_M>();
+
+            foreach(var e in repo.GetTestList(visitId))
+            {
+                testList.Add(map.mapTestEM(e));
+            }
+
+            return testList;
+        }
+
+        public Test UpdateTest(Test test)
+        {
+
+        }
+
+        public Test TestById(int id)
+        {
+            return context.Tests.FirstOrDefault(x=>x.=id);
+        }
     }
 }

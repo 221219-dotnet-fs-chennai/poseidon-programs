@@ -113,6 +113,33 @@ namespace Bussiness_Logic
             };
         }
 
+        //test mappers
+
+        //model to entity
+        public Test mapTestME(Test_M test)
+        {
+            return new Test()
+            {
+                Id = test.Id,
+                VisitDetailsId = test.VisitDetailsId,
+                TestName = test.TestName,
+                Result= test.Result,
+                Notes= test.Notes
+            };
+        }
+
+        //entity to model
+        public Test_M mapTestEM(Test test)
+        {
+            return new Test_M()
+            {
+                Id = test.Id,
+                VisitDetailsId = test.VisitDetailsId,
+                TestName = test.TestName,
+                Result= test.Result,
+                Notes= test.Notes
+        };
+        }
 
 
     }
