@@ -9,10 +9,13 @@ namespace EF_Layer
 {
     public interface IRepo
     {
+        // patient info
         List<Patient> GetAllPatient();
         Patient AddPatient(Patient patient);
         Patient UpdatePatient(Patient patient);
         Patient GetByID(int id);
+
+        int login(string email, string password);
 
         //for visit details
 

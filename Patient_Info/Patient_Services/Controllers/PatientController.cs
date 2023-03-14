@@ -122,5 +122,23 @@ namespace Patient_Services.Controllers
             }
         }
 
+        [HttpGet("patientLogin")]
+
+        public IActionResult patientlogin(string email, string password)
+        {
+            try
+            {
+                var value = logic.login(email, password);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

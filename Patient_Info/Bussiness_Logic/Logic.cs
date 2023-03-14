@@ -58,6 +58,10 @@ namespace Bussiness_Logic
             return context.Patients.Where(ID => ID.Id == id).FirstOrDefault();
         }
 
+        public int login(string email, string password)
+        {
+            return repo.login(email, password);
+        }
 
         //visit details
 
@@ -128,14 +132,14 @@ namespace Bussiness_Logic
             return testList;
         }
 
-        public Test UpdateTest(Test test)
-        {
+        //public Test UpdateTest(Test test)
+        //{
 
-        }
+        //}
 
-        public Test TestById(int id)
-        {
-            return context.Tests.FirstOrDefault(x=>x.=id);
-        }
+        //public Test TestById(int id)
+        //{
+        //    return context.Tests.FirstOrDefault(x=>x.=id);
+        //}
     }
 }
