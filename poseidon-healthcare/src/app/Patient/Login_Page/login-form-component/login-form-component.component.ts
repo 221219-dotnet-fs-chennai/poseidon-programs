@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form-component',
@@ -8,20 +8,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginFormComponentComponent implements OnInit{
 
-  // loginform: FormGroup;
-
-  // ngOnInit() {
-  //   this.loginform = new FormGroup(
-  //     {
-  //       email: new FormControl('',[Validators.required, Validators.required]),
-  //       password: new FormControl('',[Validators.required, Validators.minLength(8)])
-  //     });
-  // }
-
-  // onlogin()
-  // {
-
-  // }
+  hide= true;
+  
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
@@ -34,6 +22,5 @@ export class LoginFormComponentComponent implements OnInit{
   }
 
   onSubmit() {
-    // handle form submission
   }
 }
