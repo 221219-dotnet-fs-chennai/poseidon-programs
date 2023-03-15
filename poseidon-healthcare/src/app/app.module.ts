@@ -11,13 +11,13 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponentComponent } from './Home_Page/navbar-component/navbar-component.component';
+import { NavbarComponentComponent } from './Patient/Home_Page/navbar-component/navbar-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponentComponent } from './Home_Page/home-component/home-component.component';
-import { LoginComponentComponent } from './Login_Page/login-component/login-component.component';
-import { LoginFormComponentComponent } from './Login_Page/login-form-component/login-form-component.component';
-import { LoginNavbarComponentComponent } from './Login_Page/login-navbar-component/login-navbar-component.component';
-import { HomeContentComponent } from './Home_Page/home-content/home-content.component';
+import { HomeComponentComponent } from './Patient/Home_Page/home-component/home-component.component';
+import { LoginComponentComponent } from './Patient/Login_Page/login-component/login-component.component';
+import { LoginFormComponentComponent } from './Patient/Login_Page/login-form-component/login-form-component.component';
+import { LoginNavbarComponentComponent } from './Patient/Login_Page/login-navbar-component/login-navbar-component.component';
+import { HomeContentComponent } from './Patient/Home_Page/home-content/home-content.component';
 
 @NgModule({
   declarations: [
