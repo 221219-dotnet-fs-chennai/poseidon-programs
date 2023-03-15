@@ -24,6 +24,12 @@ import { SigninComponentComponent } from './Patient/SignIn_Page/signin-component
 import { SigninNavbarComponentComponent } from './Patient/SignIn_Page/signin-navbar-component/signin-navbar-component.component';
 import { SigninFormComponentComponent } from './Patient/SignIn_Page/signin-form-component/signin-form-component.component';
 import { MainhomeComponent } from './Home/mainhome/mainhome.component';
+import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
+
+import { AuthModule } from '@auth0/auth0-angular';
+import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
+import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +40,13 @@ import { MainhomeComponent } from './Home/mainhome/mainhome.component';
     LoginFormComponentComponent,
     LoginNavbarComponentComponent,
     HomeContentComponent,
+     SigninComponentComponent,
+    SigninNavbarComponentComponent,
+    SigninFormComponentComponent,
+    MainhomeComponent,
+    LoginLogoutComponent,
+    NursehomeComponent,
+    AdminhomeComponent,
     SigninComponentComponent,
     SigninNavbarComponentComponent,
     SigninFormComponentComponent,
@@ -51,6 +64,13 @@ import { MainhomeComponent } from './Home/mainhome/mainhome.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AuthModule.forRoot({
+      domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
+      clientId: '8moNAcVOTwfw9svEb3vGDPD89Me1QyDG',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
