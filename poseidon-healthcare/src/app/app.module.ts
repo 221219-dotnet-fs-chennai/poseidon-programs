@@ -7,6 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +20,10 @@ import { LoginComponentComponent } from './Patient/Login_Page/login-component/lo
 import { LoginFormComponentComponent } from './Patient/Login_Page/login-form-component/login-form-component.component';
 import { LoginNavbarComponentComponent } from './Patient/Login_Page/login-navbar-component/login-navbar-component.component';
 import { HomeContentComponent } from './Patient/Home_Page/home-content/home-content.component';
+import { SigninComponentComponent } from './Patient/SignIn_Page/signin-component/signin-component.component';
+import { SigninNavbarComponentComponent } from './Patient/SignIn_Page/signin-navbar-component/signin-navbar-component.component';
+import { SigninFormComponentComponent } from './Patient/SignIn_Page/signin-form-component/signin-form-component.component';
+import { MainhomeComponent } from './Home/mainhome/mainhome.component';
 import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
 
 import { AuthModule } from '@auth0/auth0-angular';
@@ -34,11 +40,20 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     LoginFormComponentComponent,
     LoginNavbarComponentComponent,
     HomeContentComponent,
+     SigninComponentComponent,
+    SigninNavbarComponentComponent,
+    SigninFormComponentComponent,
+    MainhomeComponent,
     LoginLogoutComponent,
     NursehomeComponent,
     AdminhomeComponent,
+    SigninComponentComponent,
+    SigninNavbarComponentComponent,
+    SigninFormComponentComponent,
+    MainhomeComponent,
   ],
   imports: [
+    MatSelectModule,
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,

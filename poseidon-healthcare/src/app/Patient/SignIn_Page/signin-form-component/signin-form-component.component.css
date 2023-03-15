@@ -1,12 +1,12 @@
-
 h1 {
-    margin-top: 5%;
+    margin-top: 3%;
     color: #444343;
     font-family: 'montserrat';
     font-weight: bold;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
 }
+
 mat-card{
     box-shadow: none;
     background-color: #F6F6F6;
@@ -16,7 +16,6 @@ mat-card{
     /* max-width: 60%; */
     margin: 2em auto;
     text-align: center;
-    max-height: 600px;
 }
 
 mat-card-content{
