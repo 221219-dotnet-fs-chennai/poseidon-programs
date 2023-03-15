@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-navbar-component',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class LoginNavbarComponentComponent {
 
+  constructor(private router: Router)
+  {
+
+  }
+  to_signin()
+  {
+    this.router.navigate(['signin_page'])
+  }
 }
