@@ -8,8 +8,10 @@ h1 {
     font-size: xx-large;
 }
 mat-card{
-    background-color: #E8E8E8;
-    width: 40%;
+    box-shadow: none;
+    background-color: #F6F6F6;
+    width: 35%;
+    padding-bottom: 30px;
     /* max-width: 60%; */
     margin: 2em auto;
     text-align: center;
@@ -21,18 +23,19 @@ mat-card-content{
 }
 
 mat-form-field{
-    border: 2px red solid;
-    width: 400px;
-}
-
-.matInput{
-    border: 2px red solid;
+    width: 75%;
 }
 
 .field{
+    border-color: aqua;
     margin-top: 20px;
 }
 
 input{
     width: 200px;
+}
+
+.login-button{
+    width: 30%;
+    margin-top: 20px;
 }
