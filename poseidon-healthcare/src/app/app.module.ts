@@ -38,6 +38,8 @@ import { LoginLogoutComponent } from './services/authservices/login-logout/login
 import { AuthModule } from '@auth0/auth0-angular';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+import { NurseNavComponent } from './services/nurse/nurse-nav/nurse-nav.component';
+import { NurseHomecontentComponent } from './services/nurse/nurse-homecontent/nurse-homecontent.component';
 
 
 
@@ -66,6 +68,8 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     ServiceHomeComponent,
     ServiceNavbarComponent,
     ServiceContentComponent,
+    NurseNavComponent,
+    NurseHomecontentComponent,
   ],
   imports: [
     MatSelectModule,
