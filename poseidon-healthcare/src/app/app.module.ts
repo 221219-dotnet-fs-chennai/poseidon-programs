@@ -40,6 +40,7 @@ import { NursehomeComponent } from './services/nurse/nursehome/nursehome.compone
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,7 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
