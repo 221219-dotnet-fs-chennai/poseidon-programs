@@ -38,8 +38,10 @@ import { LoginLogoutComponent } from './services/authservices/login-logout/login
 import { AuthModule } from '@auth0/auth0-angular';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
 
-
+import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
+import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,9 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     ServiceHomeComponent,
     ServiceNavbarComponent,
     ServiceContentComponent,
+    DoctorProfileComponent,
+    DoctorhomeComponent,
+    DoctorNavComponent
   ],
   imports: [
     MatSelectModule,
