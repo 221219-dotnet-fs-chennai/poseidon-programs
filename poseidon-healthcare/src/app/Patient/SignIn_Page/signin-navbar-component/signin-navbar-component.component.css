@@ -15,6 +15,7 @@ span {
 }
 
 a {
+    cursor: pointer;
     text-decoration: none;
     color: #444343;
     font-family: 'montserrat';

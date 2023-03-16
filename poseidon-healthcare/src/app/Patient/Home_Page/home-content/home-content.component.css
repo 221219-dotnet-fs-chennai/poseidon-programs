@@ -1,7 +1,3 @@
-::-webkit-scrollbar {
-    display: none;
-    overflow: hidden;
-}
 
 
 h1 {
@@ -17,4 +13,5 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    height: 65%;
 }

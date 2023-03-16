@@ -15,7 +15,6 @@ span {
 }
 
 a {
-    cursor: pointer;
     text-decoration: none;
     color: #444343;
     font-family: 'montserrat';
@@ -26,6 +25,7 @@ a {
 }
 
 a:hover {
+    cursor: pointer;
     background-color: #E8E8E8;
 }
 

@@ -16,4 +16,8 @@ export class LoginNavbarComponentComponent {
   {
     this.router.navigate(['signin_page'])
   }
+  to_patient_home()
+  {
+    this.router.navigate(['patient_home'])
+  }
 }
