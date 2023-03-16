@@ -24,6 +24,8 @@ import { SigninComponentComponent } from './Patient/SignIn_Page/signin-component
 import { SigninNavbarComponentComponent } from './Patient/SignIn_Page/signin-navbar-component/signin-navbar-component.component';
 import { SigninFormComponentComponent } from './Patient/SignIn_Page/signin-form-component/signin-form-component.component';
 import { MainhomeComponent } from './Home/mainhome/mainhome.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { MainhomeComponent } from './Home/mainhome/mainhome.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatGridListModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

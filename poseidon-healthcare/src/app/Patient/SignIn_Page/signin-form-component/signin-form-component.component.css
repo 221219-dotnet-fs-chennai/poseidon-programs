@@ -18,12 +18,18 @@ mat-card{
     text-align: center;
 }
 
+mat-grid-list{
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+}
+
 mat-card-content{
     margin-top: 10%;
 }
 
 mat-form-field{
     width: 75%;
+    margin-bottom: 10px;
 }
 
 .field{
@@ -35,7 +41,7 @@ mat-form-field{
     width: 200px;
 }
 
-.login-button{
+.signin-button{
     border-radius: 0px;
     background-color: #444343;
     border: 1.5px aqua solid;
@@ -43,6 +49,9 @@ mat-form-field{
     margin-top: 20px;
 }
 
-.l_span{
+.s_span{
     color: white;
+    font-family: 'montserrat';
 }
+
+  
