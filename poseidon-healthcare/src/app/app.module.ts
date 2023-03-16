@@ -52,6 +52,8 @@ import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-
 
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
+import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
+import { AdminnavComponent } from './services/admin/adminnav/adminnav.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.comp
     NurseProfilePageComponent,
     NurseProfileNavbarComponent,
     NurseProfileContentComponent,
+    AdminprofileComponent,
+    AdminnavComponent,
   ],
   imports: [
     MatSelectModule,
