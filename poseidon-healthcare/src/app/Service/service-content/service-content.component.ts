@@ -16,4 +16,9 @@ export class ServiceContentComponent {
   {
     this.router.navigate(['patient_home'])
   }
+
+  to_nurse()
+  {
+    this.router.navigate(['nurse_home'])
+  }
 }
