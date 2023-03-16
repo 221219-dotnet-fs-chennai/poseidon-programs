@@ -38,6 +38,9 @@ import { LoginLogoutComponent } from './services/authservices/login-logout/login
 import { AuthModule } from '@auth0/auth0-angular';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
+import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
+import { PatientProfileContentComponent } from './Patient/Patient_Profile/patient-profile-content/patient-profile-content.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     ServiceHomeComponent,
     ServiceNavbarComponent,
     ServiceContentComponent,
+    PatientProfileNavbarComponent,
+    PatientProfileHomeComponent,
+    PatientProfileContentComponent,
   ],
   imports: [
     MatSelectModule,
@@ -79,7 +85,7 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
