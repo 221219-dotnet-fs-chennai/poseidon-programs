@@ -24,6 +24,11 @@ import { SigninComponentComponent } from './Patient/SignIn_Page/signin-component
 import { SigninNavbarComponentComponent } from './Patient/SignIn_Page/signin-navbar-component/signin-navbar-component.component';
 import { SigninFormComponentComponent } from './Patient/SignIn_Page/signin-form-component/signin-form-component.component';
 import { MainhomeComponent } from './Home/mainhome/mainhome.component';
+import { HomeNavbarComponent } from './Home/home-navbar/home-navbar.component';
+import { MainHomeContentComponent } from './Home/main-home-content/main-home-content.component';
+import { ServiceHomeComponent } from './Service/service-home/service-home.component';
+import { ServiceNavbarComponent } from './Service/service-navbar/service-navbar.component';
+import { ServiceContentComponent } from './Service/service-content/service-content.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,11 @@ import { MainhomeComponent } from './Home/mainhome/mainhome.component';
     SigninNavbarComponentComponent,
     SigninFormComponentComponent,
     MainhomeComponent,
+    HomeNavbarComponent,
+    MainHomeContentComponent,
+    ServiceHomeComponent,
+    ServiceNavbarComponent,
+    ServiceContentComponent,
   ],
   imports: [
     MatSelectModule,
