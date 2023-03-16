@@ -10,6 +10,7 @@ import { SigninComponentComponent } from './Patient/SignIn_Page/signin-component
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
+import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-profile-page/nurse-profile-page.component';
 
 import { AuthorizationService } from './authorization.service';
 
@@ -23,21 +24,22 @@ const routes: Routes = [
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
   { path: 'signin_page', component: SigninComponentComponent },
-  // { path: '', component: HomeComponentComponent },
- //  { path: 'login_page', component: LoginComponentComponent },
- // { path: 'signin_page', component: SigninComponentComponent },
- // {path: 'login_page', component: LoginComponentComponent},
-  {path:'adminhome',component:AdminhomeComponent,canActivate:[AuthGuard]},
-  {path:'doctorhome',component:DoctorProfileComponent,canActivate:[AuthGuard]},
-  {path:'nursehome',component:NursehomeComponent,canActivate:[AuthGuard]},
+ 
 
-  {path:'dochome',component:DoctorhomeComponent}
+
+
+  {path: 'nurse_profile', component:NurseProfilePageComponent},
+  { path: 'adminhome', component: AdminhomeComponent, canActivate: [AuthGuard] },
+  { path: 'doctorhome', component: DoctorhomeComponent, canActivate: [AuthGuard] },
+  { path: 'nurse_home', component: NursehomeComponent },
+   {path:'dochome',component:DoctorhomeComponent}
+
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-  constructor(public myauth:AuthorizationService){}
+export class AppRoutingModule {
+  constructor(public myauth: AuthorizationService) { }
 }
