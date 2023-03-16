@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'service_home', component: ServiceHomeComponent },
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
-  { path: 'signin_page', component: SigninComponentComponent }
+  { path: 'signin_page', component: SigninComponentComponent },
   // { path: '', component: HomeComponentComponent },
  //  { path: 'login_page', component: LoginComponentComponent },
  // { path: 'signin_page', component: SigninComponentComponent },
