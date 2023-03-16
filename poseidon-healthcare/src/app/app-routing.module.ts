@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
   { path: 'signin_page', component: SigninComponentComponent },
-  {path: 'nurse_profile', component:NurseProfilePageComponent},
+  { path: 'nurse_profile', component: NurseProfilePageComponent },
   { path: 'adminhome', component: AdminhomeComponent, canActivate: [AuthGuard] },
   { path: 'doctorhome', component: DoctorhomeComponent, canActivate: [AuthGuard] },
   { path: 'nurse_home', component: NursehomeComponent }
