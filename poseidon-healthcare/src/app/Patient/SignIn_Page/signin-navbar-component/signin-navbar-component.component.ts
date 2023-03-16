@@ -13,4 +13,8 @@ export class SigninNavbarComponentComponent {
   to_loginin() {
     this.router.navigate(['login_page'])
   }
+  to_patient_home()
+  {
+    this.router.navigate(['patient_home'])
+  }
 }
