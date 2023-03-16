@@ -17,6 +17,8 @@ import { AuthorizationService } from './authorization.service';
 import { AuthGuard } from './auth.guard';
 
 import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
+import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
+
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -27,11 +29,11 @@ const routes: Routes = [
  
 
 
-
-  {path: 'nurse_profile', component:NurseProfilePageComponent},
-  { path: 'adminhome', component: AdminhomeComponent, canActivate: [AuthGuard] },
-  { path: 'doctorhome', component: DoctorhomeComponent, canActivate: [AuthGuard] },
-  { path: 'nurse_home', component: NursehomeComponent },
+  {path:'adminprofile',component:AdminhomeComponent},
+  {path: 'nurse_profile', component:NursehomeComponent},
+  { path: 'adminhome', component: AdminprofileComponent, canActivate: [AuthGuard] },
+  { path: 'doctorhome', component: DoctorProfileComponent, canActivate: [AuthGuard] },
+  { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
    {path:'dochome',component:DoctorhomeComponent}
 
 ]
