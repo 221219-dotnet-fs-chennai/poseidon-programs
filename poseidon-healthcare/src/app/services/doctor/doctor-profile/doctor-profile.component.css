@@ -1,5 +1,3 @@
-
-
 .nav-bar {
     background-color: #E8E8E8 ;
 }
@@ -8,6 +6,13 @@
     flex: 1 1 auto;
 }
 
+h3{
+    padding-top: 2%;
+    padding-left: 4%;
+}
+
+
+
 span {
     font-family: 'montserrat';
     font-weight: bold;
@@ -15,7 +20,6 @@ span {
 }
 
 a {
-    cursor: pointer;
     text-decoration: none;
     color: #444343;
     font-family: 'montserrat';
@@ -26,7 +30,6 @@ a {
 }
 
 a:hover {
-    cursor: pointer;
     background-color: #E8E8E8;
 }
 
@@ -35,4 +38,3 @@ a:hover {
     background-color: #6DF5D4 !important;
     border-radius: 50px;
 }
-

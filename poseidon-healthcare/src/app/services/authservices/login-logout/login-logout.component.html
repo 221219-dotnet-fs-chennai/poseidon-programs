@@ -1,4 +1,4 @@
 
-<a *ngIf="(auth.isAuthenticated$ | async)=== false" (click)="login()">login</a>
+<a *ngIf="(auth.isAuthenticated$ | async)=== false" (click)="login()">Log in</a>
 <a *ngIf="auth.isAuthenticated$ | async" (click)="logout()"> Log out</a>
 
