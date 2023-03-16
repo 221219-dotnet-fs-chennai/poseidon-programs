@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-profile-content',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class PatientProfileContentComponent {
 
+  constructor(private router:Router)
+  {
+
+  }
+
+  to_book_appointment()
+  {
+    this.router.navigate(['patient_book_app'])
+  }
 }

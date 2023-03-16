@@ -54,6 +54,7 @@ import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.com
 import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
 import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
 import { AdminnavComponent } from './services/admin/adminnav/adminnav.component';
+import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { AdminnavComponent } from './services/admin/adminnav/adminnav.component'
     NurseProfileContentComponent,
     AdminprofileComponent,
     AdminnavComponent,
+    PatientBookAppointmentComponent,
   ],
   imports: [
     MatSelectModule,
