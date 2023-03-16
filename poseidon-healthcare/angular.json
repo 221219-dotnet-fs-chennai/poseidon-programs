@@ -88,9 +88,9 @@
               "src/assets"
             ],
             "styles": [
-               "src/theme.scss",
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/theme.scss",
               "src/styles.css"
-             
             ],
             "scripts": []
           }
