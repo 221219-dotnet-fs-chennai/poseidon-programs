@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin-form-component',
@@ -28,6 +28,11 @@ export class SigninFormComponentComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(f: NgForm) {
+    console.log(f);
+  }
+
+  getValue(f:any) {
+    
   }
 }

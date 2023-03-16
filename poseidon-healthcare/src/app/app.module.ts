@@ -30,6 +30,16 @@ import { ServiceHomeComponent } from './Service/service-home/service-home.compon
 import { ServiceNavbarComponent } from './Service/service-navbar/service-navbar.component';
 import { ServiceContentComponent } from './Service/service-content/service-content.component';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
+
+import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
+
+import { AuthModule } from '@auth0/auth0-angular';
+import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
+import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +49,13 @@ import { ServiceContentComponent } from './Service/service-content/service-conte
     LoginFormComponentComponent,
     LoginNavbarComponentComponent,
     HomeContentComponent,
+     SigninComponentComponent,
+    SigninNavbarComponentComponent,
+    SigninFormComponentComponent,
+    MainhomeComponent,
+    LoginLogoutComponent,
+    NursehomeComponent,
+    AdminhomeComponent,
     SigninComponentComponent,
     SigninNavbarComponentComponent,
     SigninFormComponentComponent,
@@ -61,6 +78,17 @@ import { ServiceContentComponent } from './Service/service-content/service-conte
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatGridListModule,
+    FormsModule
+
+    AuthModule.forRoot({
+      domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
+      clientId: '8moNAcVOTwfw9svEb3vGDPD89Me1QyDG',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <h1>Hi!</h1>
 <mat-card>
     <mat-card-content>
-        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <!-- <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline">
                 <mat-label>Email Id</mat-label>
                 <input matInput placeholder="pat@example.com" formControlName="email" required>
@@ -39,6 +39,88 @@
             </mat-form-field>
             <br>
             <button mat-button type="submit" class="login-button"><span class="l_span">SignIn</span></button>
+        </form> -->
+
+
+        <!-- const nameRegex = new RegExp("\\w{3,50}");
+        const emailRegex = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,6}$");
+        const phoneRegex = new RegExp("^[9876]\\d{9}$");
+        const passReg = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+ -->
+
+
+        <form #f='ngForm' (submit)="onSubmit(f)">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" class="form-control" name="FullName" matInput ngModel #FullName='ngModel' (change)="getValue(FullName)" required pattern="\w{3,50}">
+                <mat-error *ngIf="">invalid name</mat-error>
+                <mat-error *ngIf="FullName.touched && (FullName.invalid||FullName.errors?.pattern)">min 3 characters</mat-error>
+                
+            </mat-form-field>
+                
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" name="Email" matInput ngModel #Email='ngModel' (change)="getValue(Email)" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$">
+                <mat-error *ngIf="Email.touched && (Email.invalid||Email.errors?.pattern)">Invalid email format</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input type="tel" name="phone" matInput ngModel #phone='ngModel' (change)="getValue(phone)" required pattern="^[9876]\d{9}$">
+            <mat-error *ngIf="phone.touched && (phone.invalid||phone.errors?.pattern)">Invalid email format</mat-error>
+            </mat-form-field>
+
+          
+                <mat-grid-list cols="2" rowHeight=100px gutterSize=2px >
+                 <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" name="password" matInput ngModel #password='ngModel' (change)="getValue(password)" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                    <mat-error *ngIf="password.touched && (password.invalid||password.errors?.pattern)">Invalid password format</mat-error>
+                </mat-form-field>
+                 </mat-grid-tile>
+
+                 <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="password" name="Confirmpassword" matInput ngModel #Confirmpassword='ngModel' (change)='getValue(Confirmpassword) ' required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                    <mat-error *ngIf="Confirmpassword.touched && (Confirmpassword.invalid||Confirmpassword.errors?.pattern)">Invalid password format</mat-error>
+                </mat-form-field>
+                 </mat-grid-tile>
+             
+                </mat-grid-list>
+
+
+                <mat-grid-list cols="2" rowHeight=100px gutterSize=2px>
+                    <mat-grid-tile>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Date of Birth</mat-label>
+                                <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required >
+                                <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">Dob required</mat-error>
+                            </mat-form-field>
+                    </mat-grid-tile>
+                
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            
+                           <input type="text" name="gender" matInput ngModel #gender='ngModel' (change)="getValue(dob)" required pattern="(M|F|O)">
+                        <mat-error *ngIf="gender.touched && (gender.invalid||gender.errors?.pattern)">Mention M/F/O</mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                
+                </mat-grid-list>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input type="text" name="Address" matInput ngModel #Address='ngModel' (change)="getValue(Address)" required pattern="\w{3,50}">
+                </mat-form-field>
+            
+               
+                <button mat-button type="submit" class="signin-button"><span class="s_span">SignIn</span></button>
+
         </form>
     </mat-card-content>
 </mat-card>
