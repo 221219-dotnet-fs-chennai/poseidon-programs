@@ -16,16 +16,24 @@ import { AuthorizationService } from './authorization.service';
 
 import { AuthGuard } from './auth.guard';
 
+import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
+
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
   { path: 'service_home', component: ServiceHomeComponent },
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
   { path: 'signin_page', component: SigninComponentComponent },
+ 
+
+
+
   {path: 'nurse_profile', component:NurseProfilePageComponent},
   { path: 'adminhome', component: AdminhomeComponent, canActivate: [AuthGuard] },
   { path: 'doctorhome', component: DoctorhomeComponent, canActivate: [AuthGuard] },
-  { path: 'nurse_home', component: NursehomeComponent }
+  { path: 'nurse_home', component: NursehomeComponent },
+   {path:'dochome',component:DoctorhomeComponent}
+
 ]
 
 @NgModule({
