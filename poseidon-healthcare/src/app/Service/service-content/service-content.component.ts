@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-service-content',
   templateUrl: './service-content.component.html',
@@ -16,5 +15,10 @@ export class ServiceContentComponent {
   to_patient()
   {
     this.router.navigate(['patient_home'])
+  }
+
+  to_nurse()
+  {
+    this.router.navigate(['nurse_home'])
   }
 }

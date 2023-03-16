@@ -38,8 +38,14 @@ import { LoginLogoutComponent } from './services/authservices/login-logout/login
 import { AuthModule } from '@auth0/auth0-angular';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
+import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
+import { PatientProfileContentComponent } from './Patient/Patient_Profile/patient-profile-content/patient-profile-content.component';
 import { NurseNavComponent } from './services/nurse/nurse-nav/nurse-nav.component';
 import { NurseHomecontentComponent } from './services/nurse/nurse-homecontent/nurse-homecontent.component';
+import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-profile-page/nurse-profile-page.component';
+import { NurseProfileNavbarComponent } from './services/nurse/nurse_profile/nurse-profile-navbar/nurse-profile-navbar.component';
+import { NurseProfileContentComponent } from './services/nurse/nurse_profile/nurse-profile-content/nurse-profile-content.component';
 
 
 
@@ -68,8 +74,14 @@ import { NurseHomecontentComponent } from './services/nurse/nurse-homecontent/nu
     ServiceHomeComponent,
     ServiceNavbarComponent,
     ServiceContentComponent,
+    PatientProfileNavbarComponent,
+    PatientProfileHomeComponent,
+    PatientProfileContentComponent,
     NurseNavComponent,
     NurseHomecontentComponent,
+    NurseProfilePageComponent,
+    NurseProfileNavbarComponent,
+    NurseProfileContentComponent,
   ],
   imports: [
     MatSelectModule,
