@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form-component',
@@ -12,7 +13,8 @@ export class LoginFormComponentComponent implements OnInit{
   
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  
+  constructor(private fb: FormBuilder, private route: Router) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -22,5 +24,10 @@ export class LoginFormComponentComponent implements OnInit{
   }
 
   onSubmit() {
+    this.route.navigate(['patient_profile'])
+  }
+
+  to_patient_profile(){
+    
   }
 }

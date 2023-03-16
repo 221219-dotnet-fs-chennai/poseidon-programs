@@ -18,7 +18,8 @@ import { AuthGuard } from './auth.guard';
 
 import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
 import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
-
+import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
+import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -26,16 +27,15 @@ const routes: Routes = [
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
   { path: 'signin_page', component: SigninComponentComponent },
- 
-
-
-  {path:'adminprofile',component:AdminhomeComponent},
-  {path: 'nurse_profile', component:NursehomeComponent},
+  { path: 'nurse_home', component: NursehomeComponent },
+  { path: 'adminprofile', component: AdminhomeComponent },
+  { path: 'nurse_profile', component: NursehomeComponent },
   { path: 'adminhome', component: AdminprofileComponent, canActivate: [AuthGuard] },
   { path: 'doctorhome', component: DoctorProfileComponent, canActivate: [AuthGuard] },
-  { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
-   {path:'dochome',component:DoctorhomeComponent}
-
+  { path: 'nursehome', component: NurseProfilePageComponent, canActivate: [AuthGuard] },
+  { path: 'dochome', component: DoctorhomeComponent },
+  { path: 'patient_profile', component: PatientProfileHomeComponent },
+  { path: 'patient_book_app', component: PatientBookAppointmentComponent}
 ]
 
 @NgModule({

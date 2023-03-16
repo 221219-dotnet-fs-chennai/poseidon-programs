@@ -1,0 +1,66 @@
+.personal-card {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 50%;
+    font-family: 'montserrat';
+    font-weight: bold;
+    color: #444343;
+}
+
+mat-card {
+    border: 1px #444343 solid;
+    border-radius: 30px;
+}
+
+mat-card-content {
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+.back-card {
+    background-color: #E8E8E8;
+}
+
+.edit-button {
+    margin: 0 6% 2% 0;
+    cursor: pointer;
+    padding: 7px 30px 7px 30px;
+    border-radius: 20px;
+    font-family: 'montserrat';
+    font-weight: bold;
+    color: #444343;
+    background-color: #6DF5D4;
+}
+
+.service-card {
+    border: 2px #828181 solid;
+    border-radius: 15px;
+    padding: 70px 40px 40px 80px;
+    margin: 2.5%;
+    cursor: pointer;
+}
+
+.card_names {
+    margin: 9% 10% 3% 4%;
+}
+
+.card_name {
+    font-family: 'montserrat';
+    font-weight: 700;
+    color: #444343;
+    margin: 4% 10% 3% 4%;
+    padding: 10px;
+}
+
+.ba {
+    padding-left: 15px;
+    padding-right: 40px;
+}
+
+.vmh {
+    padding-right: 40px;
+}
+
+.vah {
+    padding-left: 33%;
+}
