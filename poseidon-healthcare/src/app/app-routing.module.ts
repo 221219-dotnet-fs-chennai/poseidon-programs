@@ -11,6 +11,7 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-profile-page/nurse-profile-page.component';
+import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
 
 import { AuthorizationService } from './authorization.service';
 
@@ -21,6 +22,8 @@ import { AdminprofileComponent } from './services/admin/adminprofile/adminprofil
 
 import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todayappointment/doctor-todayappointment.component';
 
+import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
+import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -28,17 +31,20 @@ const routes: Routes = [
   { path: 'patient_home', component: HomeComponentComponent },
   { path: 'login_page', component: LoginComponentComponent },
   { path: 'signin_page', component: SigninComponentComponent },
- 
-
-
-  {path:'adminprofile',component:AdminhomeComponent},
-  {path: 'nurse_profile', component:NursehomeComponent},
+  { path: 'nurse_home', component: NursehomeComponent },
+  { path: 'adminprofile', component: AdminhomeComponent },
+  { path: 'nurse_profile', component: NursehomeComponent },
   { path: 'adminhome', component: AdminprofileComponent, canActivate: [AuthGuard] },
   { path: 'doctorhome', component: DoctorProfileComponent, canActivate: [AuthGuard] },
-  { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
-   {path:'dochome',component:DoctorhomeComponent},
+  // { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
+  //  {path:'dochome',component:DoctorhomeComponent},
    {path:'doctdapp',component:DoctorTodayappointmentComponent,canActivate:[AuthGuard]},
 
+  { path: 'nursehome', component: NurseProfilePageComponent, canActivate: [AuthGuard] },
+  { path: 'dochome', component: DoctorhomeComponent },
+  { path: 'patient_profile', component: PatientProfileHomeComponent },
+  { path: 'patient_book_app', component: PatientBookAppointmentComponent},
+  {path: 'nurse_appointment', component:NurseAppointmentContentComponent}
 ]
 
 @NgModule({
