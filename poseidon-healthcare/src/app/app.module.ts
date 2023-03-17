@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatPaginatorModule } from '@angular/material/paginator';
+// import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,6 +41,8 @@ import { LoginLogoutComponent } from './services/authservices/login-logout/login
 import { AuthModule } from '@auth0/auth0-angular';``
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
 import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
@@ -50,18 +53,20 @@ import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-
 import { NurseProfileNavbarComponent } from './services/nurse/nurse_profile/nurse-profile-navbar/nurse-profile-navbar.component';
 import { NurseProfileContentComponent } from './services/nurse/nurse_profile/nurse-profile-content/nurse-profile-content.component';
 import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
+// import {MatTableModule} from '@angular/material/table';
 
 
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
 import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
 import { AdminnavComponent } from './services/admin/adminnav/adminnav.component';
+import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todayappointment/doctor-todayappointment.component';
+import { PaginationTdComponent } from './services/doctor/pagination-td/pagination-td.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
 import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
-=======
 import { PatientEditDialogboxComponent } from './Patient/Patient_Profile/patient-edit-dialogbox/patient-edit-dialogbox.component';
 import { NurseAppointmentPageComponent } from './services/nurse/nurse_appointment/nurse-appointment-page/nurse-appointment-page.component';
 import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointment/nurse-appointment-navbar/nurse-appointment-navbar.component';
@@ -108,6 +113,8 @@ import { MatTableModule } from '@angular/material/table';
     NurseProfileContentComponent,
     AdminprofileComponent,
     AdminnavComponent,
+    DoctorTodayappointmentComponent,
+    PaginationTdComponent,
     PatientBookAppointmentComponent,
     PatAppointmentNavComponent,
     PatAppointmentContentComponent,
@@ -117,8 +124,9 @@ import { MatTableModule } from '@angular/material/table';
     NurseAppointmentContentComponent,
     NurseVitalContentComponent,
   ],
+
   imports: [
-    MatTableModule,
+    // MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
@@ -134,7 +142,9 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     MatGridListModule,
     FormsModule,
-    FlexLayoutModule,
+    MatPaginatorModule,
+    MatTableModule,
+    // FlexLayoutModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
