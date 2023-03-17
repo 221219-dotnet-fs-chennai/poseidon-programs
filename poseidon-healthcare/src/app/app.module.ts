@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
 
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular';``
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
 
@@ -55,7 +55,9 @@ import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.comp
 import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
 import { AdminnavComponent } from './services/admin/adminnav/adminnav.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
+import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +98,8 @@ import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/pati
     AdminprofileComponent,
     AdminnavComponent,
     PatientBookAppointmentComponent,
+    PatAppointmentNavComponent,
+    PatAppointmentContentComponent,
   ],
   imports: [
     MatSelectModule,
@@ -111,6 +115,7 @@ import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/pati
     BrowserAnimationsModule,
     MatGridListModule,
     FormsModule,
+    FlexLayoutModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
