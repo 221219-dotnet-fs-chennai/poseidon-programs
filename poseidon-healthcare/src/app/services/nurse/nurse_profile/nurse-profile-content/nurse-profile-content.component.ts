@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nurse-profile-content',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class NurseProfileContentComponent {
 
+  constructor(private route: Router)
+  {}
+
+  to_appointment()
+  {
+    this.route.navigate(['nurse_appointment'])
+  }
 }

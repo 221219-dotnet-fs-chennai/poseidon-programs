@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -55,9 +57,18 @@ import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.comp
 import { AdminprofileComponent } from './services/admin/adminprofile/adminprofile.component';
 import { AdminnavComponent } from './services/admin/adminnav/adminnav.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
 import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
+=======
+import { PatientEditDialogboxComponent } from './Patient/Patient_Profile/patient-edit-dialogbox/patient-edit-dialogbox.component';
+import { NurseAppointmentPageComponent } from './services/nurse/nurse_appointment/nurse-appointment-page/nurse-appointment-page.component';
+import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointment/nurse-appointment-navbar/nurse-appointment-navbar.component';
+import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
+import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content/nurse-vital-content.component';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +78,7 @@ import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-a
     LoginFormComponentComponent,
     LoginNavbarComponentComponent,
     HomeContentComponent,
-     SigninComponentComponent,
+    SigninComponentComponent,
     SigninNavbarComponentComponent,
     SigninFormComponentComponent,
     MainhomeComponent,
@@ -100,8 +111,16 @@ import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-a
     PatientBookAppointmentComponent,
     PatAppointmentNavComponent,
     PatAppointmentContentComponent,
+    PatientEditDialogboxComponent,
+    NurseAppointmentPageComponent,
+    NurseAppointmentNavbarComponent,
+    NurseAppointmentContentComponent,
+    NurseVitalContentComponent,
   ],
   imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
     MatSelectModule,
     MatInputModule,
     MatCardModule,
