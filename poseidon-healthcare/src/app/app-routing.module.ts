@@ -11,6 +11,7 @@ import { AdminhomeComponent } from './services/admin/adminhome/adminhome.compone
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-profile-page/nurse-profile-page.component';
+import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
 
 import { AuthorizationService } from './authorization.service';
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'nursehome', component: NurseProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'dochome', component: DoctorhomeComponent },
   { path: 'patient_profile', component: PatientProfileHomeComponent },
-  { path: 'patient_book_app', component: PatientBookAppointmentComponent}
+  { path: 'patient_book_app', component: PatientBookAppointmentComponent},
+  {path: 'nurse_appointment', component:NurseAppointmentContentComponent}
 ]
 
 @NgModule({

@@ -35,7 +35,7 @@ mat-card-content {
 .service-card {
     border: 2px #828181 solid;
     border-radius: 15px;
-    padding: 70px 40px 40px 80px;
+    padding: 80px 40px 40px 40px;
     margin: 2.5%;
     cursor: pointer;
 }
@@ -52,15 +52,17 @@ mat-card-content {
     padding: 10px;
 }
 
+
+
 .ba {
-    padding-left: 15px;
-    padding-right: 40px;
+    padding-left: 25px;
+    padding-right: 60px;
 }
 
 .vmh {
-    padding-right: 40px;
+    padding-right: 60px;
 }
 
 .vah {
-    padding-left: 33%;
+    padding-left: 36%;
 }
