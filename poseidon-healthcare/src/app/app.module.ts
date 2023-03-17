@@ -64,7 +64,7 @@ import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todaya
 import { PaginationTdComponent } from './services/doctor/pagination-td/pagination-td.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
-// import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
 import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
 import { PatientEditDialogboxComponent } from './Patient/Patient_Profile/patient-edit-dialogbox/patient-edit-dialogbox.component';
@@ -73,6 +73,7 @@ import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointm
 import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
 import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content/nurse-vital-content.component';
 import { MatTableModule } from '@angular/material/table';
+import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { MatTableModule } from '@angular/material/table';
     NurseAppointmentNavbarComponent,
     NurseAppointmentContentComponent,
     NurseVitalContentComponent,
+    PatReasonDialogComponent,
   ],
 
   imports: [
@@ -144,7 +146,7 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatPaginatorModule,
     MatTableModule,
-    // FlexLayoutModule,
+    FlexLayoutModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
