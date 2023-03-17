@@ -13,8 +13,7 @@ mat-card{
     background-color: #F6F6F6;
     width: 35%;
     padding-bottom: 30px;
-    min-width: 300px;
-    /* max-width: 60%; */
+    min-width: 550px;
     margin: 2em auto;
     text-align: center;
     max-height: 600px;

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,27 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './login-form-component.component.html',
   styleUrls: ['./login-form-component.component.css']
 })
-export class LoginFormComponentComponent implements OnInit{
-
-  hide= true;
+export class LoginFormComponentComponent {
   
-  loginForm: FormGroup;
+  public showPassword: boolean = false;
 
-  
   constructor(private fb: FormBuilder, private route: Router) { }
 
-  ngOnInit() {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
-  onSubmit() {
+  onSubmit(f: NgForm) {
+    console.log(f)
     this.route.navigate(['patient_profile'])
   }
 
-  to_patient_profile(){
+  getValue(f:any) {
     
   }
+
 }
