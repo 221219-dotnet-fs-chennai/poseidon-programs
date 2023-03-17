@@ -73,6 +73,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
 import { NativeDateModule } from '@angular/material/core';
+import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { NativeDateModule } from '@angular/material/core';
     NurseVitalContentComponent,
     AdminScheduleComponent,
     NewAvailabilityComponent,
+    PatReasonDialogComponent,
   ],
 
   imports: [
