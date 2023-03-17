@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    if (path?.includes('doctorhome') && this.myauth.authour==='doctor.com' ) {
+    if (path?.includes('doctorhome')||path?.includes('doctdapp') && this.myauth.authour==='doctor.com' ) {
  
       return true;
     }
