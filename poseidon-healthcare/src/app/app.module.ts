@@ -9,8 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,10 +38,9 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
 
-import { AuthModule } from '@auth0/auth0-angular';``
+import { AuthModule } from '@auth0/auth0-angular'; ``
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
@@ -53,8 +52,6 @@ import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-
 import { NurseProfileNavbarComponent } from './services/nurse/nurse_profile/nurse-profile-navbar/nurse-profile-navbar.component';
 import { NurseProfileContentComponent } from './services/nurse/nurse_profile/nurse-profile-content/nurse-profile-content.component';
 import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
-// import {MatTableModule} from '@angular/material/table';
-
 
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
@@ -73,6 +70,9 @@ import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointm
 import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
 import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content/nurse-vital-content.component';
 import { MatTableModule } from '@angular/material/table';
+import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
+import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
+import { NativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 
 @NgModule({
@@ -124,11 +124,15 @@ import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-
     NurseAppointmentNavbarComponent,
     NurseAppointmentContentComponent,
     NurseVitalContentComponent,
+    AdminScheduleComponent,
+    NewAvailabilityComponent,
     PatReasonDialogComponent,
   ],
 
   imports: [
-    // MatTableModule,
+    NativeDateModule,
+    MatDatepickerModule,
+    MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,

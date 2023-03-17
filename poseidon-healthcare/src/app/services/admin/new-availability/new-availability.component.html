@@ -1,0 +1,37 @@
+<form #f="ngForm">
+    <h1 mat-dialog-title class="dtitle">New Availability</h1>
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Doctors List</mat-label>
+            <mat-select name="doctors">
+                <mat-option *ngFor="let d of doctors" [value]="d.value">
+                    {{d.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="det-box">
+            <mat-form-field appearance="fill">
+                <mat-label>Available From</mat-label>
+                <input matInput [matDatepicker]="picker">
+
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field appearance="fill">
+                <mat-label>Available To</mat-label>
+                <input matInput [matDatepicker]="picker">
+
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+
+    </div>
+    <div mat-dialog-actions class="btn-box">
+        <button mat-button class="add-btn dbtn" type="submit"><span>ADD</span></button>
+        <button mat-button class="cancel-btn dbtn"><span>CANCEL</span></button>
+
+    </div>
+</form>

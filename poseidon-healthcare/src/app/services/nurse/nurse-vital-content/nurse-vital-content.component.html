@@ -1,24 +1,24 @@
-<form  #f="ngForm" (submit)="onSub(f)">
-    <h1 mat-dialog-title class="dtitle">Add Vitals</h1>
-    <div mat-dialog-content  >
-      <div class="det-box">
+<form #f="ngForm" (submit)="onSub(f)">
+  <h1 mat-dialog-title class="dtitle">Add Vitals</h1>
+  <div mat-dialog-content>
+    <div class="det-box">
       <mat-form-field appearance="fill">
         <mat-label>Blood Pressure</mat-label>
-        <input matInput ngModel name="blood pressure" #bp="ngModel">  
-      </mat-form-field> 
-       
+        <input matInput ngModel name="blood pressure" #bp="ngModel">
+      </mat-form-field>
+
       <!-- &nbsp;  -->
       <mat-form-field appearance="fill">
         <mat-label>Temperature</mat-label>
         <input matInput ngModel name="temperature" #temp="ngModel">
       </mat-form-field>
-      </div>
+    </div>
     <div class="det-box">
       <mat-form-field appearance="fill">
         <mat-label>Height</mat-label>
         <input matInput ngModel name="height" #ht="ngModel">
       </mat-form-field>
-    
+
       <mat-form-field appearance="fill">
         <mat-label>Weight</mat-label>
         <input matInput ngModel name="weight" #wt="ngModel">
@@ -29,24 +29,23 @@
         <mat-label>Sugar</mat-label>
         <input matInput ngModel name="sugar" #sg="ngModel">
       </mat-form-field>
-    
+
       <mat-form-field appearance="fill">
         <mat-label>Allergies</mat-label>
         <input matInput ngModel name="allergies" #al="ngModel">
       </mat-form-field>
     </div>
     <div class="det-box">
-      <mat-form-field appearance="fill" style="width: 97.5%;" >
+      <mat-form-field appearance="fill" style="width: 97.5%;">
         <mat-label>Notes</mat-label>
         <input matInput ngModel name="notes" #nt="ngModel">
       </mat-form-field>
-      </div>
-    
     </div>
-    <div mat-dialog-actions class="btn-box">
-      <button mat-button class="add-btn dbtn" type="submit"><span>ADD</span></button>
-      <button mat-button class="cancel-btn dbtn"><span>CANCEL</span></button>
-    
-    </div>
-    </form>
-    
+
+  </div>
+  <div mat-dialog-actions class="btn-box">
+    <button mat-button class="add-btn dbtn" type="submit"><span>ADD</span></button>
+    <button mat-button class="cancel-btn dbtn"><span>CANCEL</span></button>
+
+  </div>
+</form>

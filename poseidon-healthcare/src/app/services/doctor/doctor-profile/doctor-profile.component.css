@@ -7,11 +7,13 @@
 }
 
 h3{
-    padding-top: 2%;
-    padding-left: 4%;
+    padding-top: 5%;
+    padding-left: 5%;
+    font-family: 'montserrat';
+    font-weight: bold;
+    color: #444343;
+    font-size: 30px;
 }
-
-
 
 span {
     font-family: 'montserrat';
@@ -57,7 +59,7 @@ h1 {
     margin: 2%;
     border: 1px #444343 solid;
     border-radius: 15px;
-    padding: 80px 40px 40px 40px;
+    padding: 60px 40px 40px 40px;
     cursor: pointer;
     /* margin-right: 200px; */
 }
@@ -66,7 +68,7 @@ h1 {
     margin: 2%;
     border: 1px #444343 solid;
     border-radius: 15px;
-    padding: 80px 40px 40px 40px;
+    padding: 60px 40px 40px 40px;
     cursor: pointer;
     /* margin-left: 20%; */
 }
@@ -103,4 +105,7 @@ span{
 
 .gritems{
     align-items: right;
+}
+img{
+    padding-bottom: 30px;
 }
