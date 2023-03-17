@@ -61,7 +61,6 @@ import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/pati
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
 import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
-=======
 import { PatientEditDialogboxComponent } from './Patient/Patient_Profile/patient-edit-dialogbox/patient-edit-dialogbox.component';
 import { NurseAppointmentPageComponent } from './services/nurse/nurse_appointment/nurse-appointment-page/nurse-appointment-page.component';
 import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointment/nurse-appointment-navbar/nurse-appointment-navbar.component';
