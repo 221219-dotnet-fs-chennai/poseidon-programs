@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminprofile',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./adminprofile.component.css']
 })
 export class AdminprofileComponent {
+  constructor(private router: Router){}
 
+  to_schedule()
+  {
+    this.router.navigate(['admin_schedule'])
+  }
 }

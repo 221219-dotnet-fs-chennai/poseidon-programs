@@ -24,6 +24,7 @@ import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todaya
 
 import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
+import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -38,13 +39,14 @@ const routes: Routes = [
   { path: 'doctorhome', component: DoctorProfileComponent, canActivate: [AuthGuard] },
   // { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
   //  {path:'dochome',component:DoctorhomeComponent},
-   {path:'doctdapp',component:DoctorTodayappointmentComponent,canActivate:[AuthGuard]},
+  { path: 'doctdapp', component: DoctorTodayappointmentComponent, canActivate: [AuthGuard] },
 
   { path: 'nursehome', component: NurseProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'dochome', component: DoctorhomeComponent },
   { path: 'patient_profile', component: PatientProfileHomeComponent },
-  { path: 'patient_book_app', component: PatientBookAppointmentComponent},
-  {path: 'nurse_appointment', component:NurseAppointmentContentComponent}
+  { path: 'patient_book_app', component: PatientBookAppointmentComponent },
+  { path: 'nurse_appointment', component: NurseAppointmentContentComponent },
+  { path: 'admin_schedule', component: AdminScheduleComponent }
 ]
 
 @NgModule({

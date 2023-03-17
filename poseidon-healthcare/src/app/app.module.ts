@@ -9,8 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,10 +38,9 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
 
-import { AuthModule } from '@auth0/auth0-angular';``
+import { AuthModule } from '@auth0/auth0-angular'; ``
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
@@ -53,8 +52,6 @@ import { NurseProfilePageComponent } from './services/nurse/nurse_profile/nurse-
 import { NurseProfileNavbarComponent } from './services/nurse/nurse_profile/nurse-profile-navbar/nurse-profile-navbar.component';
 import { NurseProfileContentComponent } from './services/nurse/nurse_profile/nurse-profile-content/nurse-profile-content.component';
 import { DoctorProfileComponent } from './services/doctor/doctor-profile/doctor-profile.component';
-// import {MatTableModule} from '@angular/material/table';
-
 
 import { DoctorhomeComponent } from './services/doctor/doctorhome/doctorhome.component';
 import { DoctorNavComponent } from './services/doctor/doctor-nav/doctor-nav.component';
@@ -64,7 +61,7 @@ import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todaya
 import { PaginationTdComponent } from './services/doctor/pagination-td/pagination-td.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 
-// import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PatAppointmentNavComponent } from './Patient/Book_Appointment/pat-appointment-nav/pat-appointment-nav.component';
 import { PatAppointmentContentComponent } from './Patient/Book_Appointment/pat-appointment-content/pat-appointment-content.component';
 import { PatientEditDialogboxComponent } from './Patient/Patient_Profile/patient-edit-dialogbox/patient-edit-dialogbox.component';
@@ -73,6 +70,9 @@ import { NurseAppointmentNavbarComponent } from './services/nurse/nurse_appointm
 import { NurseAppointmentContentComponent } from './services/nurse/nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
 import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content/nurse-vital-content.component';
 import { MatTableModule } from '@angular/material/table';
+import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
+import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
+import { NativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -123,10 +123,14 @@ import { MatTableModule } from '@angular/material/table';
     NurseAppointmentNavbarComponent,
     NurseAppointmentContentComponent,
     NurseVitalContentComponent,
+    AdminScheduleComponent,
+    NewAvailabilityComponent,
   ],
 
   imports: [
-    // MatTableModule,
+    NativeDateModule,
+    MatDatepickerModule,
+    MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
@@ -144,7 +148,7 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatPaginatorModule,
     MatTableModule,
-    // FlexLayoutModule,
+    FlexLayoutModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
