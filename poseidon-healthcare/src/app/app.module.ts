@@ -79,6 +79,10 @@ import { PatMedHistoryNavComponent } from './Patient/Medical_History/pat-med-his
 import { PatMedHistoryContentComponent } from './Patient/Medical_History/pat-med-history-content/pat-med-history-content.component';
 import { PatMedHistoryDialogComponent } from './Patient/Medical_History/pat-med-history-dialog/pat-med-history-dialog.component';
 import { PatMedHistoryPrescriptionDialogComponent } from './Patient/Medical_History/pat-med-history-prescription-dialog/pat-med-history-prescription-dialog.component';
+import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pat-appointment-history/pat-appointment-history.component';
+import { PatAppointmentHistoryNavComponent } from './Patient/Appointment_history/pat-appointment-history-nav/pat-appointment-history-nav.component';
+import { PatAppointmentHistoryContentComponent } from './Patient/Appointment_history/pat-appointment-history-content/pat-appointment-history-content.component';
+import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_history/pat-appointment-history-table/pat-appointment-history-table.component';
 
 
 @NgModule({
@@ -138,6 +142,10 @@ import { PatMedHistoryPrescriptionDialogComponent } from './Patient/Medical_Hist
     PatMedHistoryContentComponent,
     PatMedHistoryDialogComponent,
     PatMedHistoryPrescriptionDialogComponent,
+    PatAppointmentHistoryComponent,
+    PatAppointmentHistoryNavComponent,
+    PatAppointmentHistoryContentComponent,
+    PatAppointmentHistoryTableComponent,
   ],
 
   imports: [

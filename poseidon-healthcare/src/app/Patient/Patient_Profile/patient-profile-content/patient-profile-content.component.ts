@@ -39,5 +39,10 @@ export class PatientProfileContentComponent {
   to_services() {
     this.router.navigate(['service_home'])
   }
+
+   to_appointmentHistory() {
+    this.router.navigate(['patient_appointmentHistory'])
+  }
+  
 }
 
