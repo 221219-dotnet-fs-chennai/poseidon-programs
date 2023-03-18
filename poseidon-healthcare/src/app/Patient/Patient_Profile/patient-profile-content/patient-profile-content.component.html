@@ -1,3 +1,5 @@
+
+
 <div class="personal-card">
     <mat-card class="back-card">
         <mat-card-content>Name      : Harry Potter</mat-card-content>
@@ -11,7 +13,7 @@
     </mat-card>
 </div>
 
-<div class="card_names">
+<!-- <div class="card_names">
     <a class="service-card" (click)="to_book_appointment()"><img class="images" src="../../../../assets/book_appointment.png" alt="book_appointment" width="60px" height="60px"></a>
     <a class="service-card" (click)="to_medicalHistory()"><img class="images" src="../../../../assets/medical_history.png" alt="medical_history" width="60px" height="60px"></a>
     <a class="service-card"><img class="images" src="../../../../assets/appointment_history.png" alt="appointment_history" width="60px" height="60px"></a>
@@ -21,4 +23,37 @@
     <span class="ba">Book Appointment</span>
     <span class="vmh">View Medical History</span>
     <span >View Appointment <br> <span class="vah"> History</span></span>
+</div> -->
+
+<div class="container">
+    <div class="navigation-cards" fxLayoutAlign="start" fxLayoutGap="60px" fxLayout="row wrap">
+        <mat-card class="nav-card" (click)="to_book_appointment()">
+            <mat-card-content >
+            <div fxLayoutAlign="center"><img class="images" src="../../../../assets/book_appointment.png" alt="book_appointment" width="100px" height="100px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h3>Book Appointment</h3>
+            </mat-card-footer>
+        </mat-card>
+
+        <mat-card class="nav-card" (click)="to_medicalHistory()">
+            <mat-card-content>
+                <div fxLayoutAlign="center"><img class="images" src="../../../../assets/medical_history.png"
+                        alt="Medical History" width="100px" height="100px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h3>Medical History</h3>
+            </mat-card-footer>
+        </mat-card>
+
+        <mat-card class="nav-card">
+            <mat-card-content>
+                <div fxLayoutAlign="center"><img class="images" src="../../../../assets/appointment_history.png"
+                        alt="Appointment History" width="100px" height="100px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h3>Appointment History</h3>
+            </mat-card-footer>
+        </mat-card>
+    </div>
 </div>

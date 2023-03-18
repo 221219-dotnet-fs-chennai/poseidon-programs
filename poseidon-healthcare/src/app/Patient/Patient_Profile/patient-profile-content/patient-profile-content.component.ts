@@ -35,5 +35,9 @@ export class PatientProfileContentComponent {
   to_medicalHistory() {
     this.router.navigate(['patient_medHistory']);
   }
+
+  to_services() {
+    this.router.navigate(['service_home'])
+  }
 }
 
