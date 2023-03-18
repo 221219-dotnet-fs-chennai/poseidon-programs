@@ -29,6 +29,8 @@ import { DashboardComponent } from './services/doctor/dashboard/dashboard.compon
 import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
 import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pat-appointment-history/pat-appointment-history.component';
 import { ForbiddenComponent } from './common/forbidden/forbidden.component';
+import { DocUpdateMedInfoComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info/doc-update-med-info.component';
+import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory/doc-view-medical-history/doc-view-medical-history.component';
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
   { path: 'service_home', component: ServiceHomeComponent },
@@ -53,7 +55,10 @@ const routes: Routes = [
   {path:'docacceptedappointments',component:DashboardComponent,canActivate:[AuthGuard]},
   { path: 'patient_medHistory', component: PatMedHistoryComponent },
   {path:'patient_appointmentHistory',component:PatAppointmentHistoryComponent},
-  {path:'forbiddenroute',component:ForbiddenComponent}
+  { path: 'forbiddenroute', component: ForbiddenComponent },
+  { path: 'update_medInfo', component: DocUpdateMedInfoComponent },
+  { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent }
+  
 ]
 
 @NgModule({

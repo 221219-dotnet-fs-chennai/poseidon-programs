@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { DoctorService } from 'src/app/doctor.service';
+import { Router } from '@angular/router';
 export interface UserData {
   id: string;
   name: string;
@@ -49,6 +50,10 @@ const NAMES: string[] = [
   styleUrls: ['./acceptedappointment.component.css']
 })
 export class AcceptedappointmentComponent {
+
+
+ 
+
   displayedColumns: string[] = ['id', 'name', 'bookeddate', 'notes','diagnosis','button1'];
   // dataSource: MatTableDataSource<UserData>;
   dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
@@ -57,7 +62,7 @@ export class AcceptedappointmentComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public doc:DoctorService) {
+  constructor(public doc:DoctorService,private router: Router) {
     // Create 100 users
     // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -77,6 +82,9 @@ export class AcceptedappointmentComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  to_updateMedInfo() {
+    this.router.navigate(['update_medInfo']);
   }
 
 }
