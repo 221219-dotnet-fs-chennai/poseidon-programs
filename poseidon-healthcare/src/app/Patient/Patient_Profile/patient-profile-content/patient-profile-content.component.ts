@@ -31,5 +31,18 @@ export class PatientProfileContentComponent {
   {
     this.router.navigate(['patient_book_app'])
   }
+
+  to_medicalHistory() {
+    this.router.navigate(['patient_medHistory']);
+  }
+
+  to_services() {
+    this.router.navigate(['service_home'])
+  }
+
+   to_appointmentHistory() {
+    this.router.navigate(['patient_appointmentHistory'])
+  }
+  
 }
 

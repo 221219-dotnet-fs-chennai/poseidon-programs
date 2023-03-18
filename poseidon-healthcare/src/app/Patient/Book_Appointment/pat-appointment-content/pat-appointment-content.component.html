@@ -5,7 +5,10 @@
             <input type="date" name="dob" matInput id="date">
         </mat-form-field>
         <span class="spacer"></span>
-        <button mat-flat-button class="back" >back</button>
+    <div fxLayoutAlign="end">
+        <button mat-fab (click)="to_profile()"><img src="../../../../assets/arrow-left-long-solid.svg" width="25px"
+                height="25px" alt=""></button>
+    </div>
     </div>
 
     <div class="card-area flex-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px" fxLayout.lt-md="column">

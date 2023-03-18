@@ -73,3 +73,6 @@ mat-card-content{
     font-size: small;
 }
 
+button {
+    background-color: #6DF5D4 !important;
+}

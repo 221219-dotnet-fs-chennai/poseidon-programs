@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
 
 
 
@@ -75,10 +74,21 @@ import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content
 import { MatTableModule } from '@angular/material/table';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
-import { NativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 import { DashboardComponent } from './services/doctor/dashboard/dashboard.component';
 import { AcceptedappointmentComponent } from './services/doctor/acceptedappointment/acceptedappointment.component';
+import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
+import { PatMedHistoryNavComponent } from './Patient/Medical_History/pat-med-history-nav/pat-med-history-nav.component';
+import { PatMedHistoryContentComponent } from './Patient/Medical_History/pat-med-history-content/pat-med-history-content.component';
+import { PatMedHistoryDialogComponent } from './Patient/Medical_History/pat-med-history-dialog/pat-med-history-dialog.component';
+import { PatMedHistoryPrescriptionDialogComponent } from './Patient/Medical_History/pat-med-history-prescription-dialog/pat-med-history-prescription-dialog.component';
+import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pat-appointment-history/pat-appointment-history.component';
+import { PatAppointmentHistoryNavComponent } from './Patient/Appointment_history/pat-appointment-history-nav/pat-appointment-history-nav.component';
+import { PatAppointmentHistoryContentComponent } from './Patient/Appointment_history/pat-appointment-history-content/pat-appointment-history-content.component';
+import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_history/pat-appointment-history-table/pat-appointment-history-table.component';
+import { ForbiddenComponent } from './common/forbidden/forbidden.component';
+
 
 @NgModule({
   declarations: [
@@ -134,11 +144,20 @@ import { AcceptedappointmentComponent } from './services/doctor/acceptedappointm
     PatReasonDialogComponent,
     DashboardComponent,
     AcceptedappointmentComponent,
-    
+        PatMedHistoryComponent,
+    PatMedHistoryNavComponent,
+    PatMedHistoryContentComponent,
+    PatMedHistoryDialogComponent,
+    PatMedHistoryPrescriptionDialogComponent,
+    PatAppointmentHistoryComponent,
+    PatAppointmentHistoryNavComponent,
+    PatAppointmentHistoryContentComponent,
+    PatAppointmentHistoryTableComponent,
+    ForbiddenComponent,
   ],
 
   imports: [
-    NativeDateModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     MatTableModule,
     MatPaginatorModule,
@@ -160,6 +179,7 @@ import { AcceptedappointmentComponent } from './services/doctor/acceptedappointm
     MatTableModule,
     FlexLayoutModule,
     MatNativeDateModule,
+    
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',

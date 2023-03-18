@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate,Route, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthorizationService } from './authorization.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(public myauth:AuthorizationService){}
+  constructor(public myauth:AuthorizationService,private route:Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -22,7 +23,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    if (path?.includes('doctorhome')||path?.includes('doctdapp') && this.myauth.authour==='doctor.com' ) {
+    if ((path?.includes('doctorhome') || path?.includes('doctdapp') || path?.includes('docacceptedappointments')) && this.myauth.authour==='doctor.com' ) {
  
       return true;
     }
@@ -31,9 +32,8 @@ export class AuthGuard implements CanActivate {
  
       return true;
     }
-    else{
-      return false;
-    }
+    this.route.navigateByUrl('/forbiddenroute'); 
+    return false;
   }
   
 }
