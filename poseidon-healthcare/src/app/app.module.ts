@@ -74,6 +74,12 @@ import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-sc
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
 import { NativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
+import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
+import { PatMedHistoryNavComponent } from './Patient/Medical_History/pat-med-history-nav/pat-med-history-nav.component';
+import { PatMedHistoryContentComponent } from './Patient/Medical_History/pat-med-history-content/pat-med-history-content.component';
+import { PatMedHistoryDialogComponent } from './Patient/Medical_History/pat-med-history-dialog/pat-med-history-dialog.component';
+import { PatMedHistoryPrescriptionDialogComponent } from './Patient/Medical_History/pat-med-history-prescription-dialog/pat-med-history-prescription-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -127,6 +133,11 @@ import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-
     AdminScheduleComponent,
     NewAvailabilityComponent,
     PatReasonDialogComponent,
+    PatMedHistoryComponent,
+    PatMedHistoryNavComponent,
+    PatMedHistoryContentComponent,
+    PatMedHistoryDialogComponent,
+    PatMedHistoryPrescriptionDialogComponent,
   ],
 
   imports: [
@@ -151,6 +162,7 @@ import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-
     MatPaginatorModule,
     MatTableModule,
     FlexLayoutModule,
+    
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
