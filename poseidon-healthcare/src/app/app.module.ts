@@ -72,7 +72,7 @@ import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content
 import { MatTableModule } from '@angular/material/table';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
-import { NativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
 import { PatMedHistoryNavComponent } from './Patient/Medical_History/pat-med-history-nav/pat-med-history-nav.component';
@@ -149,7 +149,7 @@ import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_histo
   ],
 
   imports: [
-    NativeDateModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     MatTableModule,
     MatPaginatorModule,
