@@ -1,10 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DoctorService } from 'src/app/doctor.service';
-
+import {MatDialog} from '@angular/material/dialog';
 
 
 
@@ -17,7 +17,17 @@ import { DoctorService } from 'src/app/doctor.service';
 
 
 export class PaginationTdComponent {
-  constructor(public doc:DoctorService){}
+  constructor(public doc:DoctorService,public dialog: MatDialog){}
+
+  // dialogStatus:any = this.dd.dialogStatus;
+
+  // ngOnChanges(){
+  //   if(this.dialogStatus === true){
+  //     this.dialog.closeAll();
+  //   }
+  // }
+
+
   displayedColumns: string[] = ['Index', 'Name', 'Age', 'Gender','button1','button2'];
   dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
 
@@ -26,6 +36,23 @@ export class PaginationTdComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  onAcceptHandler(){
+    // alert("wow");
+    this.dialog.open(DialogElementsExampleDialog);
+
+  }
+
+  // onCloseHandler(){
+  //   this.dialog.closeAll();
+  // }
+
+  onRejectHandler(){
+    this.dialog.open(DialogElementsForReject);
+
+  }
+
+
 }
 
 export interface PeriodicElement {
@@ -58,5 +85,86 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ];
   
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  template:`
+  <h1 class="dv d" mat-dialog-title>Accept Appointment</h1>
+<div class="dv" mat-dialog-content>Press Confirm for Accepting Appointment or Close for not Accepting</div>
+<div class="dv" mat-dialog-actions>
+  <br>
+  <button class=" dv button isdark b" mat-button mat-dialog-close (click)="closeHandler()">Close</button>
+  &nbsp;
+  <button class=" dv button isactive  b" mat-button mat-dialog-close (click)="acceptHandler()">Confirm</button>
 
+</div>
+  `,
+  styleUrls:['./pagination-td.component.css'],
+
+  
+})
+export class DialogElementsExampleDialog {
+  dialogStatus:any=false;
+
+  constructor(public dialog: MatDialog){}
+
+  closeHandler(){
+    this.dialog.closeAll();
+  }
+
+  acceptHandler(){
+    console.log('Appointment Accepted');
+    this.dialog.closeAll();
+
+  }
+}
+
+@Component({
+  selector: 'dialog-elements-example-reject',
+  template:`
+  <h1 class="dv d" mat-dialog-title>Reject Appointment</h1>
+<div class="dv" mat-dialog-content>Press Confirm for Rejecting Appointment or Close for not Rejecting</div>
+<div class="dv" mat-dialog-actions>
+  <br>
+  <button class=" dv button isdark b" mat-button mat-dialog-close (click)="closeHandler()">Close</button>
+  &nbsp;
+  <button class=" dv button isactive  b" mat-button mat-dialog-close (click)="acceptHandler()">Confirm</button>
+
+</div>
+  `,
+  styleUrls:['./pagination-td.component.css'],
+
+  
+})
+export class DialogElementsForReject {
+  dialogStatus:any=false;
+
+  constructor(public dialog: MatDialog){}
+
+  closeHandler(){
+    this.dialog.closeAll();
+  }
+
+  acceptHandler(){
+    console.log('Appointment Rejected');
+    this.dialog.closeAll();
+
+  }
+}
+
+// @Component({
+//   selector: 'dialog-elements-example-Reject',
+//   template:`
+//   <h1 class="dv d" mat-dialog-title>Accept Appointment</h1>
+// <div class="dv" mat-dialog-content>Press Confirm for Accepting Appointment or Close for not Accepting</div>
+// <div class="dv" mat-dialog-actions>
+//   <br>
+//   <button class=" dv button isdark b" mat-button mat-dialog-close (click)="closeHandler()">Close</button>
+//   &nbsp;
+//   <button class=" dv button isactive  b" mat-button mat-dialog-close (click)="acceptHandler()">Confirm</button>
+
+// </div>
+//   `,
+//   styleUrls:['./pagination-td.component.css'],
+
+// })
 

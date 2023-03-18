@@ -25,6 +25,7 @@ import { DoctorTodayappointmentComponent } from './services/doctor/doctor-todaya
 import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
+import { DashboardComponent } from './services/doctor/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'patient_profile', component: PatientProfileHomeComponent },
   { path: 'patient_book_app', component: PatientBookAppointmentComponent },
   { path: 'nurse_appointment', component: NurseAppointmentContentComponent },
-  { path: 'admin_schedule', component: AdminScheduleComponent }
+  { path: 'admin_schedule', component: AdminScheduleComponent },
+  {path:'docacceptedappointments',component:DashboardComponent}
 ]
 
 @NgModule({

@@ -15,24 +15,24 @@
   
       <!-- Weight Column -->
       <ng-container matColumnDef="Age">
-        <th mat-header-cell *matHeaderCellDef> Age </th>
+        <th mat-header-cell *matHeaderCellDef> Booked On </th>
         <td mat-cell *matCellDef="let element"> {{element.age}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="Gender">
-        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <th mat-header-cell *matHeaderCellDef> Notes </th>
         <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
       </ng-container>
   
       <ng-container matColumnDef="button1">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element">     <a class="button isactive">Accept</a></td>
+        <td mat-cell *matCellDef="let element">     <a (click)="onAcceptHandler()" class="button isactive">Accept</a></td>
       </ng-container>
 
       <ng-container matColumnDef="button2">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element">  <a class="button isdark ">Reject </a> </td>
+        <td mat-cell *matCellDef="let element">  <a (click)="onRejectHandler()" class="button isdark ">Reject </a> </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

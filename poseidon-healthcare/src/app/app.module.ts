@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +34,7 @@ import { MainHomeContentComponent } from './Home/main-home-content/main-home-con
 import { ServiceHomeComponent } from './Service/service-home/service-home.component';
 import { ServiceNavbarComponent } from './Service/service-navbar/service-navbar.component';
 import { ServiceContentComponent } from './Service/service-content/service-content.component';
+
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
@@ -74,6 +77,8 @@ import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-sc
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
 import { NativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
+import { DashboardComponent } from './services/doctor/dashboard/dashboard.component';
+import { AcceptedappointmentComponent } from './services/doctor/acceptedappointment/acceptedappointment.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +132,9 @@ import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-
     AdminScheduleComponent,
     NewAvailabilityComponent,
     PatReasonDialogComponent,
+    DashboardComponent,
+    AcceptedappointmentComponent,
+    
   ],
 
   imports: [
@@ -151,6 +159,7 @@ import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-
     MatPaginatorModule,
     MatTableModule,
     FlexLayoutModule,
+    MatNativeDateModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
