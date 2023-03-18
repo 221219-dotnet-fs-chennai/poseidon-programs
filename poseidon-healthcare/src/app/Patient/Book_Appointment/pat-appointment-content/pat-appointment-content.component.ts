@@ -17,4 +17,9 @@ export class PatAppointmentContentComponent {
       width: '35%'
     });
   }
+
+   to_profile() {
+    this.router.navigate(['patient_profile']);
+  }
+  
 }

@@ -7,7 +7,7 @@
     color: #444343;
 }
 
-mat-card {
+.back-card {
     border: 1px #444343 solid;
     border-radius: 30px;
 }
@@ -65,4 +65,29 @@ mat-card-content {
 
 .vah {
     padding-left: 36%;
+}
+
+.container{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 150px;
+}
+
+.nav-card{
+    width: 220px;
+    height: 200px;
+    border-radius: 5%;
+    border: solid 1px #444343;
+    box-shadow: none;
+    margin-bottom: 40px;
+}
+
+mat-card-footer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+mat-card-footer h3{
+    font-family: 'montserrat';
+    font-weight: 600;
 }
