@@ -27,3 +27,16 @@
     width: 600px;
   }
   
+  .frdtbt{
+    display: flex;
+    gap: 15px;
+  }
+
+  .isactive {
+    padding: 10px 15px 10px 15px;
+    background-color: #6DF5D4 !important;
+    border-radius: 50px;
+}
+.b{
+    margin-top: 10px;
+}

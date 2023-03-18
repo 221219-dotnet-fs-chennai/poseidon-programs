@@ -13,6 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { MainHomeContentComponent } from './Home/main-home-content/main-home-con
 import { ServiceHomeComponent } from './Service/service-home/service-home.component';
 import { ServiceNavbarComponent } from './Service/service-navbar/service-navbar.component';
 import { ServiceContentComponent } from './Service/service-content/service-content.component';
+
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
@@ -74,6 +76,8 @@ import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-sc
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
+import { DashboardComponent } from './services/doctor/dashboard/dashboard.component';
+import { AcceptedappointmentComponent } from './services/doctor/acceptedappointment/acceptedappointment.component';
 import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
 import { PatMedHistoryNavComponent } from './Patient/Medical_History/pat-med-history-nav/pat-med-history-nav.component';
 import { PatMedHistoryContentComponent } from './Patient/Medical_History/pat-med-history-content/pat-med-history-content.component';
@@ -83,6 +87,7 @@ import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pa
 import { PatAppointmentHistoryNavComponent } from './Patient/Appointment_history/pat-appointment-history-nav/pat-appointment-history-nav.component';
 import { PatAppointmentHistoryContentComponent } from './Patient/Appointment_history/pat-appointment-history-content/pat-appointment-history-content.component';
 import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_history/pat-appointment-history-table/pat-appointment-history-table.component';
+import { ForbiddenComponent } from './common/forbidden/forbidden.component';
 
 
 @NgModule({
@@ -137,7 +142,9 @@ import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_histo
     AdminScheduleComponent,
     NewAvailabilityComponent,
     PatReasonDialogComponent,
-    PatMedHistoryComponent,
+    DashboardComponent,
+    AcceptedappointmentComponent,
+        PatMedHistoryComponent,
     PatMedHistoryNavComponent,
     PatMedHistoryContentComponent,
     PatMedHistoryDialogComponent,
@@ -146,6 +153,7 @@ import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_histo
     PatAppointmentHistoryNavComponent,
     PatAppointmentHistoryContentComponent,
     PatAppointmentHistoryTableComponent,
+    ForbiddenComponent,
   ],
 
   imports: [
@@ -170,6 +178,7 @@ import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_histo
     MatPaginatorModule,
     MatTableModule,
     FlexLayoutModule,
+    MatNativeDateModule,
     
 
     AuthModule.forRoot({
