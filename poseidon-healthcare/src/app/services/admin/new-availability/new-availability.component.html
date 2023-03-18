@@ -12,18 +12,18 @@
         <div class="det-box">
             <mat-form-field appearance="fill">
                 <mat-label>Available From</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="formpicker">
 
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle matIconSuffix [for]="formpicker"></mat-datepicker-toggle>
+                <mat-datepicker #formpicker></mat-datepicker>
             </mat-form-field>
             &nbsp;
             <mat-form-field appearance="fill">
                 <mat-label>Available To</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="topicker">
 
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle matIconSuffix [for]="topicker"></mat-datepicker-toggle>
+                <mat-datepicker #topicker></mat-datepicker>
             </mat-form-field>
         </div>
 
