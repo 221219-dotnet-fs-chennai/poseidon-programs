@@ -26,6 +26,7 @@ import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-p
 import { PatientBookAppointmentComponent } from './Patient/Book_Appointment/patient-book-appointment/patient-book-appointment.component';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 import { PatMedHistoryComponent } from './Patient/Medical_History/pat-med-history/pat-med-history.component';
+import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pat-appointment-history/pat-appointment-history.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -48,7 +49,8 @@ const routes: Routes = [
   { path: 'patient_book_app', component: PatientBookAppointmentComponent },
   { path: 'nurse_appointment', component: NurseAppointmentContentComponent },
   { path: 'admin_schedule', component: AdminScheduleComponent },
-  {path:'patient_medHistory',component:PatMedHistoryComponent}
+  { path: 'patient_medHistory', component: PatMedHistoryComponent },
+  {path:'patient_appointmentHistory',component:PatAppointmentHistoryComponent}
 ]
 
 @NgModule({
