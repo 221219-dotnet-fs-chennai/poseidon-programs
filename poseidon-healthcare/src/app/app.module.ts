@@ -88,8 +88,17 @@ import { PatAppointmentHistoryNavComponent } from './Patient/Appointment_history
 import { PatAppointmentHistoryContentComponent } from './Patient/Appointment_history/pat-appointment-history-content/pat-appointment-history-content.component';
 import { PatAppointmentHistoryTableComponent } from './Patient/Appointment_history/pat-appointment-history-table/pat-appointment-history-table.component';
 import { ForbiddenComponent } from './common/forbidden/forbidden.component';
-
-
+import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory/doc-view-medical-history/doc-view-medical-history.component';
+import { DocUpdateMedInfoContentComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info-content/doc-update-med-info-content.component';
+import { DocUpdateMedInfoTableComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info-table/doc-update-med-info-table.component';
+import { DocMedInfoEditDialogComponent } from './services/doctor/UpdateMedInfo/doc-med-info-edit-dialog/doc-med-info-edit-dialog.component';
+import { DocMedInfoViewPrescriptionDialogComponent } from './services/doctor/UpdateMedInfo/doc-med-info-view-prescription-dialog/doc-med-info-view-prescription-dialog.component';
+import { DocMedInfoAddPrescriptionDialogComponent } from './services/doctor/UpdateMedInfo/doc-med-info-add-prescription-dialog/doc-med-info-add-prescription-dialog.component';
+import { DocUpdateMedInfoComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info/doc-update-med-info.component';
+import { DocAddTestDialogComponent } from './services/doctor/UpdateMedInfo/doc-add-test-dialog/doc-add-test-dialog.component';
+import { DocPatMedHistoryContentComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-content/doc-pat-med-history-content.component';
+import { DocPatMedHistoryPrescriptionDialogComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-prescription-dialog/doc-pat-med-history-prescription-dialog.component';
+import { DocPatMedHistoryTestDialogComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-test-dialog/doc-pat-med-history-test-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -154,6 +163,17 @@ import { ForbiddenComponent } from './common/forbidden/forbidden.component';
     PatAppointmentHistoryContentComponent,
     PatAppointmentHistoryTableComponent,
     ForbiddenComponent,
+    DocViewMedicalHistoryComponent,
+    DocUpdateMedInfoComponent,
+    DocUpdateMedInfoContentComponent,
+    DocUpdateMedInfoTableComponent,
+    DocMedInfoEditDialogComponent,
+    DocMedInfoViewPrescriptionDialogComponent,
+    DocMedInfoAddPrescriptionDialogComponent,
+    DocAddTestDialogComponent,
+    DocPatMedHistoryContentComponent,
+    DocPatMedHistoryPrescriptionDialogComponent,
+    DocPatMedHistoryTestDialogComponent
   ],
 
   imports: [
