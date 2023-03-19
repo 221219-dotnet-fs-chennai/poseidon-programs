@@ -31,6 +31,8 @@ import { PatAppointmentHistoryComponent } from './Patient/Appointment_history/pa
 import { ForbiddenComponent } from './common/forbidden/forbidden.component';
 import { DocUpdateMedInfoComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info/doc-update-med-info.component';
 import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory/doc-view-medical-history/doc-view-medical-history.component';
+import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
+
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
   { path: 'service_home', component: ServiceHomeComponent },
@@ -52,13 +54,14 @@ const routes: Routes = [
   { path: 'patient_book_app', component: PatientBookAppointmentComponent },
   { path: 'nurse_appointment', component: NurseAppointmentContentComponent },
   { path: 'admin_schedule', component: AdminScheduleComponent },
-  {path:'docacceptedappointments',component:DashboardComponent,canActivate:[AuthGuard]},
+  { path: 'docacceptedappointments', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'patient_medHistory', component: PatMedHistoryComponent },
-  {path:'patient_appointmentHistory',component:PatAppointmentHistoryComponent},
+  { path: 'patient_appointmentHistory', component: PatAppointmentHistoryComponent },
   { path: 'forbiddenroute', component: ForbiddenComponent },
   { path: 'update_medInfo', component: DocUpdateMedInfoComponent },
-  { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent }
-  
+  { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent },
+  { path: 'admin_patient_info', component: AdminPatientInfoComponent }
+
 ]
 
 @NgModule({
