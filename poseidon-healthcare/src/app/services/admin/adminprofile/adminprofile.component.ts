@@ -13,4 +13,9 @@ export class AdminprofileComponent {
   {
     this.router.navigate(['admin_schedule'])
   }
+
+  to_admin_home()
+  {
+    this.router.navigate(['admin_patient_info'])
+  }
 }

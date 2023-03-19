@@ -74,6 +74,7 @@ mat-card-content {
 }
 
 .nav-card{
+    cursor: pointer;
     width: 220px;
     height: 200px;
     border-radius: 5%;
