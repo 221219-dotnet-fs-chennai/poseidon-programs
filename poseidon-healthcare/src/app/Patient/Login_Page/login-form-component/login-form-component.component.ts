@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponentComponent {
   
-  public showPassword: boolean = false;
+  public showPassword: boolean = true;
 
   constructor(private fb: FormBuilder, private route: Router) { }
 

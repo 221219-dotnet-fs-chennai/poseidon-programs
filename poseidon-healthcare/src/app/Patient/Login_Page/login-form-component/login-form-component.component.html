@@ -11,7 +11,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input [type]="showPassword ? 'text' : 'password'" name="password" matInput ngModel #password='ngModel'
+                <input [type]="showPassword ? 'password' : 'text'" name="password" matInput ngModel #password='ngModel'
                     (change)="getValue(password)" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
                 <mat-error *ngIf="password.touched && (password.invalid||password.errors?.pattern)">Invalid
                     password format</mat-error>
