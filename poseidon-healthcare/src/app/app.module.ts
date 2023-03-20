@@ -154,7 +154,7 @@ import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/a
     PatReasonDialogComponent,
     DashboardComponent,
     AcceptedappointmentComponent,
-        PatMedHistoryComponent,
+    PatMedHistoryComponent,
     PatMedHistoryNavComponent,
     PatMedHistoryContentComponent,
     PatMedHistoryDialogComponent,
@@ -201,7 +201,7 @@ import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/a
     MatTableModule,
     FlexLayoutModule,
     MatNativeDateModule,
-    
+
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
