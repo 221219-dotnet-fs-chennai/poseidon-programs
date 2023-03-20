@@ -18,4 +18,9 @@ export class AdminprofileComponent {
   {
     this.router.navigate(['admin_patient_info'])
   }
+
+  to_add_doc()
+  {
+    this.router.navigate(['admin_add_doc'])
+  }
 }
