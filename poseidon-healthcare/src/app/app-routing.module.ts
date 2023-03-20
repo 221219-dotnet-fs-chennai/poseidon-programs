@@ -33,6 +33,8 @@ import { DocUpdateMedInfoComponent } from './services/doctor/UpdateMedInfo/doc-u
 import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory/doc-view-medical-history/doc-view-medical-history.component';
 import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
 import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
+import { NursePatHomeComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-home/nurse-pat-home.component';
+
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -62,7 +64,8 @@ const routes: Routes = [
   { path: 'update_medInfo', component: DocUpdateMedInfoComponent },
   { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent },
   { path: 'admin_patient_info', component: AdminPatientInfoComponent },
-  { path: 'admin_add_doc', component: AdminAddDoctorComponent }
+  { path: 'admin_add_doc', component: AdminAddDoctorComponent },
+  { path: 'nurse-pat-info', component: NursePatHomeComponent }
 
 ]
 
