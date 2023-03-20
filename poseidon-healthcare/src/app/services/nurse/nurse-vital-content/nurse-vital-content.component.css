@@ -8,9 +8,15 @@
     width:200px;
     padding:10px 20px;
     font-weight: bold;
-   
-
 }
+
+p{
+    
+    font-family: 'montserrat';
+    font-weight: bold;
+    color: #444343;
+}
+
 .add-btn{
     background-color:#6DF5D4;
    

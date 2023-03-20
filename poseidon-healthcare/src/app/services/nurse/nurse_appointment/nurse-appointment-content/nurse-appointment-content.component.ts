@@ -3,6 +3,7 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { NurseVitalContentComponent } from '../../nurse-vital-content/nurse-vital-content.component';
 
 export interface PeriodicElement {
@@ -42,9 +43,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./nurse-appointment-content.component.css']
 })
 export class NurseAppointmentContentComponent implements OnInit {
-  displayedColumns: string[] = ['ID', 'Patient Name', 'Booked On', 'Key Notes', 'Diagnosis'];
+  displayedColumns: string[] = ['ID', 'Patient Name', 'Booked On', 'Key Notes', 'Diagnosis', 'Medical History'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router: Router) { }
   infoDialog() {
     const dRef = this.dialog.open(NurseVitalContentComponent, {
       width: '500px',
@@ -53,6 +54,11 @@ export class NurseAppointmentContentComponent implements OnInit {
     dRef.afterClosed().subscribe(result => {
       console.log(`result is ${result}`)
     })
+  }
+
+  tomedic_info()
+  {
+    this.router.navigate(['nurse-pat-info'])
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

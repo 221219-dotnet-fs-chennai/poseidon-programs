@@ -101,6 +101,11 @@ import { DocPatMedHistoryPrescriptionDialogComponent } from './services/doctor/M
 import { DocPatMedHistoryTestDialogComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-test-dialog/doc-pat-med-history-test-dialog.component';
 import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
 import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
+import { NursePatHomeComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-home/nurse-pat-home.component';
+import { NursePatNavbarComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-navbar/nurse-pat-navbar.component';
+import { NursePatContentComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-content/nurse-pat-content.component';
+import { NursePatHistoryDialogComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-dialog/nurse-pat-history-dialog.component';
+import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-prescription/nurse-pat-history-prescription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -177,7 +182,12 @@ import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin
     DocPatMedHistoryPrescriptionDialogComponent,
     DocPatMedHistoryTestDialogComponent,
     AdminPatientInfoComponent,
-    AdminAddDoctorComponent
+    AdminAddDoctorComponent,
+    NursePatHomeComponent,
+    NursePatNavbarComponent,
+    NursePatContentComponent,
+    NursePatHistoryDialogComponent,
+    NursePatHistoryPrescriptionComponent
   ],
 
   imports: [

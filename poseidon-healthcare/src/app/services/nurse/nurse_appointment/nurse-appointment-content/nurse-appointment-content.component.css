@@ -87,3 +87,17 @@ h4 {
     color: #444343;
     background-color: #6DF5D4;
 }
+
+.med-history{
+    cursor: pointer;
+    width: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    color: white;
+    background-color: #444343;
+}
