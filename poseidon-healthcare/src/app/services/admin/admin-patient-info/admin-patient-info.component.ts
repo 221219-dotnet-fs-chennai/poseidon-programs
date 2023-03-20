@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -31,6 +32,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AdminPatientInfoComponent implements OnInit {
   
+  constructor(private router: Router){}
+
   displayedColumns: string[] = ['ID', 'Patient Name', 'Email', 'Phone'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   
@@ -43,5 +46,10 @@ export class AdminPatientInfoComponent implements OnInit {
   
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  to_admin()
+  {
+    this.router.navigate(['adminhome'])
   }
 }

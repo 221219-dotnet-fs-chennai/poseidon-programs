@@ -1,0 +1,64 @@
+<mat-toolbar class="nav-bar">
+    <span>Poseidon Healthcare</span>
+    <div class="space"></div>
+    <a class="button" (click)="to_admin()">Profile</a>
+    <a class="button"><app-login-logout></app-login-logout> </a>
+
+</mat-toolbar>
+
+<h1>Add Doctors</h1>
+
+<mat-card>
+    <mat-card-content>
+        <form #f='ngForm' (submit)="onSubmit(f)">
+            <mat-form-field appearance="outline">
+                <mat-label>Doctor Name</mat-label>
+                <input type="text" class="form-control" name="FullName" matInput ngModel #FullName='ngModel'
+                    (change)="getValue(FullName)" required pattern="\w{3,50}">
+                <mat-error *ngIf="">invalid name</mat-error>
+                <mat-error *ngIf="FullName.touched && (FullName.invalid||FullName.errors?.pattern)">min 3
+                    characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Doctor Email</mat-label>
+                <input type="email" name="Email" matInput ngModel #Email='ngModel' (change)="getValue(Email)" required
+                    pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$">
+                <mat-error *ngIf="Email.touched && (Email.invalid||Email.errors?.pattern)">Invalid email
+                    format</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Doctor Specilization</mat-label>
+                <input type="text" class="form-control" name="FullName" matInput ngModel #FullName='ngModel'
+                    (change)="getValue(FullName)" required pattern="\w{3,50}">
+                <mat-error *ngIf="">invalid specilization</mat-error>
+                <mat-error *ngIf="FullName.touched && (FullName.invalid||FullName.errors?.pattern)">min 3
+                    characters</mat-error>
+            </mat-form-field>
+
+            <mat-grid-list cols="2" rowHeight=100px gutterSize=2px>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Available From</mat-label>
+                        <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required>
+                        <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">available from
+                            required</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Available To</mat-label>
+                        <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required>
+                        <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">available to
+                            required</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <button mat-button type="submit" class="adddoc-button"><span class="s_span">Add Doctor</span></button>
+
+        </form>
+    </mat-card-content>
+</mat-card>

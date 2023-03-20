@@ -100,6 +100,7 @@ import { DocPatMedHistoryContentComponent } from './services/doctor/MedicalHisto
 import { DocPatMedHistoryPrescriptionDialogComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-prescription-dialog/doc-pat-med-history-prescription-dialog.component';
 import { DocPatMedHistoryTestDialogComponent } from './services/doctor/MedicalHistory/doc-pat-med-history-test-dialog/doc-pat-med-history-test-dialog.component';
 import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
+import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -175,7 +176,8 @@ import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/a
     DocPatMedHistoryContentComponent,
     DocPatMedHistoryPrescriptionDialogComponent,
     DocPatMedHistoryTestDialogComponent,
-    AdminPatientInfoComponent
+    AdminPatientInfoComponent,
+    AdminAddDoctorComponent
   ],
 
   imports: [

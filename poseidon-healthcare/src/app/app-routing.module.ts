@@ -32,6 +32,7 @@ import { ForbiddenComponent } from './common/forbidden/forbidden.component';
 import { DocUpdateMedInfoComponent } from './services/doctor/UpdateMedInfo/doc-update-med-info/doc-update-med-info.component';
 import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory/doc-view-medical-history/doc-view-medical-history.component';
 import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
+import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -60,7 +61,8 @@ const routes: Routes = [
   { path: 'forbiddenroute', component: ForbiddenComponent },
   { path: 'update_medInfo', component: DocUpdateMedInfoComponent },
   { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent },
-  { path: 'admin_patient_info', component: AdminPatientInfoComponent }
+  { path: 'admin_patient_info', component: AdminPatientInfoComponent },
+  { path: 'admin_add_doc', component: AdminAddDoctorComponent }
 
 ]
 
