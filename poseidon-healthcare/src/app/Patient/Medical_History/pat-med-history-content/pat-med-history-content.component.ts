@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PatMedHistoryDialogComponent } from '../pat-med-history-dialog/pat-med-history-dialog.component';
 import { PatMedHistoryPrescriptionDialogComponent } from '../pat-med-history-prescription-dialog/pat-med-history-prescription-dialog.component';
+import { PatShowVitalComponent } from '../pat-show-vital/pat-show-vital.component';
 
 @Component({
   selector: 'app-pat-med-history-content',
@@ -30,5 +31,13 @@ export class PatMedHistoryContentComponent {
       data: {},
       width: '40%'
     });
+  }
+
+  openvitals()
+  {
+   const dialogRef = this.dialog.open(PatShowVitalComponent, {
+    data: {},
+    width: '40%'
+   }); 
   }
 }

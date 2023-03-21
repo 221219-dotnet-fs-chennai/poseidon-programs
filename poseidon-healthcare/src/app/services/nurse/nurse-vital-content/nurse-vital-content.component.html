@@ -33,9 +33,15 @@
         <input matInput ngModel name="sugar" #sg="ngModel">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <!-- <mat-form-field appearance="fill">
         <mat-label>Allergies</mat-label>
         <input matInput ngModel name="allergies" #al="ngModel">
+      </mat-form-field> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Allergies</mat-label>
+        <mat-select [formControl]="allergies" multiple>
+          <mat-option *ngFor="let allergy of allergyList" [value]="allergies">{{allergy}}</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div class="det-box">

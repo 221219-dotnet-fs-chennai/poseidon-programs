@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,7 +13,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -74,7 +77,6 @@ import { NurseVitalContentComponent } from './services/nurse/nurse-vital-content
 import { MatTableModule } from '@angular/material/table';
 import { AdminScheduleComponent } from './services/admin/admin-schedule/admin-schedule.component';
 import { NewAvailabilityComponent } from './services/admin/new-availability/new-availability.component';
-import { MatNativeDateModule } from '@angular/material/core';
 import { PatReasonDialogComponent } from './Patient/Book_Appointment/pat-reason-dialog/pat-reason-dialog.component';
 import { DashboardComponent } from './services/doctor/dashboard/dashboard.component';
 import { AcceptedappointmentComponent } from './services/doctor/acceptedappointment/acceptedappointment.component';
@@ -106,6 +108,11 @@ import { NursePatNavbarComponent } from './services/nurse/nurse_pat_medical_info
 import { NursePatContentComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-content/nurse-pat-content.component';
 import { NursePatHistoryDialogComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-dialog/nurse-pat-history-dialog.component';
 import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-prescription/nurse-pat-history-prescription.component';
+import { PatShowVitalComponent } from './Patient/Medical_History/pat-show-vital/pat-show-vital.component';
+import { DocShowVitalComponent } from './services/doctor/MedicalHistory/doc-show-vital/doc-show-vital.component';
+import { NurseShowVitalComponent } from './services/nurse/nurse_pat_medical_info/nurse-show-vital/nurse-show-vital.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -187,10 +194,14 @@ import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat
     NursePatNavbarComponent,
     NursePatContentComponent,
     NursePatHistoryDialogComponent,
-    NursePatHistoryPrescriptionComponent
+    NursePatHistoryPrescriptionComponent,
+    PatShowVitalComponent,
+    DocShowVitalComponent,
+    NurseShowVitalComponent
   ],
 
   imports: [
+    MomentDateModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatTableModule,
@@ -213,7 +224,6 @@ import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat
     MatTableModule,
     FlexLayoutModule,
     MatNativeDateModule,
-
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',

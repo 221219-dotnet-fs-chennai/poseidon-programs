@@ -9,7 +9,6 @@ export interface TestDetails {
   TestName:string,	
   Result:string,	
   Notes:string,
-
 } 
 
 @Component({
