@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Doctor\Doctor.csproj" />
-    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Doctor\Doctor_fluient_API.csproj" />
+    <ProjectReference Include="..\Model\Doctor_Model.csproj" />
   </ItemGroup>
 
 </Project>

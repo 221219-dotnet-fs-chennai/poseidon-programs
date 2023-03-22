@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Business_Logic\Business_Logic.csproj" />
-    <ProjectReference Include="..\Doctor\Doctor.csproj" />
-    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Business_Logic\Doctor_Business_Logic.csproj" />
+    <ProjectReference Include="..\Doctor\Doctor_fluient_API.csproj" />
+    <ProjectReference Include="..\Model\Doctor_Model.csproj" />
   </ItemGroup>
 
 </Project>

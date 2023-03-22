@@ -1,0 +1,31 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/apigateway/get_all_pat",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Patient/Get_all_Patient",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/apigateway/Get_all_doc",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/getAll",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7292"
+  }
+}

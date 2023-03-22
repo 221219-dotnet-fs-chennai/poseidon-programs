@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bussiness_Logic\Business_Logic.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Bussiness_Logic\Patient_Business_Logic.csproj" />
+    <ProjectReference Include="..\Models\Patient_Models.csproj" />
   </ItemGroup>
 
 </Project>
