@@ -1,4 +1,4 @@
-namespace service
+namespace Capstone_Project
 {
     public class WeatherForecast
     {
