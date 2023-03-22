@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayAPI", "GatewayAPI\GatewayAPI.csproj", "{91F02464-A209-4271-8E0E-E2CBA6FA6CD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayApi", "GatewayApi\GatewayApi.csproj", "{41498F4A-D09A-41CC-A6F6-FC6F2D4E6215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91F02464-A209-4271-8E0E-E2CBA6FA6CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91F02464-A209-4271-8E0E-E2CBA6FA6CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91F02464-A209-4271-8E0E-E2CBA6FA6CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91F02464-A209-4271-8E0E-E2CBA6FA6CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41498F4A-D09A-41CC-A6F6-FC6F2D4E6215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41498F4A-D09A-41CC-A6F6-FC6F2D4E6215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41498F4A-D09A-41CC-A6F6-FC6F2D4E6215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41498F4A-D09A-41CC-A6F6-FC6F2D4E6215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {06226670-B766-46CA-B4B5-31E0BA9CB26D}
+		SolutionGuid = {7197677B-795A-409E-944A-F88F2B889871}
 	EndGlobalSection
 EndGlobal

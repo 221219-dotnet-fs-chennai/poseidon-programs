@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Models\Patient_Models.csproj" />
     <ProjectReference Include="..\Patient_Info\EF_Layer.csproj" />
   </ItemGroup>
 
