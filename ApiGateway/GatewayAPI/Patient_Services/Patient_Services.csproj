@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bussiness_Logic\Patient_Business_Logic.csproj" />
+    <ProjectReference Include="..\Patient_Bussiness_Logic\Patient_Business_Logic.csproj" />
   </ItemGroup>
 
 </Project>
