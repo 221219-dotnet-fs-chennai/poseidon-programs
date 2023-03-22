@@ -10,7 +10,7 @@ namespace FluentAPI
     {
         T AddPhysician(T phy);
         IEnumerable<T> GetAll();
-      
+
         T Deletetr(string EmailID);
 
         T UpdatePhysician(T phy);

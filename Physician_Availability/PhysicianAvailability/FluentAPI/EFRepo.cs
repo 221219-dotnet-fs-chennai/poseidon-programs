@@ -38,24 +38,24 @@ namespace FluentAPI
             return getallphysician.ToList();
         }
 
-  
-        public IEnumerable<Entities.PhysicianAvailablity > FindDoctorByEmailID()
+
+        public IEnumerable<Entities.PhysicianAvailablity> FindDoctorByEmailID()
         {
             return _con.PhysicianAvailablities.ToList();
         }
 
         public Entities.PhysicianAvailablity Deletetr(string EmailID)
         {
-            var t=_con.PhysicianAvailablities.Where(i=>i.PhysicianEmail==EmailID).FirstOrDefault(); ;
+            var t = _con.PhysicianAvailablities.Where(i => i.PhysicianEmail == EmailID).FirstOrDefault(); ;
             if (t != null)
             {
-                _con.PhysicianAvailablities.Remove(t);   
+                _con.PhysicianAvailablities.Remove(t);
                 _con.SaveChanges();
             }
             return t;
         }
 
-        public Entities.PhysicianAvailablity UpdatePhysician(Entities.PhysicianAvailablity  t)
+        public Entities.PhysicianAvailablity UpdatePhysician(Entities.PhysicianAvailablity t)
         {
             _con.PhysicianAvailablities.Update(t);
             _con.SaveChanges();
@@ -63,3 +63,4 @@ namespace FluentAPI
         }
     }
 }
+

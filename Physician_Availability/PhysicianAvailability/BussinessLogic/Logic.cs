@@ -47,12 +47,12 @@ namespace BussinessLogic
             }
         }
 
-        public Physicianavailability UpdatePhysician(string EmailID,Physicianavailability s)
+        public Physicianavailability UpdatePhysician(string EmailID, Physicianavailability s)
         {
-            var t=(from r in _repo.GetAll()
-                   where r.PhysicianEmail==EmailID
-                   && r.PhysicianEmail==s.physician_email
-                   select r).FirstOrDefault();
+            var t = (from r in _repo.GetAll()
+                     where r.PhysicianEmail == EmailID
+                     && r.PhysicianEmail == s.physician_email
+                     select r).FirstOrDefault();
             if (t != null)
             {
                 t.PhysicianEmail = s.physician_email;

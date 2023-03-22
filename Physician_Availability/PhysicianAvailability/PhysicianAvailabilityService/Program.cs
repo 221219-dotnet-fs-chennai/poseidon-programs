@@ -2,6 +2,7 @@ using BussinessLogic;
 using FluentAPI.Entities;
 using FluentAPI;
 using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,6 +26,7 @@ builder.Services.AddDbContext<PhysicianAvailabilityDbContext>(Options => Options
 builder.Services.AddScoped<IModel<FluentAPI.Entities.PhysicianAvailablity>, EFRepo>();
 
 builder.Services.AddScoped<ILogic, Logic>();
+
 
 var app = builder.Build();
 

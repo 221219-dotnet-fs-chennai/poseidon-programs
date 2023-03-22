@@ -8,15 +8,15 @@ using Models;
 
 namespace BussinessLogic
 {
-   public interface ILogic
+    public interface ILogic
     {
-        IEnumerable<Physicianavailability> GetAll(); 
+        IEnumerable<Physicianavailability> GetAll();
         Physicianavailability AddPhysician(Physicianavailability phy);
 
         IEnumerable<Physicianavailability> FindDoctorByEmailID(string EmailID);
-        
+
         Physicianavailability DeletePhy(string EmailID);
 
-        Physicianavailability  UpdatePhysician(string EmailID , Physicianavailability s);
+        Physicianavailability UpdatePhysician(string EmailID, Physicianavailability s);
     }
 }
