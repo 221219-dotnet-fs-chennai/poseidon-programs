@@ -27,5 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: npm install -g @angular/cli
+    - run: cd poseidon-healthcare/
     - run: ng add @angular/material
     
