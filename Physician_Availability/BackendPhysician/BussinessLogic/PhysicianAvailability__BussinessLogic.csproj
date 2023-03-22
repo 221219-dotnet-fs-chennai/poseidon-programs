@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentAPI\FluentAPI.csproj" />
-    <ProjectReference Include="..\Models\Pa_Models.csproj" />
+    <ProjectReference Include="..\FluentAPI\PhysicianAvailability_FluentAPI.csproj" />
+    <ProjectReference Include="..\Models\PhysicianAvailability__Models.csproj" />
   </ItemGroup>
 
 </Project>
