@@ -14,6 +14,8 @@ namespace BusinessLogic
 
         public fe.Appointment UpdateAppointment(int PatientId, Models.Appointment ap);
 
-        
+        IEnumerable<Models.Appointment> GetAppointmentsbyEmailandAcceptance(int i, string email);
+
+
     }
 }

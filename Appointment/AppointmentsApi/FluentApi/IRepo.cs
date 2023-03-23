@@ -12,6 +12,6 @@ namespace FluentApi
         List<T> GetAll();
         List<T> GetByAcceptance(int t);
         T Update(T t);
-
+        List<T> GetByDoctorMailAcceptance(int i, string email);
     }
 }

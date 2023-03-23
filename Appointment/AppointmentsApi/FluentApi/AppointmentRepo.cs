@@ -35,5 +35,11 @@ namespace FluentApi
             context.SaveChanges();
             return ap;
         }
+
+        public List<Entities.Appointment> GetByDoctorMailAcceptance(int i, string email)
+        {
+            return context.Appointments.Where(x => x.Acceptance == i && x.PhysicianEmail == email).ToList();
+        }
+
     }
 }

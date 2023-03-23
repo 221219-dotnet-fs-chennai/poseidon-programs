@@ -75,5 +75,20 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("AcceptanceAndEmail")]
+        public IActionResult GetByemailAccept(int AcceptanceNo, string Email)
+        {
+            try
+            {
+                var value = logic.GetAppointmentsbyEmailandAcceptance(AcceptanceNo, Email);
+                return Ok(value);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
     }
 }
