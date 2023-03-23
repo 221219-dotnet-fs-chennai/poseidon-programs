@@ -14,8 +14,8 @@ namespace service.Controllers
         {
             _logic = logic;
         }
-        [HttpGet("particular")]
-        public ActionResult GetAva(string email)
+        [HttpGet("particular/{email}")]
+        public ActionResult GetAva([FromRoute] string email)
         {
             var users = _logic.GetDoctrAv(email);
             return Ok(users);
@@ -27,8 +27,8 @@ namespace service.Controllers
             return Ok(users);
         }
 
-        [HttpPut("Update")]
-        public ActionResult Put([FromQuery] string email, [FromBody] doctor_availability u)
+        [HttpPut("Update/{email}")]
+        public ActionResult Put([FromRoute] string email, [FromBody] doctor_availability u)
         {
             var users = _logic.UpdateDoctorAv(u, email);
             return Ok(users);

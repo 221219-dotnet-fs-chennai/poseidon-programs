@@ -18,6 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
-
+  <ItemGroup>
+    <ProjectReference Include="..\Doctor_Model\Doctor_Model.csproj" />
+  </ItemGroup>
 
 </Project>
