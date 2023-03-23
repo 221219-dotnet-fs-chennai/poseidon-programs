@@ -229,6 +229,7 @@ import { DobToAgePipe } from './Patient/dob-to-age.pipe';
     MatNativeDateModule,
     HttpClientModule,
 
+
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
       clientId: '8moNAcVOTwfw9svEb3vGDPD89Me1QyDG',
