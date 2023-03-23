@@ -2,11 +2,11 @@
 
 <div class="personal-card">
     <mat-card class="back-card">
-        <mat-card-content>Name      : Harry Potter</mat-card-content>
-        <mat-card-content>Age       : 26</mat-card-content>
-        <mat-card-content>Email     : harrypotter@gmail.com</mat-card-content>
-        <mat-card-content>Phone     : 7235726523</mat-card-content>
-        <mat-card-content>Address   : London</mat-card-content>
+        <mat-card-content>Name      : {{patientData.firstName+" "+patientData.lastName}}</mat-card-content>
+        <mat-card-content>Age       : {{patientData.dob | dobToAge}}</mat-card-content>
+        <mat-card-content>Email     : {{patientData.email}}</mat-card-content>
+        <mat-card-content>Phone     : {{patientData.contactNumber}}</mat-card-content>
+        <mat-card-content>Address   : {{patientData.address}}</mat-card-content>
         <mat-card-actions align="end">
             <a class="edit-button" (click)="openDialog()">Edit</a>
         </mat-card-actions>
