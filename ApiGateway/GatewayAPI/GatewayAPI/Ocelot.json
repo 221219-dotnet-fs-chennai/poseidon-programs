@@ -214,11 +214,62 @@
       ]
     },
 
+    // doctor availability
+    {
+      "UpstreamPathTemplate": "/poseidonhc/particular_doc_avail/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/DoctorAvailblity/particular/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/add_doc_avail",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/DoctorAvailblity/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Update_doc_avail/{email}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/DoctorAvailblity/Update/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+
+
     // allergy
     {
       "UpstreamPathTemplate": "/poseidonhc/allery/{VisitId}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/Allergy/Fetch/{VisitId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Add_Allergy",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Allergy/Add",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
