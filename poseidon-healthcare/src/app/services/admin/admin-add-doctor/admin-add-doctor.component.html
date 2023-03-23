@@ -41,18 +41,20 @@
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
                         <mat-label>Available From</mat-label>
-                        <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required>
-                        <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">available from
-                            required</mat-error>
+                        <input matInput [matDatepicker]="formpicker" name="date" ngModel required>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="formpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #formpicker></mat-datepicker>
                     </mat-form-field>
                 </mat-grid-tile>
 
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
                         <mat-label>Available To</mat-label>
-                        <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required>
-                        <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">available to
-                            required</mat-error>
+                        <input matInput [matDatepicker]="topicker" name="date" ngModel required>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="topicker"></mat-datepicker-toggle>
+                        <mat-datepicker #topicker></mat-datepicker>
                     </mat-form-field>
                 </mat-grid-tile>
             </mat-grid-list>

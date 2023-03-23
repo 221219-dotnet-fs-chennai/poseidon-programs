@@ -1,16 +1,50 @@
 <div class="container">
-        <div fxLayoutAlign="space-between center" fxLayout="row">
-            <button id="medHist" mat-flat-button (click)="to_MedHistory()">View Medical History</button>
-            <button mat-fab (click)=" to_appointments()"><img src="../../../../assets/arrow-left-long-solid.svg" width="25px"
-                    height="25px" alt=""></button>
+    <div fxLayoutAlign="space-between center" fxLayout="row">
+        <button id="medHist" mat-flat-button (click)="to_MedHistory()">View Medical History</button>
+        <button mat-fab (click)=" to_appointments()"><img src="../../../../assets/arrow-left-long-solid.svg"
+                width="25px" height="25px" alt=""></button>
+    </div>
+
+    <div class="detail-container">
+        <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
+            <div><span>
+                    <h3>Blood Pressure : <span>120/80 mm hg</span></h3>
+                </span></div>
+
+            <div><span>
+                    <h3>Temperature : <span>102</span></h3>
+                </span></div>
+            <div><span>
+                    <h3>Blood Group : <span>AB+</span></h3>
+                </span>
+            </div>
+            <div><span>
+                    <h3>Height : <span>174 cm</span></h3>
+                </span>
+            </div>
         </div>
 
-        
-        <app-doc-update-med-info-table></app-doc-update-med-info-table>
+        <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
+            <div><span>
+                    <h3>Weight : <span>65 kg</span></h3>
+                </span></div>
 
-        <div class="btnSection" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="30px">
-            <button class="btns" mat-flat-button (click)="openAddPrescription()">Add Prescription</button>
-            <button class="btns" mat-flat-button (click)="openViewPrescription()">View Prescription</button>
-            <button class="btns" id="newObs" mat-flat-button (click)="openAddNewObservation()">New Observation</button>
+            <div><span>
+                    <h3>Sugar Level : <span>140 mg/dl</span></h3>
+                </span></div>
+
+            <div><span>
+                    <h3>Allergies : <span>Pet allergy, Dust allergy</span></h3>
+                </span>
+            </div>
         </div>
+    </div>
+
+    <app-doc-update-med-info-table></app-doc-update-med-info-table>
+
+    <div class="btnSection" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="30px">
+        <button class="btns" mat-flat-button (click)="openAddPrescription()">Add Prescription</button>
+        <button class="btns" mat-flat-button (click)="openViewPrescription()">View Prescription</button>
+        <button class="btns" id="newObs" mat-flat-button (click)="openAddNewObservation()">New Observation</button>
+    </div>
 </div>

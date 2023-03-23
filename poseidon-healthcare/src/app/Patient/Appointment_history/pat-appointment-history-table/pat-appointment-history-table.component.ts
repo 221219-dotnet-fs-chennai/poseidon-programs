@@ -26,6 +26,8 @@ export class PatAppointmentHistoryTableComponent {
     {Id:6,Date:"19-Mar-2023",Doctor:"Lopez",Notes:"Stomach ache",Status:"Accepted"},
   ];
 
+ 
+
 
   appointmentStatus = new MatTableDataSource(this.history);
   

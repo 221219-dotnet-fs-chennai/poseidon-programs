@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DocPatMedHistoryPrescriptionDialogComponent } from '../doc-pat-med-history-prescription-dialog/doc-pat-med-history-prescription-dialog.component';
 import { DocPatMedHistoryTestDialogComponent } from '../doc-pat-med-history-test-dialog/doc-pat-med-history-test-dialog.component';
+import { DocShowVitalComponent } from '../doc-show-vital/doc-show-vital.component';
 @Component({
   selector: 'app-doc-pat-med-history-content',
   templateUrl: './doc-pat-med-history-content.component.html',
@@ -29,5 +30,13 @@ export class DocPatMedHistoryContentComponent {
       data: {},
       width: '40%'
     });
+  }
+
+  openvitals()
+  {
+   const dialogRef = this.dialog.open(DocShowVitalComponent, {
+    data: {},
+    width: '40%'
+   }); 
   }
 }

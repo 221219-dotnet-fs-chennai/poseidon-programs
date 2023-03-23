@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NursePatHistoryDialogComponent } from '../nurse-pat-history-dialog/nurse-pat-history-dialog.component';
 import { NursePatHistoryPrescriptionComponent } from '../nurse-pat-history-prescription/nurse-pat-history-prescription.component';
+import { NurseShowVitalComponent } from '../nurse-show-vital/nurse-show-vital.component';
 
 
 @Component({
@@ -31,5 +32,13 @@ export class NursePatContentComponent {
       data: {},
       width: '40%'
     });
+  }
+
+  openvitals()
+  {
+   const dialogRef = this.dialog.open(NurseShowVitalComponent, {
+    data: {},
+    width: '40%'
+   }); 
   }
 }

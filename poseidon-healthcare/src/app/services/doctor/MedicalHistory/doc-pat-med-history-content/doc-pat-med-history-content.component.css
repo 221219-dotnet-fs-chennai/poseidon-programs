@@ -11,10 +11,12 @@ button {
 h3 {
     font-family: 'montserrat';
     font-weight: 700;
+    color: #444343;
 }
 
 h3 span {
     font-weight: 500;
+    color: #444343;
 }
 
 .detail-container {
@@ -33,7 +35,7 @@ img {
 }
 
 mat-card {
-    width: 400px;
+    width: 450px;
     height: 250px;
     border-radius: 5%;
     border: solid 1px #444343;

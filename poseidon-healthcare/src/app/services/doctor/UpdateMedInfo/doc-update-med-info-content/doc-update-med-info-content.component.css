@@ -4,6 +4,17 @@ button {
 
 }
 
+h3{
+    font-family: 'montserrat';
+    font-weight: 700;
+    color:#444343;
+}
+
+h3 span{
+    color:#444343;
+    font-weight: 500;
+}
+
 .container {
     margin-left: 150px;
     margin-right: 150px;
@@ -26,4 +37,8 @@ button {
 #newObs{
     background-color: #444343 !important;
     color: white;
+}
+
+.detail-container{
+    margin-top: 50px;
 }

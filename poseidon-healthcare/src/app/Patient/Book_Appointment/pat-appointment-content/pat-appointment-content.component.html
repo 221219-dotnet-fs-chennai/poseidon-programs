@@ -1,8 +1,11 @@
 <div class="container">
     <div class="btns" >
-        <mat-form-field appearance="outline" >
-            <mat-label>Date</mat-label>
-            <input type="date" name="dob" matInput id="date">
+        <mat-form-field appearance="fill">
+            <mat-label>Pick a Date</mat-label>
+            <input matInput [matDatepicker]="formpicker" name="date" ngModel>
+            <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
+            <mat-datepicker-toggle matIconSuffix [for]="formpicker"></mat-datepicker-toggle>
+            <mat-datepicker #formpicker></mat-datepicker>
         </mat-form-field>
         <span class="spacer"></span>
     <div fxLayoutAlign="end">
