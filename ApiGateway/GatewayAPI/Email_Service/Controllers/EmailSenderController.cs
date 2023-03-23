@@ -10,8 +10,8 @@ namespace Email_Service.Controllers
     {
         Email_Sender Email = new Email_Sender();
 
-        [HttpPost]
-        public IActionResult SendEmail(string email, int status)
+        [HttpPost("sendEmail/{email}/{status}")]
+        public IActionResult SendEmail([FromRoute] string email, [FromRoute] int status)
         {
             Email.Email_Method(email, status);
             return Ok();

@@ -10,6 +10,8 @@ namespace BusinessLogic
     {
         public fe.Appointment AddAppointment(Models.Appointment ap);
         IEnumerable<Models.Appointment> GetAppointment();
+
+        IEnumerable<Models.Appointment> GetMedicalHistory(int patientid);
         IEnumerable<Models.Appointment> GetAppointmentByAcceptance(int acceptVal);
 
         public fe.Appointment UpdateAppointment(int PatientId, Models.Appointment ap);

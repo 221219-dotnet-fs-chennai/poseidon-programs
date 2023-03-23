@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FluentApi\FluentApi.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Appointment_FluentApi\Appointment_FluentApi.csproj" />
+    <ProjectReference Include="..\Appointment_Models\Appointment_Models.csproj" />
   </ItemGroup>
+
 
 </Project>

@@ -252,7 +252,143 @@
       ]
     },
 
+    // email
+    {
+      "UpstreamPathTemplate": "/poseidonhc/sendEmail/{email}/{status}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/EmailSender/sendEmail/{email}/{status}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7080
+        }
+      ]
+    },
 
+    // appointment
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_all_appointment",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Appointment/Get_all_appointment",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Add_appointment",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Appointment/Add_appointment",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetbyAcceptance/{Acceptance}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Appointment/GetbyAcceptance/{Acceptance}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetbyPatientID/{patientid}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Appointment/GetbyPatientID/{patientid}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/updateby_patID/{PatientId}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/Appointment/updateby_patID/{PatientId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
+
+    // physician availability
+    {
+      "UpstreamPathTemplate": "/poseidonhc/AddPhysicianAvailable",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/PhysicianAvailability/AddPhysicianAvailable",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7140
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_All_Physicians",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/PhysicianAvailability/Get_All_Physicians",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7140
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/FindDoctorByEmailID/{EmailID}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/PhysicianAvailability/FindDoctorByEmailID/{EmailID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7140
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/DeletephysicianAvailability/{EmailID}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/api/PhysicianAvailability/DeletephysicianAvailability/{EmailID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7140
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/UpdatePhysicianavailability/{Email}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/PhysicianAvailability/UpdatePhysicianavailability/{Email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7140
+        }
+      ]
+    },
     // allergy
     {
       "UpstreamPathTemplate": "/poseidonhc/allery/{VisitId}",

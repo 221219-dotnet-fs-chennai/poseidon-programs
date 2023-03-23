@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\FluentApi\FluentApi.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Appointment_BusinessLogic\Appointment_BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\PhysicianAvailability_Models\PhysicianAvailability_Models.csproj" />
   </ItemGroup>
 
 </Project>
