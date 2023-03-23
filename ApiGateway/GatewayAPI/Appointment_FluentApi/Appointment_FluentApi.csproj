@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Appointment_Models\Appointment_Models.csproj" />
+  </ItemGroup>
+
 </Project>

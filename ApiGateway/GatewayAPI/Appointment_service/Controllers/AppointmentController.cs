@@ -14,7 +14,7 @@ namespace AppointmentsApi.Controllers
         {
             this.logic = logic;
         }
-        [HttpGet]
+        [HttpGet("Get_all_appointment")]
         public IActionResult Get()
         {
             try
@@ -27,7 +27,7 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPost]
+        [HttpPost("Add_appointment")]
         public IActionResult Add([FromBody] Models.Appointment ap)
         {
             try
@@ -40,8 +40,8 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpGet("{Acceptance}")]
-        public IActionResult Get(int Acceptance)
+        [HttpGet("GetbyAcceptance/{Acceptance}")]
+        public IActionResult Get([FromRoute] int Acceptance)
         {
             try
             {
@@ -53,7 +53,21 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPut("{PatientId}")]
+
+        [HttpGet("GetbyPatientID/{patientid}")]
+        public IActionResult  GetMedical([FromRoute] int patientid)
+        {
+            try
+            {
+                var ap=logic.GetMedicalHistory(patientid);
+                return Ok(ap);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpPut("updateby_patID/{PatientId}")]
         public IActionResult Update([FromRoute] int PatientId, [FromBody] Models.Appointment ap)
         {
             try

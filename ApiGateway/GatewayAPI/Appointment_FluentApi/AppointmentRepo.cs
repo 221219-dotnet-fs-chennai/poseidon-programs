@@ -29,6 +29,11 @@ namespace FluentApi
         {
             return context.Appointments.Where(x => x.Acceptance == val).ToList();
         }
+
+        public List<Entities.Appointment> GetByPatientId(int val)
+        {
+            return context.Appointments.Where(x=>x.PatientId==val).ToList();
+        }
         public Entities.Appointment Update(Entities.Appointment ap)
         {
             context.Appointments.Update(ap);

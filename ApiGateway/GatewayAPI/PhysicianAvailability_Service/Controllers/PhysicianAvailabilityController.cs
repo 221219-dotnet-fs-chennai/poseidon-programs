@@ -17,7 +17,7 @@ namespace PhysicianAvailabilityService.Controllers
         {
             _logic = logic;
         }
-        [HttpPost("Add")]
+        [HttpPost("AddPhysicianAvailable")]
         public ActionResult AddNewPhysician([FromBody] Physicianavailability a)
         {
             try
@@ -35,7 +35,7 @@ namespace PhysicianAvailabilityService.Controllers
             }
         }
 
-        [HttpGet("Get All Physicians")]
+        [HttpGet("Get_All_Physicians")]
         public ActionResult Get()
         {
             try
@@ -87,8 +87,8 @@ namespace PhysicianAvailabilityService.Controllers
 
         }
 
-        [HttpDelete("DeletephysicianAvailability")]
-        public ActionResult Delete(string EmailID)
+        [HttpDelete("DeletephysicianAvailability/{EmailID}")]
+        public ActionResult Delete([FromRoute] string EmailID)
         {
             try
             {
@@ -116,8 +116,8 @@ namespace PhysicianAvailabilityService.Controllers
             }
 
         }
-        [HttpPut("UpdatePhysicianavailability")]
-        public ActionResult Updatephy(string Email, Physicianavailability d)
+        [HttpPut("UpdatePhysicianavailability/{Email}")]
+        public ActionResult Updatephy([FromRoute] string Email, Physicianavailability d)
         {
             try
             {
