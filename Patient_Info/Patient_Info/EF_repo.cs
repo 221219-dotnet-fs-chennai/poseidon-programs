@@ -60,9 +60,7 @@ namespace EF_Layer
 
             if (query_1 != null)
             {
-                var query_2 = context.Patients.FirstOrDefault(v => v.Password == password);
-
-                if (query_2 != null)
+                if (query_1.Password == password)
                 {
                     var result = context.Patients;
                     var patient_id = context.Patients.FirstOrDefault(v => v.Email == email);

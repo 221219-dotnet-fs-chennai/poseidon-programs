@@ -15,14 +15,14 @@ namespace service.Controllers
         {
             _logic = logic;
         }
-        [HttpGet("/getAll")]
+        [HttpGet("getAll")]
         public ActionResult Get()
         {
             var Doct = _logic.GetAllDocts();
             return Ok(Doct);
         }
-        [HttpGet("particular")]
-        public ActionResult Getp(string email)
+        [HttpGet("particular/{email}")]
+        public ActionResult Getp([FromRoute] string email)
         {
             var users = _logic.GetDoct(email);
             return Ok(users);
@@ -33,8 +33,5 @@ namespace service.Controllers
             var users = _logic.ADD(user);
             return Ok(users);
         }
-
-
-
     }
 }

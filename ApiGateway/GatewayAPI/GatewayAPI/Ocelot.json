@@ -175,11 +175,36 @@
         }
       ]
     },
+
     // doctor
     {
       "UpstreamPathTemplate": "/poseidonhc/Get_all_doc",
       "UpstreamHttpMethod": [ "GET" ],
-      "DownstreamPathTemplate": "/getAll",
+      "DownstreamPathTemplate": "/api/Doctor/getAll",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_particular_doctor/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Doctor/particular/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Add_Doctor",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Doctor/Add",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
