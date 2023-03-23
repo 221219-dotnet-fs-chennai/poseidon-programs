@@ -40,13 +40,11 @@ public partial class DoctorContext : DbContext
 
         modelBuilder.Entity<DoctorAvailability>(entity =>
         {
-            entity.HasKey(e => e.AvailabilityId).HasName("PK__doctor_a__86E3A801100824E3");
+            entity.HasKey(e => e.AvailabilityId).HasName("PK__doctor_a__86E3A801CD73E114");
 
             entity.ToTable("doctor_availability");
 
-            entity.Property(e => e.AvailabilityId)
-                .ValueGeneratedNever()
-                .HasColumnName("availability_id");
+            entity.Property(e => e.AvailabilityId).HasColumnName("availability_id");
             entity.Property(e => e.AvailableFrom)
                 .IsUnicode(false)
                 .HasColumnName("available_from");
@@ -61,7 +59,8 @@ public partial class DoctorContext : DbContext
 
             entity.HasOne(d => d.DoctorEmailNavigation).WithMany(p => p.DoctorAvailabilities)
                 .HasForeignKey(d => d.DoctorEmail)
-                .HasConstraintName("FK__doctor_av__docto__619B8048");
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__doctor_av__docto__6FE99F9F");
         });
 
         OnModelCreatingPartial(modelBuilder);
