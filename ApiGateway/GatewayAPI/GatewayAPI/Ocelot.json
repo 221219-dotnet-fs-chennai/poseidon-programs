@@ -327,6 +327,18 @@
         }
       ]
     },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/AcceptanceAndEmail/{AcceptanceNo}/{Email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Appointment/AcceptanceAndEmail/{AcceptanceNo}/{Email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7267
+        }
+      ]
+    },
 
     // physician availability
     {
@@ -389,6 +401,7 @@
         }
       ]
     },
+
     // allergy
     {
       "UpstreamPathTemplate": "/poseidonhc/allery/{VisitId}",

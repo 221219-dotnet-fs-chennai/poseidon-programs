@@ -67,6 +67,7 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
         [HttpPut("updateby_patID/{PatientId}")]
         public IActionResult Update([FromRoute] int PatientId, [FromBody] Models.Appointment ap)
         {
@@ -88,6 +89,21 @@ namespace AppointmentsApi.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("AcceptanceAndEmail/{AcceptanceNo}/{Email}")]
+        public IActionResult GetByemailAccept([FromRoute] int AcceptanceNo,[FromRoute] string Email)
+        {
+            try
+            {
+                var value = logic.GetAppointmentsbyEmailandAcceptance(AcceptanceNo, Email);
+                return Ok(value);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
     }
 }
