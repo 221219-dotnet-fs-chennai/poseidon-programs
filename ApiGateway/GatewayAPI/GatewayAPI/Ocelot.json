@@ -1,0 +1,234 @@
+{
+  "Routes": [
+    // patient info
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Add_Patient",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Patient/Add_Patient",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Update_Patient/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/Patient/Update_Patient/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/get_all_pat",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Patient/Get_all_Patient",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_by_ID/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Patient/Get_by_ID/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/PatientExist/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Patient/PatientExist/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/patient_login/{email}/{password}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Patient/patientLogin/{email}/{password}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+
+    // prescription
+    {
+      "UpstreamPathTemplate": "/poseidonhc/AddPrescription",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Prescription/AddPrescription",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetPrescriptionById/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Prescription/GetPrescriptionById/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+
+    // visit details
+    {
+      "UpstreamPathTemplate": "/poseidonhc/AddVisitDetails",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/VisitDetails/AddVisitDetails",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetVisitDetailsById/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/VisitDetails/GetVisitDetailsById/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+
+    // test
+    {
+      "UpstreamPathTemplate": "/poseidonhc/AddTest",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Test/AddTest",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetTestListbyid/{visitId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Test/GetTestListbyid/{visitId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetTestIdbyname/{name}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Test/GetTestIdbyname/{name}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/UpdateTest/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/Test/UpdateTest/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7102
+        }
+      ]
+    },
+
+    // doctor
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_all_doc",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Doctor/getAll",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Get_particular_doctor/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Doctor/particular/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/Add_Doctor",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Doctor/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ]
+    },
+
+    // allergy
+    {
+      "UpstreamPathTemplate": "/poseidonhc/allery/{VisitId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Allergy/Fetch/{VisitId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7292"
+  }
+}

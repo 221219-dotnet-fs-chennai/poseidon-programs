@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>90738578-c780-4c9d-9843-78e34217aa6e</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <UserSecretsId>e535800a-3cdc-4521-91e6-081623c97459</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bussiness_Logic\Patient_Business_Logic.csproj" />
+    <ProjectReference Include="..\Business_Logic\Doctor_Business_Logic.csproj" />
+    <ProjectReference Include="..\Doctor\Doctor_fluient_API.csproj" />
+    <ProjectReference Include="..\Model\Doctor_Model.csproj" />
   </ItemGroup>
 
 </Project>
