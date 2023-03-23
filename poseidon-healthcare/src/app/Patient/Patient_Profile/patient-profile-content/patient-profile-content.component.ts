@@ -2,8 +2,20 @@ import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { PatientEditDialogboxComponent } from '../patient-edit-dialogbox/patient-edit-dialogbox.component';
+import { ServicePatientService } from '../../service-patient.service';
 
 
+export interface patientObj{
+   email: string,
+    title: string,
+    firstName: string,
+    lastName: string,
+    dob: string,
+    contactNumber: string,
+    password: string,
+    gender:string,
+    address:string
+}
 @Component({
   selector: 'app-patient-profile-content',
   templateUrl: './patient-profile-content.component.html',
@@ -11,7 +23,7 @@ import { PatientEditDialogboxComponent } from '../patient-edit-dialogbox/patient
 })
 export class PatientProfileContentComponent {
 
-  constructor(private router:Router, public dialog: MatDialog)
+  constructor(private router:Router, public dialog: MatDialog,private service:ServicePatientService)
   {
 
   }
@@ -42,6 +54,18 @@ export class PatientProfileContentComponent {
 
    to_appointmentHistory() {
     this.router.navigate(['patient_appointmentHistory'])
+  }
+  patientData: patientObj;
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.service.getDetailsForProfile(13).subscribe(res => {
+      this.patientData = res;
+    });
+
+    
+    // console.log(this.patientData);
   }
   
 }
