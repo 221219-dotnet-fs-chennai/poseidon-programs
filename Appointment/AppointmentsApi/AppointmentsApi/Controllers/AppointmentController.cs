@@ -53,6 +53,20 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("GetMedicalHistory")]
+        public IActionResult  GetMedical(int patientid)
+        {
+            try
+            {
+                var ap=logic.GetMedicalHistory(patientid);
+                return Ok(ap);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
         [HttpPut("{PatientId}")]
         public IActionResult Update([FromRoute] int PatientId, [FromBody] Models.Appointment ap)
         {
