@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using fe = FluentApi.Entities;
+
 namespace BusinessLogic
 {
     public class Logic : ILogic
@@ -27,6 +28,13 @@ namespace BusinessLogic
 
             return Mapper.Map(aprepo.GetByAcceptance(acceptVal));
         }
+
+        public IEnumerable<Models.Appointment> GetMedicalHistory(int patientid)
+        {
+            // throw new NotImplementedException();
+            return Mapper.Map(aprepo.GetByPatientId(patientid));
+        }
+
         public fe.Appointment UpdateAppointment(int PatientId, Models.Appointment ap)
         {
 
