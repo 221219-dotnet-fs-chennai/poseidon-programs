@@ -106,6 +106,7 @@ import { NursePatNavbarComponent } from './services/nurse/nurse_pat_medical_info
 import { NursePatContentComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-content/nurse-pat-content.component';
 import { NursePatHistoryDialogComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-dialog/nurse-pat-history-dialog.component';
 import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-history-prescription/nurse-pat-history-prescription.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -213,6 +214,7 @@ import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat
     MatTableModule,
     FlexLayoutModule,
     MatNativeDateModule,
+    HttpClientModule,
 
 
     AuthModule.forRoot({
