@@ -63,6 +63,7 @@ fetechappointment()
 
       this.dataSource=new MatTableDataSource(this.listofappointment);
       console.log('list of appointment',this.listofappointment);
+      this.dataSource.paginator = this.paginator;
     })
 }
 
