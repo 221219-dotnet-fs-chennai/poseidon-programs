@@ -28,10 +28,12 @@ export class NurseAppointmentContentComponent implements OnInit {
     
 
   }
-  infoDialog() {
+  infoDialog(email:string) {
     const dRef = this.dialog.open(NurseVitalContentComponent, {
       width: '500px',
-      data: {}
+      data: {
+        "email":email
+      }
     });
     dRef.afterClosed().subscribe(result => {
       console.log(`result is ${result}`)
@@ -60,8 +62,9 @@ fetechappointment()
   this.service.getData().subscribe(data=>
     {
       this.listofappointment=data;
-
       this.dataSource=new MatTableDataSource(this.listofappointment);
+      this.dataSource.sort=this.sort;
+      this.dataSource.paginator=this.paginator;
       console.log('list of appointment',this.listofappointment);
     })
 }

@@ -1,4 +1,4 @@
-<form #f="ngForm" (submit)="onSub(f)">
+<form #f="ngForm" (submit)="sendData(bp.value,rr.value,temp.value,ht.value,wt.value,nt.value)">
   <h1 mat-dialog-title class="dtitle">Add Vitals</h1>
   <div fxLayoutAlign="center">
     <p>Appointment with Dr. Mahesh</p>
@@ -29,8 +29,8 @@
     </div>
     <div class="det-box">
       <mat-form-field appearance="fill">
-        <mat-label>Sugar</mat-label>
-        <input matInput ngModel name="sugar" #sg="ngModel">
+        <mat-label>Respiratory rate</mat-label>
+        <input matInput ngModel name="rr" #rr="ngModel">
       </mat-form-field>
 
       <!-- <mat-form-field appearance="fill">
