@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface items{
+  id:number;
+  reason:string;
+  date:string;
+  acceptance:number;
+  //physicianEmail:string;
+  submissionDate:string;
+
+}
 
 export interface patientObj{
     email: string,
@@ -33,6 +44,14 @@ export interface getPatientObj{
 export class ServicePatientService {
 
   constructor(private http: HttpClient) { }
+
+  httpOptions={
+    headers:new HttpHeaders({
+      'Content-type':'application/json',
+
+    })
+
+  }
   
   patientDet: patientObj = {
     email: '',
@@ -110,6 +129,15 @@ export class ServicePatientService {
     return this.http.put(this.rootURL + 'Update_Patient?id=' + id, body, { 'headers': headers });
     });
     
+  }
+
+
+  public getData():Observable<any>
+  {
+    // let url="https://localhost:7267/api/Appointment";
+    // return this.http.get(url);
+
+    return this.http.get("https://localhost:7267/api/Appointment/GetMedicalHistory?patientid=6",{headers:this.httpOptions.headers});
   }
 
 }
