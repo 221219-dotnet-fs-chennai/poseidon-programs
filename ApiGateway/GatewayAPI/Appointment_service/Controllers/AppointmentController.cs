@@ -55,14 +55,14 @@ namespace AppointmentsApi.Controllers
         }
 
         [HttpGet("GetbyPatientID/{patientid}")]
-        public IActionResult  GetMedical([FromRoute] int patientid)
+        public IActionResult GetMedical([FromRoute] int patientid)
         {
             try
             {
-                var ap=logic.GetMedicalHistory(patientid);
+                var ap = logic.GetMedicalHistory(patientid);
                 return Ok(ap);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
@@ -92,7 +92,7 @@ namespace AppointmentsApi.Controllers
         }
 
         [HttpGet("AcceptanceAndEmail/{AcceptanceNo}/{Email}")]
-        public IActionResult GetByemailAccept([FromRoute] int AcceptanceNo,[FromRoute] string Email)
+        public IActionResult GetByemailAccept([FromRoute] int AcceptanceNo, [FromRoute] string Email)
         {
             try
             {
@@ -104,6 +104,29 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(e.Message);
             }
 
+        }
+
+        [HttpPut("updatebyAppointMentNo/{AppointmentID}/{AcceptanceNo}")]
+        public IActionResult UpdateAcceptanceByAppointMentID([FromRoute] int AppointmentID, int AcceptanceNo)
+        {
+            try
+            {
+                if (AppointmentID >= 0)
+                {
+                    logic.UpdateAppointmentbyAppoinmentID(AppointmentID, AcceptanceNo);
+                    return Ok(AcceptanceNo);
+                }
+                else
+                    return NotFound();
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

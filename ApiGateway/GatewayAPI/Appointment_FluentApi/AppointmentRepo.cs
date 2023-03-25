@@ -32,7 +32,7 @@ namespace FluentApi
 
         public List<Entities.Appointment> GetByPatientId(int val)
         {
-            return context.Appointments.Where(x=>x.PatientId==val).ToList();
+            return context.Appointments.Where(x => x.PatientId == val).ToList();
         }
         public Entities.Appointment Update(Entities.Appointment ap)
         {
@@ -43,6 +43,19 @@ namespace FluentApi
         public List<Entities.Appointment> GetByDoctorMailAcceptance(int i, string email)
         {
             return context.Appointments.Where(x => x.Acceptance == i && x.PhysicianEmail == email).ToList();
+        }
+
+        public Entities.Appointment UpdateById(Entities.Appointment ap)
+        {
+            //db.Users.Attach(user);
+            //db.Entry(user).Property(x => x.Password).IsModified = true;
+            //db.SaveChanges();
+
+            context.Appointments.Attach(ap);
+            //context.Entry(ap).Property(x => x.Id).IsModified = true;
+            context.Entry(ap).Property(x => x.Acceptance).IsModified = true;
+            context.SaveChanges();
+            return ap;
         }
     }
 }

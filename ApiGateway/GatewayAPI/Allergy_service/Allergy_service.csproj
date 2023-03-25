@@ -7,6 +7,7 @@
     <UserSecretsId>8800125d-7c46-49b9-955b-d530eb7daa9a</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Capstone_Project' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>

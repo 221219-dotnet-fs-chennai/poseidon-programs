@@ -9,15 +9,15 @@ namespace BusinessLogic
 {
     public class Logic : ILogic
     {
-         IRepo<fe.Appointment> aprepo;
-        public Logic (fe.AppointmentDbContext context)
+        IRepo<fe.Appointment> aprepo;
+        public Logic(fe.AppointmentDbContext context)
         {
             aprepo = new AppointmentRepo(context);
-           
+
         }
         public fe.Appointment AddAppointment(Models.Appointment ap)
         {
-            return aprepo.Add(Mapper.Map( ap));
+            return aprepo.Add(Mapper.Map(ap));
         }
         public IEnumerable<Models.Appointment> GetAppointment()
         {
@@ -37,18 +37,18 @@ namespace BusinessLogic
 
         public fe.Appointment UpdateAppointment(int PatientId, Models.Appointment ap)
         {
-           
+
             var apmt = (from apt in aprepo.GetAll()
-                           where apt.PatientId == PatientId
-                           select apt).FirstOrDefault();
-           
+                        where apt.PatientId == PatientId
+                        select apt).FirstOrDefault();
+
             if (apmt != null)
             {
 
                 apmt.Acceptance = ap.Acceptance;
-                apmt.PatientId= ap.PatientId;
+                apmt.PatientId = ap.PatientId;
                 apmt.Date = ap.Date;
-                apmt.SubmissionDate=ap.SubmissionDate;
+                apmt.SubmissionDate = ap.SubmissionDate;
                 apmt.Reason = ap.Reason;
                 apmt.PhysicianEmail = ap.PhysicianEmail;
                 apmt = aprepo.Update(apmt);
@@ -61,6 +61,26 @@ namespace BusinessLogic
         public IEnumerable<Models.Appointment> GetAppointmentsbyEmailandAcceptance(int i, string email)
         {
             return Mapper.Map(aprepo.GetByDoctorMailAcceptance(i, email));
+        }
+
+        public fe.Appointment UpdateAppointmentbyAppoinmentID(int AppointMentId, int AcceptanceNo)
+        {
+
+            var apmt = (from apt in aprepo.GetAll()
+                        where apt.Id == AppointMentId
+                        select apt).FirstOrDefault();
+
+            if (apmt != null)
+            {
+                //apmt.Id = AppointMentId;
+                apmt.Acceptance = AcceptanceNo;
+
+                apmt = aprepo.UpdateById(apmt);
+
+
+            }
+
+            return apmt;
         }
     }
 }
