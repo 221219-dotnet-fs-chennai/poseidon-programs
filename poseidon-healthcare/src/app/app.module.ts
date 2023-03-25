@@ -111,6 +111,7 @@ import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat
 import { PatShowVitalComponent } from './Patient/Medical_History/pat-show-vital/pat-show-vital.component';
 import { DocShowVitalComponent } from './services/doctor/MedicalHistory/doc-show-vital/doc-show-vital.component';
 import { NurseShowVitalComponent } from './services/nurse/nurse_pat_medical_info/nurse-show-vital/nurse-show-vital.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -201,6 +202,7 @@ import { NurseShowVitalComponent } from './services/nurse/nurse_pat_medical_info
   ],
 
   imports: [
+    HttpClientModule,
     MomentDateModule,
     MatNativeDateModule,
     MatDatepickerModule,
