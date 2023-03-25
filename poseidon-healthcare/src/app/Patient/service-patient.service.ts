@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, tap } from 'rxjs';
 import { Observable } from 'rxjs';
+import { availability } from './Book_Appointment/pat-appointment-content/pat-appointment-content.component';
 
 export interface patientObj {
   email: string;
@@ -41,6 +42,19 @@ export interface loginDetails {
   password: string;
 }
 
+export interface appointment {
+  reason: string;
+  date: string;
+  acceptance: number;
+  patientId: number;
+  physicianEmail: string;
+  submissionDate: string;
+}
+
+export interface reason {
+  reason: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -76,6 +90,15 @@ export class ServicePatientService {
     password: '',
     gender: '',
     address: '',
+  };
+
+  currentAppointment: appointment = {
+    reason: '',
+    date: '',
+    acceptance: 0,
+    patientId: 0,
+    physicianEmail: '',
+    submissionDate: '',
   };
 
   // FOR AUTO REFRESH OF VIEW AFTER DB UPDATE
@@ -175,5 +198,22 @@ export class ServicePatientService {
   //AVAILABLE DOCTORS LIST
   public getAllAvailableDoctors() {
     return this.http.get(this.physicianAvaRootUrl + 'Get_All_Physicians');
+  }
+
+  public setAppointments(appointmentData: appointment) {
+    this.currentAppointment.submissionDate = appointmentData.submissionDate;
+    this.currentAppointment.date = appointmentData.date;
+    this.currentAppointment.patientId = appointmentData.patientId;
+    this.currentAppointment.physicianEmail = appointmentData.physicianEmail;
+    this.currentAppointment.acceptance = appointmentData.acceptance;
+  }
+
+  public bookAppointment(reason: any) {
+    this.currentAppointment.reason = reason.reason;
+    var headers = { 'content-type': 'application/json' };
+    var body = JSON.stringify(this.currentAppointment);
+    return this.http.post(this.appointmentRootUrl + 'Add_appointment', body, {
+      headers: headers,
+    });
   }
 }
