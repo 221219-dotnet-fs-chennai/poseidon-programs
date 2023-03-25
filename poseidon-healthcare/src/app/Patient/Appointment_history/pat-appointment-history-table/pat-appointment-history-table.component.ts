@@ -1,18 +1,16 @@
-
-import { Component,OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { items,ServicePatientService } from '../../service-patient.service';
+import { items, ServicePatientService } from '../../service-patient.service';
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit } from '@angular/core';
 
-export interface appointmentHistory{
-  Id: number,
-  Date:string,
-  Doctor: string,
-  Notes: string,
-  Status: string,
-
+export interface appointmentHistory {
+  Id: number;
+  Date: string;
+  Doctor: string;
+  Notes: string;
+  Status: string;
 }
 
 @Component({
@@ -20,19 +18,19 @@ export interface appointmentHistory{
   templateUrl: './pat-appointment-history-table.component.html',
   styleUrls: ['./pat-appointment-history-table.component.css'],
 })
+export class PatAppointmentHistoryTableComponent
+  implements OnInit, AfterViewInit
+{
+  listOfAppointment!: items[];
+  dataSource: any;
+  currentUser: any;
 
-export class PatAppointmentHistoryTableComponent implements OnInit,AfterViewInit{
-
-  listofappointment!:items[];
-
-  constructor(private service:ServicePatientService)
-  {
-    this.service.getData().subscribe(data=>{
-      console.warn(data)
-
-    });
+  constructor(private service: ServicePatientService) {
+    // this.service.getData().subscribe((data) => {
+    //   console.warn(data);
+    // });
   }
-  
+
   @ViewChild('paginator') paginator: MatPaginator;
 
   // history: appointmentHistory[] = [
@@ -44,48 +42,32 @@ export class PatAppointmentHistoryTableComponent implements OnInit,AfterViewInit
   //   {Id:6,Date:"19-Mar-2023",Doctor:"Lopez",Notes:"Stomach ache",Status:"Accepted"},
   // ];
 
- 
-
-
   //appointmentStatus = new MatTableDataSource(this.history);
-  
-  displayedColumns: string[] = ['Id','Date', 'Doctor', 'Notes', 'Status'];
-  dataSource:any;
 
-  ngOnInit() 
-  {
-    this.fetechappointment();
- 
+  displayedColumns: string[] = ['Id', 'Date', 'Doctor', 'Notes', 'Status'];
+
+  ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('LoggedInUserId')!);
+
+    this.getAppointmentHistory(this.currentUser);
   }
 
+  idArray: number[] = [];
 
+  getAppointmentHistory(id: number) {
+    this.service.getAppointmentHistory(id).subscribe((data) => {
+      this.listOfAppointment = data;
 
-  idArray:number[]=[];
-
-  fetechappointment()
-  {
-    this.service.getData().subscribe(data=>
-      {
-        this.listofappointment=data;
-
-        this.dataSource=new MatTableDataSource(this.listofappointment);
-        this.dataSource.paginator = this.paginator;
-        console.log('list of appointment',this.dataSource);
-    
-      })
+      this.dataSource = new MatTableDataSource(this.listOfAppointment);
+      this.dataSource.paginator = this.paginator;
+      console.log('list of appointment', this.dataSource);
+    });
   }
 
-    
-  ngAfterViewInit(): void
-   {
+  ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
     // this.dataSource.paginator = this.paginator;
-     
   }
-  id:number=0;
- 
-
-}  
-
-
+  id: number = 0;
+}

@@ -25,18 +25,16 @@ export interface getPatientObj {
   password: string;
   gender: string;
   address: string;
-  }
-  
-  export interface items{
-  id:number;
-  reason:string;
-  date:string;
-  acceptance:number;
-  //physicianEmail:string;
-  submissionDate:string;
-
 }
 
+export interface items {
+  id: number;
+  reason: string;
+  date: string;
+  acceptance: number;
+  //physicianEmail:string;
+  submissionDate: string;
+}
 
 export interface loginDetails {
   Email: string;
@@ -48,14 +46,37 @@ export interface loginDetails {
 })
 export class ServicePatientService {
   constructor(private http: HttpClient) {}
-  
-  
+
   // VARIABLE DECLARATIONS
 
   currentUser: any;
   patientData: patientObj;
   email: string;
   password: string;
+
+  patientDet: patientObj = {
+    email: '',
+    title: '',
+    firstName: '',
+    lastName: '',
+    dob: '',
+    contactNumber: '',
+    password: '',
+    gender: '',
+    address: '',
+  };
+  updatedPatient: getPatientObj = {
+    Id: 0,
+    email: '',
+    title: '',
+    firstName: '',
+    lastName: '',
+    dob: '',
+    contactNumber: '',
+    password: '',
+    gender: '',
+    address: '',
+  };
 
   // FOR AUTO REFRESH OF VIEW AFTER DB UPDATE
   private _refreshRequired = new Subject<void>();
@@ -64,7 +85,9 @@ export class ServicePatientService {
     return this._refreshRequired;
   }
 
+  //RootURLS
   rootURL = 'https://localhost:7102/api/Patient';
+  appointmentRootUrl = 'https://localhost:7267/api/Appointment/';
 
   //NEW PATIENT REGISTRATION
   addPatient(patient: any) {
@@ -99,11 +122,13 @@ export class ServicePatientService {
   updatePersonalDetails(id: number, updatedDetails: any) {
     var headers;
     var body;
+    console.log('update call');
     this.currentUser = JSON.parse(localStorage.getItem('LoggedInUserId')!);
     console.log(this.currentUser);
     this.getDetailsForProfile(this.currentUser).subscribe((res) => {
       this.patientData = res;
     });
+    console.log(this.patientData);
 
     (this.updatedPatient.firstName = this.patientData.firstName),
       (this.updatedPatient.lastName = this.patientData.lastName),
@@ -130,26 +155,18 @@ export class ServicePatientService {
           this._refreshRequired.next();
         })
       );
- 
+  }
   //LOGIN
   tryLogin(details: any) {
     this.email = details.Email;
     this.password = details.password;
-    
+
     return this.http.get<number>(
       this.rootURL + '/patientLogin/' + this.email + '/' + this.password
     );
   }
-  
-   public getData():Observable<any>
-  {
-    return this.http.get("https://localhost:7267/api/Appointment/GetMedicalHistory?patientid=6");
+
+  public getAppointmentHistory(id: number): Observable<any> {
+    return this.http.get(this.appointmentRootUrl + 'GetbyPatientID/' + id);
   }
-
 }
-
-
- 
-
-
-
