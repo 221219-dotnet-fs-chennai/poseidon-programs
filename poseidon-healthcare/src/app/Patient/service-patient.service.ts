@@ -88,6 +88,7 @@ export class ServicePatientService {
   //RootURLS
   rootURL = 'https://localhost:7102/api/Patient';
   appointmentRootUrl = 'https://localhost:7267/api/Appointment/';
+  physicianAvaRootUrl = 'https://localhost:7140/api/PhysicianAvailability/';
 
   //NEW PATIENT REGISTRATION
   addPatient(patient: any) {
@@ -166,7 +167,13 @@ export class ServicePatientService {
     );
   }
 
+  //APPOINTMENT HISTORY
   public getAppointmentHistory(id: number): Observable<any> {
     return this.http.get(this.appointmentRootUrl + 'GetbyPatientID/' + id);
+  }
+
+  //AVAILABLE DOCTORS LIST
+  public getAllAvailableDoctors() {
+    return this.http.get(this.physicianAvaRootUrl + 'Get_All_Physicians');
   }
 }
