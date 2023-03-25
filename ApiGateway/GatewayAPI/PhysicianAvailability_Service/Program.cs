@@ -22,11 +22,14 @@ var config = builder.Configuration.GetConnectionString("Physician_Availability_D
 
 builder.Services.AddDbContext<PhysicianAvailabilityDbContext>(Options => Options.UseSqlServer(config));
 
-
 builder.Services.AddScoped<IModel<FluentAPI.Entities.PhysicianAvailablity>, EFRepo>();
 
 builder.Services.AddScoped<ILogic, Logic>();
 
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}));
 
 var app = builder.Build();
 
@@ -36,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors();
+app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
 
