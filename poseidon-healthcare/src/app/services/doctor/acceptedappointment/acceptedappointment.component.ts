@@ -4,6 +4,10 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { DoctorService } from 'src/app/doctor.service';
 import { Router } from '@angular/router';
+import { Appointments } from 'src/app/appointments';
+import { formatDate } from '@angular/common';
+
+
 export interface UserData {
   id: string;
   name: string;
@@ -54,25 +58,62 @@ export class AcceptedappointmentComponent {
 
  
 
-  displayedColumns: string[] = ['id', 'name', 'bookeddate', 'notes','diagnosis','button1'];
+  displayedColumns: string[] = ['id', 'name', 'bookeddate', 'notes','button1'];
   // dataSource: MatTableDataSource<UserData>;
-  dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
+  // dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
+  dataSource:any;
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(public doc:DoctorService,private router: Router) {
-    // Create 100 users
-    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    // this.dataSource = new MatTableDataSource<any>(this.appointments)
+    // this.dataSource.paginator = this.paginator;
 
-    // Assign the data to the data source for the table to render
-    // this.dataSource = new MatTableDataSource(users);
   }
+  appointments = new Array<Appointments>();
+  patient_names = new Map();
+  myDate = new Date();
+  newDate?:string;
+
+
+  ngOnInit():void{
+    console.log(this.doc.Doctor_name);
+    console.log(this.myDate)
+    // this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    const cValue = formatDate(this.myDate, 'dd-MM-yyyy', 'en-US');
+    const nDate = cValue.replace(/-/g,"/");
+
+    console.log(nDate)
+
+
+    this.doc.GetByAcceptanceDoctorEmailDate(2,nDate,this.doc.Doctor_name).subscribe(Response =>{
+      this.appointments = Response;
+      console.log(Response);
+      console.log(this.appointments);
+      
+      for(const key in this.appointments){
+        console.log(key,this.appointments[key].patientId)
+        this.doc.GetPatientDetailsByID(this.appointments[key].patientId).subscribe(response =>{
+          this.patient_names.set(this.appointments[key].patientId,response.firstName)
+        })
+}
+      
+      
+      this.dataSource = new MatTableDataSource<any>(this.appointments);
+      
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+    })
+
+    
+}
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -88,18 +129,3 @@ export class AcceptedappointmentComponent {
   }
 
 }
-
-// function createNewUser(id: number): UserData {
-//   const name =
-//     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-//     ' ' +
-//     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-//     '.';
-
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-//   };
-// }
