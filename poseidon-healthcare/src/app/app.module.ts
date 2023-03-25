@@ -111,7 +111,9 @@ import { NursePatHistoryPrescriptionComponent } from './services/nurse/nurse_pat
 import { PatShowVitalComponent } from './Patient/Medical_History/pat-show-vital/pat-show-vital.component';
 import { DocShowVitalComponent } from './services/doctor/MedicalHistory/doc-show-vital/doc-show-vital.component';
 import { NurseShowVitalComponent } from './services/nurse/nurse_pat_medical_info/nurse-show-vital/nurse-show-vital.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DobToAgePipe } from './Patient/dob-to-age.pipe';
+import { DigitToValuePipe } from './Patient/Appointment_history/digit-to-value.pipe';
 
 
 @NgModule({
@@ -198,7 +200,9 @@ import { HttpClientModule } from '@angular/common/http';
     NursePatHistoryPrescriptionComponent,
     PatShowVitalComponent,
     DocShowVitalComponent,
-    NurseShowVitalComponent
+    NurseShowVitalComponent,
+    DobToAgePipe,
+    DigitToValuePipe
   ],
 
   imports: [
@@ -226,6 +230,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     FlexLayoutModule,
     MatNativeDateModule,
+    HttpClientModule,
+
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
