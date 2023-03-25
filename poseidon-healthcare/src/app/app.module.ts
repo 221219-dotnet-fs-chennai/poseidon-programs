@@ -206,6 +206,7 @@ import { DigitToValuePipe } from './Patient/Appointment_history/digit-to-value.p
   ],
 
   imports: [
+    HttpClientModule,
     MomentDateModule,
     MatNativeDateModule,
     MatDatepickerModule,
