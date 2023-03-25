@@ -1,3 +1,4 @@
+
 import { Component,OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -11,13 +12,15 @@ export interface appointmentHistory{
   Doctor: string,
   Notes: string,
   Status: string,
+
 }
 
 @Component({
   selector: 'app-pat-appointment-history-table',
   templateUrl: './pat-appointment-history-table.component.html',
-  styleUrls: ['./pat-appointment-history-table.component.css']
+  styleUrls: ['./pat-appointment-history-table.component.css'],
 })
+
 export class PatAppointmentHistoryTableComponent implements OnInit,AfterViewInit{
 
   listofappointment!:items[];
@@ -84,4 +87,5 @@ export class PatAppointmentHistoryTableComponent implements OnInit,AfterViewInit
  
 
 }  
+
 

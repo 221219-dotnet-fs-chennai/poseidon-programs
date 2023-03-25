@@ -1,8 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnChanges, OnInit, SimpleChanges,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { PatientEditDialogboxComponent } from '../patient-edit-dialogbox/patient-edit-dialogbox.component';
 import { ServicePatientService } from '../../service-patient.service';
+import { interval, Observable } from 'rxjs';
+
 
 
 export interface patientObj{
@@ -21,7 +23,8 @@ export interface patientObj{
   templateUrl: './patient-profile-content.component.html',
   styleUrls: ['./patient-profile-content.component.css']
 })
-export class PatientProfileContentComponent {
+export class PatientProfileContentComponent implements OnInit{
+   @Input() patient: Observable<any>;
 
   constructor(private router:Router, public dialog: MatDialog,private service:ServicePatientService)
   {
@@ -57,15 +60,25 @@ export class PatientProfileContentComponent {
   }
   patientData: patientObj;
 
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.service.getDetailsForProfile(13).subscribe(res => {
+    this.getData();
+    this.service.getRefreshRequired().subscribe(response => {
+      this.getData();
+    })
+    // console.log(this.patientData);
+  }
+  currentUser: any;
+  
+
+  getData() {
+    this.currentUser = JSON.parse(localStorage.getItem('LoggedInUserId')!);
+    console.log(this.currentUser);
+     this.service.getDetailsForProfile(this.currentUser).subscribe(res => {
       this.patientData = res;
     });
-
-    
-    // console.log(this.patientData);
   }
   
 }
