@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface patientObj {
   email: string;
@@ -24,7 +25,18 @@ export interface getPatientObj {
   password: string;
   gender: string;
   address: string;
+  }
+  
+  export interface items{
+  id:number;
+  reason:string;
+  date:string;
+  acceptance:number;
+  //physicianEmail:string;
+  submissionDate:string;
+
 }
+
 
 export interface loginDetails {
   Email: string;
@@ -36,32 +48,9 @@ export interface loginDetails {
 })
 export class ServicePatientService {
   constructor(private http: HttpClient) {}
-
+  
+  
   // VARIABLE DECLARATIONS
-  patientDet: patientObj = {
-    email: '',
-    title: '',
-    firstName: '',
-    lastName: '',
-    dob: '',
-    contactNumber: '',
-    password: '',
-    gender: '',
-    address: '',
-  };
-
-  updatedPatient: getPatientObj = {
-    Id: 0,
-    email: '',
-    title: '',
-    firstName: '',
-    lastName: '',
-    dob: '',
-    contactNumber: '',
-    password: '',
-    gender: '',
-    address: '',
-  };
 
   currentUser: any;
   patientData: patientObj;
@@ -141,15 +130,26 @@ export class ServicePatientService {
           this._refreshRequired.next();
         })
       );
-  }
-
+ 
   //LOGIN
   tryLogin(details: any) {
     this.email = details.Email;
     this.password = details.password;
-
+    
     return this.http.get<number>(
       this.rootURL + '/patientLogin/' + this.email + '/' + this.password
     );
   }
+  
+   public getData():Observable<any>
+  {
+    return this.http.get("https://localhost:7267/api/Appointment/GetMedicalHistory?patientid=6");
+  }
+
 }
+
+
+ 
+
+
+
