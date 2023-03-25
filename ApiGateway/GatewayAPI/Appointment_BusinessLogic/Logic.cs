@@ -82,5 +82,10 @@ namespace BusinessLogic
 
             return apmt;
         }
+
+        public IEnumerable<Models.Appointment> GetAppointmentsbyDateDocEmailAndAcceptance(int acceptanceNo, string date, string docEmail)
+        {
+            return Mapper.Map(aprepo.GetByDateAcceptanceDoctor(acceptanceNo, date, docEmail));
+        }
     }
 }

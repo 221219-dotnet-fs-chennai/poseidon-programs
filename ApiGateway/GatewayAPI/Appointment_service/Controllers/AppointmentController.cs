@@ -128,5 +128,21 @@ namespace AppointmentsApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpGet("GetByDateAcceptanceNoDoctorEmail")]
+        public IActionResult GetByDateandDocEmail(int AcceptanceId, string Date, string DoctorEmail)
+        {
+            try
+            {
+                var value = logic.GetAppointmentsbyDateDocEmailAndAcceptance(AcceptanceId, Date, DoctorEmail);
+                return Ok(value);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
     }
 }

@@ -353,6 +353,19 @@
             ]
         },
 
+        {
+            "UpstreamPathTemplate": "/poseidonhc/GetByDateAcceptanceNoDoctorEmail",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamPathTemplate": "/api/Appointment/GetByDateAcceptanceNoDoctorEmail",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7267
+                }
+            ]
+        },
+
         // physician availability
         {
             "UpstreamPathTemplate": "/poseidonhc/AddPhysicianAvailable",

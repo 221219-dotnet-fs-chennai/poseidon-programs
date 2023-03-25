@@ -57,5 +57,16 @@ namespace FluentApi
             context.SaveChanges();
             return ap;
         }
+
+        public List<Entities.Appointment> GetByDateAcceptanceDoctor(int acceptanceNo, string date, string docEmail)
+        {
+            {
+                return context.Appointments.Where(x => x.Acceptance == acceptanceNo &&
+                x.Date == date &&
+                x.PhysicianEmail == docEmail)
+                    .ToList();
+
+            }
+        }
     }
 }

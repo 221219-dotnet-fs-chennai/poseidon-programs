@@ -16,6 +16,8 @@ namespace FluentApi
         T Update(T t);
         List<T> GetByDoctorMailAcceptance(int i, string email);
         public Entities.Appointment UpdateById(Entities.Appointment ap);
+        public List<Entities.Appointment> GetByDateAcceptanceDoctor(int acceptanceNo, string date, string docEmail);
+
 
 
     }
