@@ -8,6 +8,7 @@ import { Appointments } from './appointments';
   providedIn: 'root'
 })
 export class DoctorService {
+  Doctor_name:any;
   appointment_num:number;
 
   constructor(private http:HttpClient) { }
@@ -40,6 +41,14 @@ export class DoctorService {
     const url = `${this.urlAppointment}/updatebyAppointMentNo/${id}/${Acceptance}`;
     return this.http.put<any>(url,null);
     
+  }
+
+  // https://localhost:7292/poseidonhc/GetByDateAcceptanceNoDoctorEmail?AcceptanceId=3&Date=23%2F03%2F2022&DoctorEmail=test%40gmail.com
+  public GetByAcceptanceDoctorEmailDate(AcceptanceNo:number,Date:string,DoctorEmail:string){
+    const ogDate = Date.replace("/" ,"%2F")
+    const ogDocMail = DoctorEmail.replace(/@/g,"%40")
+    const url = `${this.urlAppointment}/GetByDateAcceptanceNoDoctorEmail?AcceptanceId=${AcceptanceNo}&Date=${ogDate}&DoctorEmail=${ogDocMail}`;
+    return this.http.get<any>(url);
   }
 
 
