@@ -15,6 +15,10 @@ var patient_config = builder.Configuration.GetConnectionString("ConnectionString
 builder.Services.AddDbContext<PatientInfoDbContext>(options => options.UseSqlServer(patient_config));
 builder.Services.AddScoped<ILogic, Logic>();
 
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}));
 
 var app = builder.Build();
 
@@ -24,6 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
 

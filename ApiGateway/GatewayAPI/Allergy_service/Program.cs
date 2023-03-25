@@ -18,7 +18,8 @@ builder.Services.AddDbContext<AllergyDbContext>(options => options.UseSqlServer(
 builder.Services.AddScoped<IRepo<EntityApi.Entities.Allergy>, EntityApi.Repo>();
 builder.Services.AddScoped<ILogic, Logic>();
 
-builder.Services.AddCors(p => p.AddPolicy("cors", build =>
+
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
     build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
@@ -32,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("cors");
+app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
 

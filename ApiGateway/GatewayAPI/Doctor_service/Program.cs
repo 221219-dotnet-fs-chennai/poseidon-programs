@@ -16,10 +16,11 @@ builder.Services.AddScoped<IDoctor<Doctor.Entities.Doctor>,Doctorrepo>();
 builder.Services.AddScoped<IDoctorAv<Doctor.Entities.DoctorAvailability>, DoctorAv>();
 builder.Services.AddScoped<Mapper>();
 
-//builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
-//{
-//    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-//}));
+
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}));
 
 var app = builder.Build();
 
@@ -29,6 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
 
