@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Doctor;
+using Doctor.Entities;
+using Model;
 
 namespace Business_Logic
 {
@@ -49,6 +51,11 @@ namespace Business_Logic
                 AvailableTo = r.AvailableTo,
                 ScheduleStatus = r.ScheduleStatus,
             };
+        }
+
+        public IEnumerable<doctor_availability> Map(IEnumerable<DoctorAvailability> enumerable)
+        {
+            return enumerable.Select(Map);
         }
     }
 }

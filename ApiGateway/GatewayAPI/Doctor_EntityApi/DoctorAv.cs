@@ -53,7 +53,11 @@ namespace Doctor
             return Doct;
         }
 
-
+        public IEnumerable<DoctorAvailability> getDocByStatus(bool status)
+        {
+            var doc = _context.DoctorAvailabilities.Where(i => i.ScheduleStatus == status);
+            return doc.ToList();
+        }
 
     }
 }

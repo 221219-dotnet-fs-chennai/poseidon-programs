@@ -14,6 +14,7 @@ namespace service.Controllers
         {
             _logic = logic;
         }
+
         [HttpGet("particular/{email}")]
         public ActionResult GetAva([FromRoute] string email)
         {
@@ -31,6 +32,13 @@ namespace service.Controllers
         public ActionResult Put([FromRoute] string email, [FromBody] doctor_availability u)
         {
             var users = _logic.UpdateDoctorAv(u, email);
+            return Ok(users);
+        }
+
+        [HttpGet("getdocbyStatus/{status}")]
+        public ActionResult getdocbystat([FromRoute] bool status)
+        {
+            var users = _logic.getDocByStatus(status);
             return Ok(users);
         }
     }
