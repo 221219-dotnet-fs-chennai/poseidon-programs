@@ -45,7 +45,7 @@ export interface loginDetails {
   providedIn: 'root',
 })
 export class ServicePatientService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // VARIABLE DECLARATIONS
 

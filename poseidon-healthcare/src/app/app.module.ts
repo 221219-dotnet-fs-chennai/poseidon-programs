@@ -114,6 +114,7 @@ import { NurseShowVitalComponent } from './services/nurse/nurse_pat_medical_info
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DobToAgePipe } from './Patient/dob-to-age.pipe';
 import { DigitToValuePipe } from './Patient/Appointment_history/digit-to-value.pipe';
+import { AdminAvailableDoctorComponent } from './services/admin/admin-available-doctor/admin-available-doctor.component';
 
 
 @NgModule({
@@ -202,7 +203,8 @@ import { DigitToValuePipe } from './Patient/Appointment_history/digit-to-value.p
     DocShowVitalComponent,
     NurseShowVitalComponent,
     DobToAgePipe,
-    DigitToValuePipe
+    DigitToValuePipe,
+    AdminAvailableDoctorComponent
   ],
 
   imports: [
