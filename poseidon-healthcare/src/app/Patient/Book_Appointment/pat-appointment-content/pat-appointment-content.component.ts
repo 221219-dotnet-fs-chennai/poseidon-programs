@@ -167,7 +167,8 @@ export class PatAppointmentContentComponent implements OnInit {
       localStorage.getItem('LoggedInUserId')!
     );
     this.newAppointment.physicianEmail = email;
-    this.logAppointment();
+
+    this.service.setAppointments(this.newAppointment);
   }
 
   //CHECKING METHODS
