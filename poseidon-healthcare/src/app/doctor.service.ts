@@ -1,11 +1,62 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Appointments } from './appointments';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
+  Doctor_name:any;
+  appointment_num:number;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  urlAppointment = "https://localhost:7292/poseidonhc";
+
+  // https://localhost:7267/api/Appointment/AcceptanceAndEmail?AcceptanceNo=0&Email=string
+  // https://localhost:7267/api/Appointment/AcceptanceAndEmail/0/string
+  // https://localhost:7292/poseidonhc/AcceptanceAndEmail/0/string
+
+
+  
+  // This service is to get all the patient appointment details based on acceptance number and doctor email id.
+  public GetAppointmentsByAceptanceEmail(id:Number,email:String):Observable<any>{
+    const url = `${this.urlAppointment}/AcceptanceAndEmail/${id}/${email}`;
+    return this.http.get<any>(url);
+  }
+
+  // https://localhost:7292/poseidonhc/Get_by_ID/11
+  // This service is to get the patient detila based on their patient id.
+  public GetPatientDetailsByID(id:Number):Observable<any>{
+    const url = `${this.urlAppointment}/Get_by_ID/${id}`
+    return this.http.get<any>(url);
+  }
+
+  // https://localhost:7267/api/Appointment/updatebyAppointMentNo/4/0
+  // https://localhost:7292/poseidonhc/updatebyAppointMentNo/4/1
+
+  public PutAcceptancebyId(id:Number,Acceptance:Number):Observable<any>{
+    const url = `${this.urlAppointment}/updatebyAppointMentNo/${id}/${Acceptance}`;
+    return this.http.put<any>(url,null);
+    
+  }
+
+  // https://localhost:7292/poseidonhc/GetByDateAcceptanceNoDoctorEmail?AcceptanceId=3&Date=23%2F03%2F2022&DoctorEmail=test%40gmail.com
+  public GetByAcceptanceDoctorEmailDate(AcceptanceNo:number,Date:string,DoctorEmail:string){
+    const ogDate = Date.replace("/" ,"%2F")
+    const ogDocMail = DoctorEmail.replace(/@/g,"%40")
+    const url = `${this.urlAppointment}/GetByDateAcceptanceNoDoctorEmail?AcceptanceId=${AcceptanceNo}&Date=${ogDate}&DoctorEmail=${ogDocMail}`;
+    return this.http.get<any>(url);
+  }
+
+
+ 
+  
+  
+
+
 
   Patient_Details: any[] = [
     {position:1,name:'Abdul',age:'17-Mar-2023',gender:'Arthritis is a common condition that causes pain and inflammation in a joint.',diagnosis:'Flu (influenza) is a common infectious viral illness spread by coughs and sneezes. It can be very unpleasant, but you ll usually begin to feel better within about a week.'},

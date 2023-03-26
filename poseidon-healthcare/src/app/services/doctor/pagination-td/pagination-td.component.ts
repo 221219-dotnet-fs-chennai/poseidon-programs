@@ -1,14 +1,13 @@
-import { Component, Output, ViewChild } from '@angular/core';
+import { Component, inject, Output, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DoctorService } from 'src/app/doctor.service';
 import {MatDialog} from '@angular/material/dialog';
-
-
-
-
+import { Appointments } from 'src/app/appointments';
+import { Route, Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-pagination-td',
   templateUrl: './pagination-td.component.html',
@@ -17,29 +16,67 @@ import {MatDialog} from '@angular/material/dialog';
 
 
 export class PaginationTdComponent {
-  constructor(public doc:DoctorService,public dialog: MatDialog){}
-
-  // dialogStatus:any = this.dd.dialogStatus;
-
-  // ngOnChanges(){
-  //   if(this.dialogStatus === true){
-  //     this.dialog.closeAll();
-  //   }
-  // }
+  constructor(public router:Router,public doc:DoctorService,public dialog: MatDialog , public myauth:AuthService){}
+  appointments = new Array<Appointments>();
+  dataSource:any;
 
 
-  displayedColumns: string[] = ['Index', 'Name', 'Age', 'Gender','button1','button2'];
-  dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
+
+ 
+
+  displayedColumns: string[] = ['Index', 'Name', 'Age', 'date','Gender','button1','button2'];
+  patient_names = new Map();
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+ 
 
-  onAcceptHandler(){
+  
+
+    ngOnInit():void{
+      console.log(this.doc.Doctor_name);
+      this.doc.GetAppointmentsByAceptanceEmail(0,this.doc.Doctor_name).subscribe(Response =>{
+        this.appointments = Response;
+        console.log(Response);
+        console.log(this.appointments);
+        // for (const key in data) {
+        //   console.log(key, data[key]);
+        // }
+        for(const key in this.appointments){
+          console.log(key,this.appointments[key].patientId)
+          // this.patient_names.set(key,this.doc.GetPatientDetailsByID())
+          this.doc.GetPatientDetailsByID(this.appointments[key].patientId).subscribe(response =>{
+            this.patient_names.set(this.appointments[key].patientId,response.firstName)
+          })
+}
+        
+        // const index = Array.from(Array(this.appointments.length).keys()).map(x => x + 1);
+        
+        this.dataSource = new MatTableDataSource<any>(this.appointments);
+        
+        this.dataSource.paginator = this.paginator;})
+        // this.getPatByID(11);
+
+      
+}
+
+getPatByID(id:Number){
+  const name = this.doc.GetPatientDetailsByID(id).subscribe(async Response =>{return await Response.firstName;})
+  console.log(name);
+  return  name
+
+}
+    // ngAfterViewInit() {
+    //   this.dataSource.paginator = this.paginator;
+    // }
+
+  onAcceptHandler(i:any){
     // alert("wow");
+    console.log(i);
     this.dialog.open(DialogElementsExampleDialog);
+    this.doc.appointment_num = i;
+  
 
   }
 
@@ -47,8 +84,9 @@ export class PaginationTdComponent {
   //   this.dialog.closeAll();
   // }
 
-  onRejectHandler(){
+  onRejectHandler(i:number){
     this.dialog.open(DialogElementsForReject);
+    this.doc.appointment_num = i;
 
   }
 
@@ -105,15 +143,28 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class DialogElementsExampleDialog {
   dialogStatus:any=false;
 
-  constructor(public dialog: MatDialog){}
+  constructor(public router:Router,public dialog: MatDialog,public doc:DoctorService){}
 
   closeHandler(){
     this.dialog.closeAll();
   }
 
   acceptHandler(){
-    console.log('Appointment Accepted');
+    console.log('Appointment Accepted',this.doc.appointment_num);
+    this.doc.PutAcceptancebyId(this.doc.appointment_num,1).subscribe(response =>{
+      alert(response+"accepted");
+      console.log(response);
+
+      this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/doctdapp']);
+    }); 
+
+    })
+  //   this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(['Your actualComponent']);
+  // }); 
     this.dialog.closeAll();
+    
 
   }
 }
@@ -138,14 +189,23 @@ export class DialogElementsExampleDialog {
 export class DialogElementsForReject {
   dialogStatus:any=false;
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog,public router:Router,public doc:DoctorService){}
 
   closeHandler(){
     this.dialog.closeAll();
   }
 
   acceptHandler(){
-    console.log('Appointment Rejected');
+    console.log('Appointment Rejected',this.doc.appointment_num);
+    this.doc.PutAcceptancebyId(this.doc.appointment_num,4).subscribe(response =>{
+      alert(response+"accepted");
+      console.log(response);
+
+      this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/doctdapp']);
+    }); 
+
+    })
     this.dialog.closeAll();
 
   }
