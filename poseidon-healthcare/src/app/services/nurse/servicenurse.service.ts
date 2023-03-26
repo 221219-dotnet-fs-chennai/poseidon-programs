@@ -26,10 +26,10 @@ export class ServicenurseService {
     })  
   }
   postData(bp:number,rr:number,temp:number,height:number,weight:number,notes:string):Observable<any>{
-    this.http.get("https://localhost:7267/api/Appointment").subscribe(data=>{});
+  
     return this.http.post("https://localhost:7102/api/VisitDetails/AddVisitDetails",
     {
-      "patientId": 4,
+      "patientId": this.myData.patientId,
       "height": height,
       "weight": weight,
       "bloodPressureSystolic": bp,
@@ -38,8 +38,8 @@ export class ServicenurseService {
       "respirationRate": rr,
       "bloodGroup": "string",
       "nurseEmail": "string",
-      "physicianEmail": "string",
-      "appointmentId": 1,
+      "physicianEmail": this.myData.physicianEmail,
+      "appointmentId": this.myData.id,
       "keyNotes": notes
     })
   }
@@ -47,4 +47,19 @@ export class ServicenurseService {
   {
     return this.http.get("https://localhost:7267/api/Appointment",{headers:this.httpOptions.headers});
   }
+  public serviceUrl="https://localhost:7267/api/Appointment";
+  // `${this.serviceUrl}/${data.patientId}`,
+  public update(data:any):Observable<any>{
+      return this.http.put("https://localhost:7267/api/Appointment/22", {
+        
+        "reason": "string",
+        "date": "string",
+        "acceptance": 2,
+        "patientId": 22,
+        "physicianEmail": "string",
+        "submissionDate": "string"
+      })
+  }
+
+  public myData:any;
 }
