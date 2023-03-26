@@ -19,7 +19,7 @@ export class NurseAppointmentContentComponent implements OnInit {
   currentDate = new Date();
   constructor(private dialog: MatDialog, private router: Router ,private service:ServicenurseService) 
   {
-    this.fetechappointment();
+   
   }
   infoDialog(element:any) {
     const dRef = this.dialog.open(NurseVitalContentComponent, {
@@ -30,11 +30,6 @@ export class NurseAppointmentContentComponent implements OnInit {
     });
     this.service.myData=element;
     dRef.afterClosed().subscribe(result => {
-      // if(this.service.myData.acceptance!=1){
-        // this.fetechappointment();
-         
-
-      // }
       console.log(`result is ${result}`)
     })
   }
@@ -51,7 +46,7 @@ export class NurseAppointmentContentComponent implements OnInit {
   {
 
 
-    // this.fetechappointment();
+    this.fetechappointment();
  
   }
 
