@@ -45,9 +45,14 @@ h1 {
     transform: translateY(50px);
 }
 
-h4 {
+h3 {
+    margin-top: 5%;
+    margin-left: 4%;
+    color: #444343;
+    font-family: 'montserrat';
     font-weight: bold;
-    margin-left: 50px;
+    /* text-align: center; */
+    font-size: xx-large;
 }
 
 .date-box {
@@ -81,16 +86,6 @@ h4 {
 
 }
 
-.info-btn {
-    cursor: pointer;
-    width: auto;
-    padding: 10px 10px 10px 10px;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    color: #444343;
-    background-color: #6DF5D4;
-}
 
 .new-btn {
     cursor: pointer;
@@ -105,6 +100,16 @@ h4 {
     margin: 50px;
 }
 
+.info-btn {
+    cursor: pointer;
+    width: auto;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #444343;
+    background-color: #6DF5D4;
+}
 .del-btn {
     color: #FFFF;
     background-color: #444343;

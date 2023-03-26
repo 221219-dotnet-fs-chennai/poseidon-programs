@@ -34,7 +34,7 @@ import { DocViewMedicalHistoryComponent } from './services/doctor/MedicalHistory
 import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/admin-patient-info.component';
 import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
 import { NursePatHomeComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-home/nurse-pat-home.component';
-
+import { AdminAvailableDoctorComponent } from './services/admin/admin-available-doctor/admin-available-doctor.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -65,7 +65,8 @@ const routes: Routes = [
   { path: 'doc/patient_medicalHistory', component: DocViewMedicalHistoryComponent },
   { path: 'admin_patient_info', component: AdminPatientInfoComponent },
   { path: 'admin_add_doc', component: AdminAddDoctorComponent },
-  { path: 'nurse-pat-info', component: NursePatHomeComponent }
+  { path: 'nurse-pat-info', component: NursePatHomeComponent },
+  { path: 'admin-available-doc', component: AdminAvailableDoctorComponent }
 
 ]
 

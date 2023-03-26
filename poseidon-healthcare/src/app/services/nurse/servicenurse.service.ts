@@ -45,6 +45,6 @@ export class ServicenurseService {
   }
   public getData():Observable<any>
   {
-    return this.http.get("https://localhost:7267/api/Appointment",{headers:this.httpOptions.headers});
+    return this.http.get("https://localhost:7292/poseidonhc/Get_all_appointment",{headers:this.httpOptions.headers});
   }
 }

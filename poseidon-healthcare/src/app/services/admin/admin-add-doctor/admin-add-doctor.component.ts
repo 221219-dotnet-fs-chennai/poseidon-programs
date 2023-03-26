@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
+import { AdminServiceService } from '../admin-service.service';
+import { pipe, catchError, throwError } from 'rxjs';
+
 
 const moment = _rollupMoment || _moment;
 
@@ -36,19 +37,30 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
-export class AdminAddDoctorComponent {
-
+export class AdminAddDoctorComponent {  
+  
   date = new FormControl(moment());
-
-  constructor(private router: Router) {
+  
+  constructor(private router: Router, private adminservice: AdminServiceService) {
   }
   
   onSubmit(f: NgForm) {
-    console.log(f);
-    alert("Doctor details added successfully");
+    this.adminservice.addDoctors(f).pipe(
+      catchError(error => {
+        const statusCode = error.status;
+        console.log("failed");
+        return throwError(error);
+      })).subscribe(response => {
+        console.log(response);
+        console.log("Added successfully");
+      })
+      console.log(f);
+      alert("Doctor added successfully");
+      this.router.navigate(['adminhome'])
   }
 
   getValue(f: any) {
+    console.log(f.name);
   }
 
   to_admin() {

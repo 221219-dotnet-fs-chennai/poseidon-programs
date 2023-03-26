@@ -13,12 +13,10 @@ import { Patient_Info, AdminServiceService } from '../admin-service.service';
 })
 export class AdminPatientInfoComponent implements OnInit {
   
-  inedx: number = 0;
   patients!: Patient_Info[];
 
   constructor(private router: Router, private adminservice: AdminServiceService)
   {}
-
 
   ngOnInit() {
     this.fetchPatients();
@@ -31,7 +29,8 @@ export class AdminPatientInfoComponent implements OnInit {
     this.adminservice.getallPatients().subscribe(data => 
       {
         this.patients = data;
-
+        console.log(data);
+        
         this.dataSource = new MatTableDataSource(this.patients);
         this.dataSource.paginator = this.paginator;
       })
