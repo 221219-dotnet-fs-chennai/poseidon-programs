@@ -26,7 +26,6 @@ export class NurseVitalContentComponent implements OnInit {
         this.vitalsService.myData.acceptance=2;
         this.vitalsService.update(this.vitalsService.myData).subscribe(data=>console.log(data));
         window.location.reload();
-        // this.router.navigate(['nurse_appointment']);
         console.log(this.vitalsService.myData);
       }
     })
