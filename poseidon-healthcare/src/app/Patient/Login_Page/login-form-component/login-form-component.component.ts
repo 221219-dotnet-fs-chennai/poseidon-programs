@@ -38,7 +38,13 @@ export class LoginFormComponentComponent {
 
         // This is where you can handle the successful response
         console.log('success');
-        this.router.navigate(['patient_profile']);
+        if (response != 0) {
+          alert('Login Succeeded');
+          this.router.navigate(['patient_profile']);
+        } else {
+          alert('Login Failed');
+          this.router.navigate(['login_page']);
+        }
       });
   }
 
