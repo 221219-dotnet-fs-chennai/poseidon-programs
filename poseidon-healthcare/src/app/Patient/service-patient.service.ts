@@ -55,6 +55,40 @@ export interface reason {
   reason: string;
 }
 
+export interface test {
+  id: number;
+  visitDetailsId: number;
+  testName: string;
+  result: string;
+  notes: string;
+}
+
+export interface vitals {
+  [x: string]: any;
+  bp: string;
+  temp: string;
+  ht: string;
+  wt: string;
+  spo2: string;
+  allergies: string;
+}
+
+export interface visitDetail {
+  id: number;
+  patientId: number;
+  height: number;
+  weight: number;
+  bloodPressureSystolic: number;
+  bloodPressureDiastolic: number;
+  bodyTemperature: number;
+  respirationRate: number;
+  bloodGroup: string;
+  nurseEmail: string;
+  physicianEmail: string;
+  appointmentId: number;
+  keyNotes: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -67,6 +101,10 @@ export class ServicePatientService {
   patientData: patientObj;
   email: string;
   password: string;
+  testList: any = [];
+  tList: any = [];
+  newVitals: any;
+  newAllergy: any;
 
   patientDet: patientObj = {
     email: '',
@@ -101,6 +139,15 @@ export class ServicePatientService {
     submissionDate: '',
   };
 
+  currentVitals: vitals = {
+    bp: '',
+    temp: '',
+    ht: '',
+    wt: '',
+    spo2: '',
+    allergies: '',
+  };
+
   // FOR AUTO REFRESH OF VIEW AFTER DB UPDATE
   private _refreshRequired = new Subject<void>();
 
@@ -109,9 +156,10 @@ export class ServicePatientService {
   }
 
   //RootURLS
-  rootURL = 'https://localhost:7102/api/Patient';
+  rootURL = 'https://localhost:7102/api';
   appointmentRootUrl = 'https://localhost:7267/api/Appointment/';
   physicianAvaRootUrl = 'https://localhost:7140/api/PhysicianAvailability/';
+  AllergyRootUrl = 'https://localhost:7182/api';
 
   //NEW PATIENT REGISTRATION
   addPatient(patient: any) {
@@ -129,7 +177,7 @@ export class ServicePatientService {
     const body = JSON.stringify(this.patientDet);
     console.log(body);
     return this.http
-      .post(this.rootURL + '/Add_Patient', body, { headers: headers })
+      .post(this.rootURL + '/Patient/Add_Patient', body, { headers: headers })
       .pipe(
         tap(() => {
           this._refreshRequired.next();
@@ -139,7 +187,7 @@ export class ServicePatientService {
 
   //DETAILS FOR PROFILE PAGE AFTER LOGIN
   getDetailsForProfile(id: number) {
-    return this.http.get<patientObj>(this.rootURL + '/Get_by_ID/' + id);
+    return this.http.get<patientObj>(this.rootURL + '/Patient/Get_by_ID/' + id);
   }
 
   //UPDATE USER DETAILS
@@ -173,7 +221,9 @@ export class ServicePatientService {
 
     console.log(body);
     return this.http
-      .put(this.rootURL + '/Update_Patient/' + id, body, { headers: headers })
+      .put(this.rootURL + '/Patient/Update_Patient/' + id, body, {
+        headers: headers,
+      })
       .pipe(
         tap(() => {
           this._refreshRequired.next();
@@ -186,7 +236,7 @@ export class ServicePatientService {
     this.password = details.password;
 
     return this.http.get<number>(
-      this.rootURL + '/patientLogin/' + this.email + '/' + this.password
+      this.rootURL + '/Patient/patientLogin/' + this.email + '/' + this.password
     );
   }
 
@@ -215,5 +265,31 @@ export class ServicePatientService {
     return this.http.post(this.appointmentRootUrl + 'Add_appointment', body, {
       headers: headers,
     });
+  }
+
+  public getMedicalHistory() {
+    var currentUserId = JSON.parse(localStorage.getItem('LoggedInUserId')!);
+    return this.http.get(
+      this.rootURL + '/VisitDetails/GetVisitDetailsById/' + currentUserId
+    );
+  }
+
+  public getTestForAVisit(id: number) {
+    return this.http.get(this.rootURL + '/Test/GetTestListbyid/' + id);
+  }
+
+  public getPrescription(id: number) {
+    return this.http.get(
+      this.rootURL + '/Prescription/GetPrescriptionById/' + id
+    );
+  }
+
+  public getVitals(id: number) {
+    return this.http.get<visitDetail>(
+      this.rootURL + '/VisitDetails/GetParticularVisitDetailsById/' + id
+    );
+  }
+  public getAllergies(id: number) {
+    return this.http.get(this.AllergyRootUrl + '/Allergy/Fetch/' + id);
   }
 }
