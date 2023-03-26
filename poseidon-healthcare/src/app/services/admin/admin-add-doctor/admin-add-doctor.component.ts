@@ -45,6 +45,7 @@ export class AdminAddDoctorComponent {
   
   onSubmit(f: NgForm) {
     console.log(f);
+    alert("Doctor details added successfully");
   }
 
   getValue(f: any) {

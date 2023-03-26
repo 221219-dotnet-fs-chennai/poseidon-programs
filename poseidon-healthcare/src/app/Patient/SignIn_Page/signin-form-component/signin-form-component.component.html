@@ -67,8 +67,10 @@
                     <mat-grid-tile>
                             <mat-form-field appearance="outline">
                                 <mat-label>Date of Birth</mat-label>
-                                <input type="date" name="dob" matInput ngModel #dob='ngModel' (change)="getValue(dob)" required >
+                                <input  name="dob" matInput [matDatepicker]="topicker"  ngModel #dob='ngModel' (change)="getValue(dob)" required >
                                 <mat-error *ngIf="dob.touched && (dob.invalid||dob.errors?.pattern)">Dob required</mat-error>
+                                <mat-datepicker-toggle matIconSuffix [for]="topicker"></mat-datepicker-toggle>
+                                <mat-datepicker #topicker></mat-datepicker>
                             </mat-form-field>
                     </mat-grid-tile>
                 
@@ -86,7 +88,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Address</mat-label>
-                    <input type="text" name="address" matInput ngModel #Address='ngModel' readonly="readonly" (change)="getValue(Address)" required pattern="\w{3,50}">
+                    <input type="text" name="address" matInput ngModel #Address='ngModel' (change)="getValue(Address)" required pattern="\w{3,50}">
                 </mat-form-field>
             
                 <button mat-button disabled class="signin-button"
