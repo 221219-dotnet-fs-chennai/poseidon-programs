@@ -15,5 +15,8 @@ namespace Business_Logic
         public Model.doctor_availability ADD(Model.doctor_availability DoctorAv);
         public Model.doctor_availability GetDoctrAv(string email);
         public Model.doctor_availability UpdateDoctorAv(Model.doctor_availability UpDoct,string email);
+
+        public IEnumerable<Model.doctor_availability> getDocByStatus(bool status);
+
     }
 }

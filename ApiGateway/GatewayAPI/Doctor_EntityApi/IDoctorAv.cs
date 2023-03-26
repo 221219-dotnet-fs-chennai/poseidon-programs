@@ -13,5 +13,7 @@ namespace Doctor
         public Doctor.Entities.DoctorAvailability GetDoctor(string email);
         T UpdateDocT(string email, T Doct);
 
+        IEnumerable<T> getDocByStatus(bool status);
+
     }
 }

@@ -53,13 +53,17 @@ namespace Business_Logic
         {
             return _mapper.Map(_doctorava.AddDoctor(_mapper.Map(DoctorAv)));
         }
-
-
         //update
         public doctor_availability UpdateDoctorAv(doctor_availability UpDoct, string email)
         {
             return _mapper.Map(_doctorava.UpdateDocT(email, _mapper.Map(UpDoct)));
         }
+
+        public IEnumerable<Model.doctor_availability> getDocByStatus(bool status)
+        {
+            return _mapper.Map(_doctorava.getDocByStatus(status));
+        }
+
 
     }
 }
