@@ -2,7 +2,6 @@ import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 import { AuthorizationService } from 'src/app/authorization.service';
-
 @Component({
   selector: 'app-login-logout',
   templateUrl: './login-logout.component.html',

@@ -7,7 +7,7 @@ import { DoctorService } from 'src/app/doctor.service';
 import {MatDialog} from '@angular/material/dialog';
 import { Appointments } from 'src/app/appointments';
 import { Route, Router } from '@angular/router';
-
+import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-pagination-td',
   templateUrl: './pagination-td.component.html',
@@ -16,7 +16,7 @@ import { Route, Router } from '@angular/router';
 
 
 export class PaginationTdComponent {
-  constructor(public router:Router,public doc:DoctorService,public dialog: MatDialog){}
+  constructor(public router:Router,public doc:DoctorService,public dialog: MatDialog , public myauth:AuthService){}
   appointments = new Array<Appointments>();
   dataSource:any;
 
@@ -24,7 +24,7 @@ export class PaginationTdComponent {
 
  
 
-  displayedColumns: string[] = ['Index', 'Name', 'Age', 'Gender','button1','button2'];
+  displayedColumns: string[] = ['Index', 'Name', 'Age', 'date','Gender','button1','button2'];
   patient_names = new Map();
 
 
@@ -35,7 +35,8 @@ export class PaginationTdComponent {
   
 
     ngOnInit():void{
-      this.doc.GetAppointmentsByAceptanceEmail(0,'string').subscribe(Response =>{
+      console.log(this.doc.Doctor_name);
+      this.doc.GetAppointmentsByAceptanceEmail(0,this.doc.Doctor_name).subscribe(Response =>{
         this.appointments = Response;
         console.log(Response);
         console.log(this.appointments);
@@ -196,7 +197,7 @@ export class DialogElementsForReject {
 
   acceptHandler(){
     console.log('Appointment Rejected',this.doc.appointment_num);
-    this.doc.PutAcceptancebyId(this.doc.appointment_num,2).subscribe(response =>{
+    this.doc.PutAcceptancebyId(this.doc.appointment_num,4).subscribe(response =>{
       alert(response+"accepted");
       console.log(response);
 

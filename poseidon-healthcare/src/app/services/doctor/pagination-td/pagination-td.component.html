@@ -27,6 +27,11 @@
       <td mat-cell *matCellDef="let element"> {{element.submissionDate}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="Gender">
       <th mat-header-cell *matHeaderCellDef> Notes </th>

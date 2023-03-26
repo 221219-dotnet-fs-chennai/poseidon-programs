@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
 import { AuthorizationService } from './authorization.service';
+import { DoctorService } from './doctor.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,10 @@ export class AppComponent {
   ext:any;
 
   // constructor(private route:Router){}
-  constructor(public auth : AuthService,private route:Router,public myauth:AuthorizationService){
+  constructor(public auth : AuthService,private route:Router,public myauth:AuthorizationService,public doc:DoctorService){
     this.auth.user$.subscribe((profile) => {
+      this.doc.Doctor_name = profile?.email;
+
       console.log(profile?.email?.split('@')[1]);
       this.ext = profile?.email?.split('@')[1]
       myauth.AuthorizeFunc(this.ext);
