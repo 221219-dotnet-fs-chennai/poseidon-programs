@@ -19,6 +19,7 @@ namespace Bussiness_Logic
         //visitdetails
         public Visit_Details_M AddVisitDetails(Visit_Details_M visit_Details_M);
         public List<Visit_Details_M> GetVisitDetailsById(int id);
+        public Visit_Details_M GetParticularVisitById(int id);
 
         //prescription
         public Prescription_M AddPrescription(Prescription_M prescription_M);

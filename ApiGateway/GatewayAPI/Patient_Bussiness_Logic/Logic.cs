@@ -86,6 +86,11 @@ namespace Bussiness_Logic
             return vii;
         }
 
+        public Visit_Details_M GetParticularVisitById(int id)
+        {
+            return map.mapVisitDetailEM(repo.GetPaticularVisitById(id));
+        }
+
         //Prescription
 
         public Prescription_M AddPrescription(Prescription_M prescription_M)
