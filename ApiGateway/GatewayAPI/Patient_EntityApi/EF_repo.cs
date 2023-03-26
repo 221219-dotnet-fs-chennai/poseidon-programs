@@ -125,6 +125,16 @@ namespace EF_Layer
 
         }
 
+        public VisitDetail GetPaticularVisitById(int id)
+        {
+
+            var visitDetails = context.VisitDetails.FirstOrDefault(x => x.Id == id);
+
+            return visitDetails;
+            
+        }
+
+
         //Prescription
         public Prescription AddPrescription(Prescription prescription)
         {

@@ -21,6 +21,7 @@ namespace EF_Layer
 
         VisitDetail AddVisitDetails(VisitDetail visitDetail);
         public List<VisitDetail> GetVisitById(int id);
+        public VisitDetail GetPaticularVisitById(int id);
 
 
         //for prescription
