@@ -3,8 +3,8 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angula
 import { ServicePatientService } from '../../service-patient.service';
 import { pipe, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
@@ -36,32 +36,33 @@ export const MY_FORMATS = {
 
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
-  
+
 })
 export class SigninFormComponentComponent {
 
   constructor(private service: ServicePatientService, private router: Router) { }
+
   date = new FormControl(moment());
-  
+
   onSubmit(f: NgForm) {
     this.service.addPatient(f).pipe(
-  catchError(error => {
-    const statusCode = error.status;
-    console.log("failed");
-    return throwError(error);
-  })
-)
+      catchError(error => {
+        const statusCode = error.status;
+        console.log("failed");
+        return throwError(error);
+      })
+    )
       .subscribe(response => {
-        
-  // This is where you can handle the successful response
-  console.log("success");
-  this.router.navigate(['patient_profile']);
-});
+
+        // This is where you can handle the successful response
+        console.log("success");
+        this.router.navigate(['patient_profile']);
+      });
 
     console.log(f);
   }
 
-  getValue(f:any) {
+  getValue(f: any) {
     console.log(f);
   }
 }
