@@ -4,20 +4,18 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { getAvailableDoc, getDocbyEmail, AdminServiceService } from '../admin-service.service';
 import { NewAvailabilityComponent } from '../new-availability/new-availability.component';
 
-
-export interface PeriodicElement {
-  name: string;
-  id: number;
-  from: string;
-  till: string;
+export interface showDocs{
+  email: string,
+  name: string,
+  dept: string,
+  availableFrom: string,
+  availableTo: string,  
+  doctorEmail: string,
+  scheduleStatus: boolean
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { id: 1, name: 'Cyrus', from: '12-12-2022', till: '1-01-2023' },
-
-];
 
 @Component({
   selector: 'app-admin-schedule',
@@ -25,11 +23,45 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./admin-schedule.component.css']
 })
 export class AdminScheduleComponent implements OnInit {
-  displayedColumns: string[] = ['ID', 'Doctor Name', 'Available From', 'Available Till', 'info'];
-  
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private dialog: MatDialog, private router: Router) { }
+  scheduledDocs!: getAvailableDoc[];
+
+  scheduled_doctors: getDocbyEmail[] = [];
+
+  showdocs: showDocs[] = [];
+
+  constructor(private dialog: MatDialog, private router: Router, private adminservice: AdminServiceService) { }
+
+  ngOnInit() {
+    this.getScheduledDoctors();
+  }
+
+  dataSource: any;
+
+  getScheduledDoctors() {
+    this.adminservice.getAvailableDoctorbyStatus().subscribe(data => {
+      this.scheduledDocs = data;
+
+      this.scheduledDocs.forEach(element => {
+        this.adminservice.getDoctorsbyEmail(element.doctorEmail).subscribe(response => {
+          this.scheduled_doctors.push(response);
+
+          const combinedObj: showDocs[] = this.scheduledDocs.map(doc => {
+            const doc2 = this.scheduled_doctors.find(doc2 => doc2.email === doc.doctorEmail);
+            return {...doc, ...doc2};
+          })
+          this.dataSource = new MatTableDataSource(combinedObj);
+          this.dataSource.paginator = this.paginator;
+        })
+      })
+    })
+  }
+
+  displayedColumns: string[] = ['ID', 'Doctor Name', 'Doctor Email', 'Specilization', 'Available From', 'Available Till', 'info'];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   infoDialogs() {
     const dRef = this.dialog.open(NewAvailabilityComponent, {
       width: '500px',
@@ -40,16 +72,7 @@ export class AdminScheduleComponent implements OnInit {
     });
   }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  ngOnInit() {
-    this.dataSource.sort = this.sort;
-  }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-  to_admin()
-  {
+  to_admin() {
     this.router.navigate(['adminhome'])
   }
 }

@@ -26,7 +26,6 @@ export class AdminAvailableDoctorComponent implements OnInit {
   }
 
   dataSource: any;
-  // dataSource2: any;
 
   getAvailableDoctors() {
     this.adminservice.getAvailableDoctor().subscribe(data => {
@@ -57,9 +56,6 @@ export class AdminAvailableDoctorComponent implements OnInit {
       width: '500px',
       data: { docemail: email }
     });
-    // dRef.afterClosed().subscribe(result => {
-    //   console.log(`result is ${result}`)
-    // });
   }
 
   to_admin() {
