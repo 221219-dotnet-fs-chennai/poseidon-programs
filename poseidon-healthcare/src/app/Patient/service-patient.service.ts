@@ -93,7 +93,7 @@ export interface visitDetail {
   providedIn: 'root',
 })
 export class ServicePatientService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // VARIABLE DECLARATIONS
 

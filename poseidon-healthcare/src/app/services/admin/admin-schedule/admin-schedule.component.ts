@@ -26,7 +26,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AdminScheduleComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Doctor Name', 'Available From', 'Available Till', 'info'];
+  
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+
   constructor(private dialog: MatDialog, private router: Router) { }
   infoDialogs() {
     const dRef = this.dialog.open(NewAvailabilityComponent, {

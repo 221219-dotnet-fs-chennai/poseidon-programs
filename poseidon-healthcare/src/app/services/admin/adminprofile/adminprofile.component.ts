@@ -14,6 +14,11 @@ export class AdminprofileComponent {
     this.router.navigate(['admin_schedule'])
   }
 
+  to_avail_doc()
+  {
+    this.router.navigate(['admin-available-doc'])
+  }
+
   to_admin_home()
   {
     this.router.navigate(['admin_patient_info'])
