@@ -13,6 +13,7 @@ import { ServicenurseService } from '../servicenurse.service';
 export class NurseVitalContentComponent implements OnInit {
 
   constructor(private vitalsService:ServicenurseService,private dialogRef:MatDialogRef<NurseVitalContentComponent>,private router: Router){}
+  doctorName:any;
   allergies:any;
   allergyList: string[] = ['Skin Allergy', 'Dust Allergy', 'Insect Allergy', 'Pet Allergy', 'Food Allergy'];
   
@@ -29,14 +30,17 @@ export class NurseVitalContentComponent implements OnInit {
         console.log(this.vitalsService.myData);
       }
     })
-  
+  alert("data added successfully");
     this.dialogRef.close();
   }
   close(){
         this.dialogRef.close();
   }
   ngOnInit(): void {
-    
+    this.vitalsService.getDoctorData(this.vitalsService.myData.physicianEmail).subscribe((data)=>
+    {
+      this.doctorName=data.name;
+    })
   }
   
   allergyChange(val:any){

@@ -61,5 +61,20 @@ export class ServicenurseService {
       })
   }
 
+  public getPatientData(data:any):Observable<any>{
+    
+    return this.http.get(`https://localhost:7292/poseidonhc/Get_by_ID/${data}`,{headers:this.httpOptions.headers});
+  }
+  public getDoctorData(data:any):Observable<any>{
+    return this.http.get(`https://localhost:7292/poseidonhc/Get_particular_doctor/${data}`,{headers:this.httpOptions.headers});
+
+  }
+
+  public getMedicalHistory(data:any):Observable<any> {
+    return this.http.get(
+      `https://localhost:7292/poseidonhc/GetVisitDetailsById/${data}`
+    );
+  }
   public myData:any;
+  public medPatientData:any;
 }
