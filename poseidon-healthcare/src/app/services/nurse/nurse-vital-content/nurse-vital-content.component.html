@@ -1,7 +1,7 @@
 <form #f="ngForm" (submit)="sendData(bp.value,rr.value,temp.value,ht.value,wt.value,nt.value,bps.value,bg.value)">
   <h1 mat-dialog-title class="dtitle">Add Vitals</h1>
   <div fxLayoutAlign="center">
-    <p>Appointment with Dr. Mahesh</p>
+    <p>Appointment with Dr. {{doctorName}}</p>
   </div>
   <div mat-dialog-content class="vitals-box">
     <div class="det-box">
