@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -17,24 +17,18 @@ import { items, ServicenurseService } from '../../servicenurse.service';
 export class NurseAppointmentContentComponent implements OnInit {
 
   currentDate = new Date();
-  
-  listofappointment!:items[];
   constructor(private dialog: MatDialog, private router: Router ,private service:ServicenurseService) 
   {
-    this.service.getData().subscribe(data=>{
-      console.warn(data)
-        
-   });
-    
-
+   
   }
-  infoDialog(email:string) {
+  infoDialog(element:any) {
     const dRef = this.dialog.open(NurseVitalContentComponent, {
       width: '500px',
       data: {
-        "email":email
+  
       }
     });
+    this.service.myData=element;
     dRef.afterClosed().subscribe(result => {
       console.log(`result is ${result}`)
     })
@@ -61,12 +55,20 @@ fetechappointment()
 {
   this.service.getData().subscribe(data=>
     {
-      this.listofappointment=data;
-      this.dataSource=new MatTableDataSource(this.listofappointment);
+      
+      let listArray: any[]=[];
+      data.forEach( (element: any) => {
+        if(element.acceptance==1){
+
+          listArray.push(element);
+        }
+      });
+
+      this.dataSource=new MatTableDataSource(listArray);
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
-      console.log('list of appointment',this.listofappointment);
-      this.dataSource.paginator = this.paginator;
+      console.log(listArray);
+
     })
 }
 
@@ -74,9 +76,7 @@ fetechappointment()
  
 
 
-  ngAfterViewInit() {
-    //this.dataSource.paginator = this.paginator;
-  }
+
 
 
 
