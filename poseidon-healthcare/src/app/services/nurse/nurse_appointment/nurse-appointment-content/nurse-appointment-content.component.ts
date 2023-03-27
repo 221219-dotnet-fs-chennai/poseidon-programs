@@ -72,7 +72,7 @@ fetechappointment()
     })
 }
 
-  public displayedColumns: string[] = ['Patient Name', 'Booked On', 'Key Notes', 'Diagnosis', 'Medical History'];
+  public displayedColumns: string[] = ['ID','Patient Name', 'Booked On', 'Key Notes', 'Diagnosis', 'Medical History'];
  
 
 

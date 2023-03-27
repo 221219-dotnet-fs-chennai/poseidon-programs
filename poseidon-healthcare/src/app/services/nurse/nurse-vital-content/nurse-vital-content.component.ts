@@ -13,13 +13,13 @@ import { ServicenurseService } from '../servicenurse.service';
 export class NurseVitalContentComponent implements OnInit {
 
   constructor(private vitalsService:ServicenurseService,private dialogRef:MatDialogRef<NurseVitalContentComponent>,private router: Router){}
-  allergies = new FormControl('');
+  allergies:any;
   allergyList: string[] = ['Skin Allergy', 'Dust Allergy', 'Insect Allergy', 'Pet Allergy', 'Food Allergy'];
   
 
-  sendData(bp:number,rr:number,temp:number,height:number,weight:number,notes:string){
+  sendData(bp:number,rr:number,temp:number,height:number,weight:number,notes:string,bps:number,bg:string){
     
-    this.vitalsService.postData(bp,rr,temp,height,weight,notes).subscribe(data=>{
+    this.vitalsService.postData(bp,rr,temp,height,weight,notes,bps,bg).subscribe(data=>{
       if(data){
         console.log("in sendData");
         console.log(this.vitalsService.myData);
@@ -39,5 +39,9 @@ export class NurseVitalContentComponent implements OnInit {
     
   }
   
+  allergyChange(val:any){
+          console.log(val);
+          console.log(this.allergies);
+  }
 
 }

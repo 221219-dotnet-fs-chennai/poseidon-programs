@@ -25,18 +25,18 @@ export class ServicenurseService {
 
     })  
   }
-  postData(bp:number,rr:number,temp:number,height:number,weight:number,notes:string):Observable<any>{
+  postData(bp:number,rr:number,temp:number,height:number,weight:number,notes:string,bps:number,bg:string):Observable<any>{
   
-    return this.http.post("https://localhost:7102/api/VisitDetails/AddVisitDetails",
+    return this.http.post("https://localhost:7292/poseidonhc/AddVisitDetails",
     {
       "patientId": this.myData.patientId,
       "height": height,
       "weight": weight,
-      "bloodPressureSystolic": bp,
-      "bloodPressureDiastolic": 0,
+      "bloodPressureSystolic": bps,
+      "bloodPressureDiastolic":bp,
       "bodyTemperature":temp,
       "respirationRate": rr,
-      "bloodGroup": "string",
+      "bloodGroup": bg,
       "nurseEmail": "string",
       "physicianEmail": this.myData.physicianEmail,
       "appointmentId": this.myData.id,
@@ -47,17 +47,17 @@ export class ServicenurseService {
   {
     return this.http.get("https://localhost:7292/poseidonhc/Get_all_appointment",{headers:this.httpOptions.headers});
   }
-  public serviceUrl="https://localhost:7267/api/Appointment";
-  // `${this.serviceUrl}/${data.patientId}`,
+  public serviceUrl="https://localhost:7292/poseidonhc/updateby_patID";
+
   public update(data:any):Observable<any>{
-      return this.http.put("https://localhost:7267/api/Appointment/22", {
+      return this.http.put(`${this.serviceUrl}/${data.patientId}`, {
         
-        "reason": "string",
-        "date": "string",
+        "reason": data.reason,
+        "date": data.date,
         "acceptance": 2,
-        "patientId": 22,
-        "physicianEmail": "string",
-        "submissionDate": "string"
+        "patientId": data.patientId,
+        "physicianEmail": data.physicianEmail,
+        "submissionDate": data.submissionDate
       })
   }
 
