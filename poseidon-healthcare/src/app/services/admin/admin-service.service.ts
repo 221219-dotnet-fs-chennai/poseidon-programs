@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap, Subject } from 'rxjs';
 
 
 export interface Patient_Info {
@@ -22,14 +22,19 @@ export interface add_doctors {
   dept: string
 }
 
+export interface physician_Available {
+  physician_email: string,
+  availablefrom: string,
+  availableTo: string
+}
+
 export interface getDocbyEmail {
   email: string,
   name: string,
   dept: string
 }
 
-export interface getAvailableDoc 
-{
+export interface getAvailableDoc {
   doctorEmail: string,
   availableFrom: string,
   availableTo: string,
@@ -47,7 +52,29 @@ export class AdminServiceService {
     name: '',
     dept: ''
   }
+
+  physician_avail: physician_Available = {
+    physician_email: '',
+    availablefrom: '',
+    availableTo: ''
+  }
+
+  doctor_avail_status: getAvailableDoc =
+    {
+      doctorEmail: '',
+      availableFrom: '',
+      availableTo: '',
+      scheduleStatus: false
+    }
+
   constructor(private httpclient: HttpClient) { }
+
+  private _refreshRequired = new Subject<void>();
+
+  getRefresfRequired()
+  {
+    return this._refreshRequired;
+  }
 
   // get all patients for admin
   getallPatients(): Observable<Patient_Info[]> {
@@ -55,23 +82,65 @@ export class AdminServiceService {
   }
 
   // get all available doctors
-  getAvailableDoctor(): Observable<getAvailableDoc[]>{
+  getAvailableDoctor(): Observable<getAvailableDoc[]> {
     return this.httpclient.get<getAvailableDoc[]>('https://localhost:7292/poseidonhc/getdocbyStatus/false');
   }
 
+  // get all available doctors
+  getAvailableDoctorbyStatus(): Observable<getAvailableDoc[]> {
+    return this.httpclient.get<getAvailableDoc[]>('https://localhost:7292/poseidonhc/getdocbyStatus/true');
+  }
+
   // get doctors by email
-  getDoctorsbyEmail(email: string): Observable<getDocbyEmail>
-  {
+  getDoctorsbyEmail(email: string): Observable<getDocbyEmail> {
     return this.httpclient.get<getDocbyEmail>(`https://localhost:7292/poseidonhc/Get_particular_doctor/${email}`)
   }
 
-  getDoctorsAvailablebyEmail(email: string): Observable<getAvailableDoc>
-  {
+  // get available doctors by email
+  getDoctorsAvailablebyEmail(email: string): Observable<getAvailableDoc> {
     return this.httpclient.get<getAvailableDoc>(`https://localhost:7292/poseidonhc/particular_doc_avail/${email}`)
   }
 
-  addDoctors(doctor: any)
-  {
+  // add doctor to physician availability
+  addphysicalAvailability(physician: any) {
+    this.physician_avail.physician_email = physician.physician_email;
+    this.physician_avail.availablefrom = physician.availablefrom;
+    this.physician_avail.availableTo = physician.availableTo;
+
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(this.doctors);
+
+    return this.httpclient.post('https://localhost:7292/poseidonhc/AddPhysicianAvailable', physician, { headers: headers })
+  }
+
+  // update doctor availability status
+  updateDocAvailStatus(doctor: any) {
+    this.doctor_avail_status.doctorEmail = doctor.doctorEmail;
+    this.doctor_avail_status.availableFrom = doctor.availableFrom;
+    this.doctor_avail_status.availableTo = doctor.availableTo;
+    this.doctor_avail_status.scheduleStatus = doctor.scheduleStatus;
+
+    console.log("doctor avail status");
+
+    console.log(this.doctor_avail_status);
+
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(this.doctor_avail_status);
+
+    console.log("body");
+
+    console.log(body);
+
+    return this.httpclient
+    .put('https://localhost:7292/poseidonhc/Update_doc_avail/' + this.doctor_avail_status.doctorEmail, body, { headers: headers })
+    .pipe(
+      tap(() => {
+      this._refreshRequired.next();
+    }))
+  }
+
+  // add doctors
+  addDoctors(doctor: any) {
     this.doctors.email = doctor.email;
     this.doctors.name = doctor.name;
     this.doctors.dept = doctor.dept
@@ -79,6 +148,6 @@ export class AdminServiceService {
     const headers = { 'content-type': 'application/json' };
     const body = JSON.stringify(this.doctors);
 
-    return this.httpclient.post('https://localhost:7292/poseidonhc/Add_Doctor', body, {headers: headers})
+    return this.httpclient.post('https://localhost:7292/poseidonhc/Add_Doctor', body, { headers: headers })
   }
 }

@@ -5,9 +5,8 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
-import { getAvailableDoc, AdminServiceService } from '../admin-service.service';
-
-
+import { getAvailableDoc, AdminServiceService , physician_Available} from '../admin-service.service';
+import { pipe, catchError, throwError } from 'rxjs';
 
 const moment = _rollupMoment || _moment;
 
@@ -22,12 +21,6 @@ export const MY_FORMATS = {
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
-
-
-interface Doctor {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-new-availability',
@@ -45,7 +38,20 @@ interface Doctor {
 })
 export class NewAvailabilityComponent implements OnInit {
 
-  doctor_available!: getAvailableDoc;
+  doctor_available!: getAvailableDoc;  
+
+  physician: physician_Available = {
+    physician_email: '',
+    availablefrom: '',
+    availableTo: ''
+  }
+
+  doctors: getAvailableDoc = {
+    doctorEmail: '',
+    availableFrom: '',
+    availableTo: '',
+    scheduleStatus: false
+  }
 
   startDate: Date;
   endDate: Date;
@@ -65,7 +71,7 @@ export class NewAvailabilityComponent implements OnInit {
   ngOnInit(): void {
     // console.log(this.data.docemail);
     this.adminservice.getDoctorsAvailablebyEmail(this.data.docemail).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.doctor_available = response;
 
       var start_date = this.doctor_available.availableFrom.split('/');
@@ -81,10 +87,37 @@ export class NewAvailabilityComponent implements OnInit {
     this.fromdateinput = moment(this.fromDate).format('DD/MM/YYYY')
     this.todateinput = moment(this.toDate).format('DD/MM/YYYY') 
   
-    console.log(this.data.docemail);
-    console.log(this.fromdateinput);
-    console.log(this.todateinput);
-    console.log();
+    this.physician.physician_email = this.data.docemail;
+    this.physician.availablefrom = this.fromdateinput;
+    this.physician.availableTo = this.todateinput;
+
+    console.log(this.physician);
+
+    this.adminservice.addphysicalAvailability(this.physician).pipe(
+      catchError(error => {
+        const statusCode = error.status;
+        // console.log("failed");
+        return throwError(error);
+      })).subscribe(response => {
+        console.log(response);
+        // console.log("Added successfully");
+      })
+
+    this.adminservice.getDoctorsAvailablebyEmail(this.data.docemail).subscribe(response => {
+      this.doctor_available = response;
+
+      this.doctor_available.scheduleStatus = true;
+
+      this.adminservice.updateDocAvailStatus(this.doctor_available).subscribe(data => {
+        console.log(data);
+      })
+      console.log("get doctors");
+      
+      console.log(this.doctor_available);
+      
+    })
+
+    this.dialogref.close();
   }
 
   close_dialogbox() {
