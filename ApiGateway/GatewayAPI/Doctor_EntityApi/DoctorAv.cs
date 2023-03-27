@@ -43,6 +43,8 @@ namespace Doctor
                 else t.AvailableFrom = Doct.AvailableFrom;
                 if (t.AvailableTo != null && Doct.AvailableTo== null) t.AvailableTo = t.AvailableTo;
                 else t.AvailableTo = Doct.AvailableTo;
+                if (t.ScheduleStatus != null && Doct.ScheduleStatus == null) t.ScheduleStatus = t.ScheduleStatus;
+                else t.ScheduleStatus = Doct.ScheduleStatus;
 
                 t.AvailabilityId = t.AvailabilityId;
              
