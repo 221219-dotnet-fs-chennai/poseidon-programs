@@ -31,7 +31,7 @@
             <td mat-cell *matCellDef="let element"> {{element.dept}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="Available From">
+        <!-- <ng-container matColumnDef="Available From">
             <th mat-header-cell *matHeaderCellDef> Available From </th>
             <td mat-cell *matCellDef="let element"> {{element.availableFrom}} </td>
         </ng-container>
@@ -39,11 +39,12 @@
         <ng-container matColumnDef="Available Till">
             <th mat-header-cell *matHeaderCellDef> Available Till </th>
             <td mat-cell *matCellDef="let element"> {{element.availableTo}} </td>
-        </ng-container>
+        </ng-container> -->
+
         <ng-container matColumnDef="info">
             <th mat-header-cell *matHeaderCellDef> </th>
-            <td mat-cell *matCellDef="let element"> <button class="info-btn" (click)="infoDialogs()">Update</button>
-                &nbsp; <button class="info-btn del-btn">Delete</button> </td>
+            <td mat-cell *matCellDef="let element"> <button class="info-btn" (click)="infoDialogs(element.email)">Update</button>
+                &nbsp; <button class="info-btn del-btn" (click)="delete_dialog(element.email)">Delete</button> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -101,6 +101,10 @@ export class AdminServiceService {
     return this.httpclient.get<getAvailableDoc>(`https://localhost:7292/poseidonhc/particular_doc_avail/${email}`)
   }
 
+  getPhysicianAvailablebyEmail(email: string): Observable<physician_Available>{
+    return this.httpclient.get<physician_Available>(`https://localhost:7292/poseidonhc/FindDoctorByEmailID/${email}`)
+  }
+
   // add doctor to physician availability
   addphysicalAvailability(physician: any) {
     this.physician_avail.physician_email = physician.physician_email;
@@ -137,6 +141,29 @@ export class AdminServiceService {
       tap(() => {
       this._refreshRequired.next();
     }))
+  }
+
+  updatePhysicianAvailability(physician: any)
+  {
+    this.physician_avail.physician_email = physician.physician_email;
+    this.physician_avail.availablefrom = physician.availablefrom;
+    this.physician_avail.availableTo = physician.availableTo;
+
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(this.physician_avail);
+
+    return this.httpclient
+    .put('https://localhost:7292/poseidonhc/UpdatePhysicianavailability/' + this.physician_avail.physician_email, body, {headers: headers})
+    .pipe(
+      tap(() => {
+        this._refreshRequired.next();
+      })
+    )
+  }
+
+  deletePhysicianAvailability(email: string)
+  {
+    return this.httpclient.delete('https://localhost:7292/poseidonhc/DeletephysicianAvailability/' + email)
   }
 
   // add doctors

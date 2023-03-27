@@ -1,5 +1,7 @@
-<h1 mat-dialog-title class="dtitle">New Availability</h1>
-<form (submit)="add_availability()">
+<!-- <h1 mat-dialog-title class="dtitle">New Availability</h1> -->
+<form>
+    <p>Scheduled From</p>
+    <p> {{phyFromDate}} - {{phyToDate}}</p>
     <div mat-dialog-content>
         <div class="det-box">
             <mat-form-field appearance="fill">
@@ -20,8 +22,8 @@
         </div>
     </div>
     <div mat-dialog-actions class="btn-box">
-        <button mat-button class="add-btn dbtn" type="submit"><span>ADD</span></button>
-        <!-- <button mat-button class="cancel-btn dbtn" (click)="close_dialogbox()"><span>CANCEL</span></button> -->
+        <button mat-button class="add-btn dbtn" (click)="add_availability()"><span>ADD</span></button>
+        <button mat-button class="cancel-btn dbtn" (click)="close_dialogbox()"><span>CANCEL</span></button>
 
     </div>
 </form>
