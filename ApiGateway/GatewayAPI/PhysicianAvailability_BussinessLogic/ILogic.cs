@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentAPI.Entities;
 using Models;
 
-namespace BussinessLogic
+namespace Physician_BussinessLogic
 {
     public interface ILogic
     {

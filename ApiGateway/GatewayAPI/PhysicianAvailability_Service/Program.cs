@@ -1,4 +1,4 @@
-using BussinessLogic;
+using Physician_BussinessLogic;
 using FluentAPI.Entities;
 using FluentAPI;
 using Microsoft.EntityFrameworkCore;

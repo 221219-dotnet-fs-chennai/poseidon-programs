@@ -7,10 +7,12 @@ using EntityApi.Entities;
 using System.Threading.Tasks;
 using da = EntityApi;
 
-namespace Business_Logic
+namespace Allergy_Business_Logic
 {
     public class Logic:ILogic
     {
+        Mapper map = new Mapper();
+
         da.IRepo<da.Entities.Allergy> repo;
         public Logic(da.IRepo<da.Entities.Allergy> _repo) 
         {
@@ -18,12 +20,12 @@ namespace Business_Logic
         }
         public Models.Allergy AddDetails(Models.Allergy allergy)
         {
-            return Mapper.Map(repo.Add(Mapper.Map(allergy)));
+            return map.Map(repo.Add(map.Map(allergy)));
         }
         public IEnumerable<Models.Allergy> Get(int t) 
         {
             
-            return Mapper.Map(repo.Get(t));
+            return map.Map(repo.Get(t));
         }
         }
     }

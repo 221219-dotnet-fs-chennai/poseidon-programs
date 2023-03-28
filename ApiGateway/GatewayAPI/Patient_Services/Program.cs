@@ -1,4 +1,4 @@
-using Bussiness_Logic;
+using Patient_Bussiness_Logic;
 using EF_Layer.Entities;
 using Microsoft.EntityFrameworkCore;
 

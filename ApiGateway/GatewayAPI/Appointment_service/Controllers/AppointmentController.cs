@@ -1,4 +1,4 @@
-﻿using BusinessLogic;
+﻿using Appointment_BusinessLogic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -28,7 +28,7 @@ namespace AppointmentsApi.Controllers
             }
         }
         [HttpPost("Add_appointment")]
-        public IActionResult Add([FromBody] Models.Appointment ap)
+        public IActionResult Add([FromBody] Appointment_Models.Appointment ap)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace AppointmentsApi.Controllers
         }
 
         [HttpPut("updateby_patID/{PatientId}")]
-        public IActionResult Update([FromRoute] int PatientId, [FromBody] Models.Appointment ap)
+        public IActionResult Update([FromRoute] int PatientId, [FromBody] Appointment_Models.Appointment ap)
         {
             try
             {

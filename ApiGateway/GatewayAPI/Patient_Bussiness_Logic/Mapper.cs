@@ -1,7 +1,7 @@
 ﻿using Models;
 using EF_Layer.Entities;
 
-namespace Bussiness_Logic
+namespace Patient_Bussiness_Logic
 {
     public class Mapper
     {
@@ -113,7 +113,6 @@ namespace Bussiness_Logic
             };
         }
 
-        //test mappers
 
         //model to entity
         public Test mapTestME(Test_M test)

@@ -1,4 +1,4 @@
-﻿using Business_Logic;
+﻿using Allergy_Business_Logic;
 using EntityApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 

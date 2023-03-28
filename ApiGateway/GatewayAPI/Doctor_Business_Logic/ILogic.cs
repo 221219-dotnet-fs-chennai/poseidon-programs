@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Logic
+namespace Doctor_Business_Logic
 {
     public interface ILogic
     {

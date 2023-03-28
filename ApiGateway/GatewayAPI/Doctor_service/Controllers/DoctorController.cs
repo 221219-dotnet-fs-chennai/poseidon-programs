@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Business_Logic;
+using Doctor_Business_Logic;
 using Model;
 using Doctor;
 

@@ -1,4 +1,4 @@
-using Business_Logic;
+using Doctor_Business_Logic;
 using Doctor;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.AccessControl;
 
-namespace Bussiness_Logic
+namespace Patient_Bussiness_Logic
 {
     public class Logic : ILogic
     {
