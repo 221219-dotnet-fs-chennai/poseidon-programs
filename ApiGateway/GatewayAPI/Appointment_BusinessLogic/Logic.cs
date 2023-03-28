@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using fe = FluentApi.Entities;
 
-namespace BusinessLogic
+namespace Appointment_BusinessLogic
 {
     public class Logic : ILogic
     {
@@ -15,27 +15,27 @@ namespace BusinessLogic
             aprepo = new AppointmentRepo(context);
 
         }
-        public fe.Appointment AddAppointment(Models.Appointment ap)
+        public fe.Appointment AddAppointment(Appointment_Models.Appointment ap)
         {
             return aprepo.Add(Mapper.Map(ap));
         }
-        public IEnumerable<Models.Appointment> GetAppointment()
+        public IEnumerable<Appointment_Models.Appointment> GetAppointment()
         {
             return Mapper.Map(aprepo.GetAll());
         }
-        public IEnumerable<Models.Appointment> GetAppointmentByAcceptance(int acceptVal)
+        public IEnumerable<Appointment_Models.Appointment> GetAppointmentByAcceptance(int acceptVal)
         {
 
             return Mapper.Map(aprepo.GetByAcceptance(acceptVal));
         }
 
-        public IEnumerable<Models.Appointment> GetMedicalHistory(int patientid)
+        public IEnumerable<Appointment_Models.Appointment> GetMedicalHistory(int patientid)
         {
             // throw new NotImplementedException();
             return Mapper.Map(aprepo.GetByPatientId(patientid));
         }
 
-        public fe.Appointment UpdateAppointment(int PatientId, Models.Appointment ap)
+        public fe.Appointment UpdateAppointment(int PatientId, Appointment_Models.Appointment ap)
         {
 
             var apmt = (from apt in aprepo.GetAll()
@@ -58,7 +58,7 @@ namespace BusinessLogic
 
             return apmt;
         }
-        public IEnumerable<Models.Appointment> GetAppointmentsbyEmailandAcceptance(int i, string email)
+        public IEnumerable<Appointment_Models.Appointment> GetAppointmentsbyEmailandAcceptance(int i, string email)
         {
             return Mapper.Map(aprepo.GetByDoctorMailAcceptance(i, email));
         }
@@ -83,7 +83,7 @@ namespace BusinessLogic
             return apmt;
         }
 
-        public IEnumerable<Models.Appointment> GetAppointmentsbyDateDocEmailAndAcceptance(int acceptanceNo, string date, string docEmail)
+        public IEnumerable<Appointment_Models.Appointment> GetAppointmentsbyDateDocEmailAndAcceptance(int acceptanceNo, string date, string docEmail)
         {
             return Mapper.Map(aprepo.GetByDateAcceptanceDoctor(acceptanceNo, date, docEmail));
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Bussiness_Logic;
+using Patient_Bussiness_Logic;
 using Models;
 using Microsoft.Data.SqlClient;
 using EF_Layer.Entities;

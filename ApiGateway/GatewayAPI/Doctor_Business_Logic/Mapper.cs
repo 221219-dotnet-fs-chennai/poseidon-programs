@@ -7,7 +7,7 @@ using Doctor;
 using Doctor.Entities;
 using Model;
 
-namespace Business_Logic
+namespace Doctor_Business_Logic
 {
     public class Mapper
     {

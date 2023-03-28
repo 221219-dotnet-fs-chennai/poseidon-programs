@@ -1,4 +1,4 @@
-﻿using Bussiness_Logic;
+﻿using Patient_Bussiness_Logic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;

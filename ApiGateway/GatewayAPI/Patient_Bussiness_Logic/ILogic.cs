@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bussiness_Logic
+namespace Patient_Bussiness_Logic
 {
     public interface ILogic
     {

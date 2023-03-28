@@ -3,7 +3,7 @@ using EntityApi;
 using Models;
 using EntityApi.Entities;
 using Microsoft.EntityFrameworkCore;
-using Business_Logic;
+using Allergy_Business_Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 

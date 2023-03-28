@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Aa = EntityApi.Entities;
 
-namespace Business_Logic
+namespace Allergy_Business_Logic
 {
     public class Mapper
     {   
-        public static Models.Allergy Map(Aa.Allergy allergy)
+        public Models.Allergy Map(Aa.Allergy allergy)
         {
             return new Models.Allergy()
             {
@@ -19,7 +19,7 @@ namespace Business_Logic
                 Notes = allergy.Notes,
             };
         }
-        public static Aa.Allergy Map(Models.Allergy allergy)
+        public Aa.Allergy Map(Models.Allergy allergy)
         {
             return new Aa.Allergy()
             {
@@ -29,7 +29,7 @@ namespace Business_Logic
                 Notes = allergy.Notes,
             };
         }
-        public static IEnumerable <Models.Allergy> Map(IEnumerable<Aa.Allergy> allergy)
+        public IEnumerable <Models.Allergy> Map(IEnumerable<Aa.Allergy> allergy)
         {
             return allergy.Select(Map);
         }

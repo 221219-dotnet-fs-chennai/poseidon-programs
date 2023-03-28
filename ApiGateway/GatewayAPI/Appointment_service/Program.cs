@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using FluentApi.Entities;
 using FluentApi;
-using BusinessLogic;
+using Appointment_BusinessLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 

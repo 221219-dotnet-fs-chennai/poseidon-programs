@@ -9,7 +9,8 @@ using FluentAPI.Entities;
 using Models;
 using System.Net;
 using System.Security.Cryptography;
-namespace BussinessLogic
+
+namespace Physician_BussinessLogic
 {
     public class Logic : ILogic
     {
