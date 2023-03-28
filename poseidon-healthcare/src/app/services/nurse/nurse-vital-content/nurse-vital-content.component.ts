@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 // import { NurseAppointmentContentComponent } from '../nurse_appointment/nurse-appointment-content/nurse-appointment-content.component';
@@ -12,9 +12,10 @@ import { ServicenurseService } from '../servicenurse.service';
 })
 export class NurseVitalContentComponent implements OnInit {
 
-  constructor(private vitalsService:ServicenurseService,private dialogRef:MatDialogRef<NurseVitalContentComponent>,private router: Router){}
+  constructor(private vitalsService:ServicenurseService,private dialogRef:MatDialogRef<NurseVitalContentComponent>,private router: Router,private formBuilder:FormBuilder){}
   doctorName:any;
-  allergies:any;
+  isval:string ="false";
+  selectedValues: string[] = [];
   allergyList: string[] = ['Skin Allergy', 'Dust Allergy', 'Insect Allergy', 'Pet Allergy', 'Food Allergy'];
   
 
@@ -23,29 +24,42 @@ export class NurseVitalContentComponent implements OnInit {
     this.vitalsService.postData(bp,rr,temp,height,weight,notes,bps,bg).subscribe(data=>{
       if(data){
         console.log("in sendData");
-        console.log(this.vitalsService.myData);
         this.vitalsService.myData.acceptance=2;
-        this.vitalsService.update(this.vitalsService.myData).subscribe(data=>console.log(data));
-        window.location.reload();
-        console.log(this.vitalsService.myData);
       }
+      this.isval="true";
+      this.vitalsService.getMedicalHistory(data.patientId).subscribe(data=>{
+        this.allergyData(data[data.length-1].id)});
+      
     })
-  alert("data added successfully");
     this.dialogRef.close();
   }
-  close(){
-        this.dialogRef.close();
-  }
+
   ngOnInit(): void {
     this.vitalsService.getDoctorData(this.vitalsService.myData.physicianEmail).subscribe((data)=>
     {
       this.doctorName=data.name;
     })
+
   }
+  close(){
+    this.dialogRef.close();
+}
+allergyData(id:any){
+  if(this.isval=="true"){
+    console.log(this.selectedValues.forEach((d)=>console.log(d)));
+    this.selectedValues.forEach(data=>{
+      this.vitalsService.postAllergy(data,id).subscribe((element)=>{console.log(element)});
+    });
+  }
+}
+
+
   
-  allergyChange(val:any){
-          console.log(val);
-          console.log(this.allergies);
-  }
+  
+
+  
+
+
+
 
 }

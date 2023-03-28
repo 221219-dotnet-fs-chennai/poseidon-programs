@@ -75,6 +75,16 @@ export class ServicenurseService {
       `https://localhost:7292/poseidonhc/GetVisitDetailsById/${data}`
     );
   }
+
+  public postAllergy(data:any,id:any):Observable<any>{
+
+    return this.http.post("https://localhost:7292/poseidonhc/Add_Allergy",
+    {
+      "visitId": id,
+      "allergyName": data,
+      "notes": "none"
+    })
+  }
   public myData:any;
   public medPatientData:any;
 }
