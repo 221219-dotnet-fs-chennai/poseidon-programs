@@ -35,7 +35,6 @@ export class NursePatContentComponent{
   constructor(private router: Router, public dialog: MatDialog,private service:ServicenurseService) {
       this.demo();
       this.getPatData();
-      // console.log(this.patient);
   }
 
   demo(){

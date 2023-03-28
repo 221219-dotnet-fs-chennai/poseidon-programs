@@ -48,12 +48,15 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="fill">
+      <mat-form-field  appearance="fill">
         <mat-label>Allergies</mat-label>
-        <mat-select ngModel #al="ngModel" name="allergies" (click)="allergyChange(al)"  multiple>
-          <mat-option *ngFor="let allergy of allergyList" [value]="allergies">{{allergy}}</mat-option>
+        <mat-select multiple [(ngModel)]="selectedValues" name="allergieees">
+          <mat-option *ngFor="let a of allergyList" [value]="a">{{a}}</mat-option>
         </mat-select>
+        
       </mat-form-field>
+      
+      <p *ngFor="let f of selectedValues">you selected : {{f}}</p>
     </div>
     <div class="det-box">
       <mat-form-field appearance="fill" style="width: 97.5%;">
