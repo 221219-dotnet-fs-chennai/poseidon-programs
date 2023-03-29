@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { getAvailableDoc, AdminServiceService, physician_Available } from '../admin-service.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class AdminAvailDeleteDialogboxComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private dialogref: MatDialogRef<AdminAvailDeleteDialogboxComponent>,
-    private adminservice: AdminServiceService) {
+    private adminservice: AdminServiceService,
+    private router: Router) {
   }
 
   delete_availability()
@@ -38,6 +40,10 @@ export class AdminAvailDeleteDialogboxComponent {
 
       this.adminservice.updateDocAvailStatus(this.doctor_available).subscribe(data => {
         console.log(data);
+
+        this.router.navigateByUrl('', {skipLocationChange: false}).then(() => {
+          this.router.navigate(['admin_schedule']);
+        });
       })
       console.log("get doctors");
       
