@@ -47,15 +47,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Model
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Service", "PhysicianAvailability_Service\PhysicianAvailability_Service.csproj", "{8FF16A21-9FFD-41E9-A1CD-DD27BE4506FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allergy_Testing_Mappers", "Testing_Mappers\Allergy_Testing_Mappers.csproj", "{BA10C148-BE03-4190-8B2C-7040CA3040EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allergy_Testing_Mappers", "Testing_Mappers\Allergy_Testing_Mappers.csproj", "{BA10C148-BE03-4190-8B2C-7040CA3040EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appointment_Testing_Mappers", "Appointment_Testing_Mappers\Appointment_Testing_Mappers.csproj", "{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointment_Testing_Mappers", "Appointment_Testing_Mappers\Appointment_Testing_Mappers.csproj", "{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doctor_Testing_Mappers", "Doctor_Testing_Mappers\Doctor_Testing_Mappers.csproj", "{5A182761-C62B-47A2-8FD6-5CE9A5DD9B22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doctor_Testing_Mappers", "Doctor_Testing_Mappers\Doctor_Testing_Mappers.csproj", "{5A182761-C62B-47A2-8FD6-5CE9A5DD9B22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patient_Testing_Mapper", "Patient_Testing_Mapper\Patient_Testing_Mapper.csproj", "{13700E0E-853F-44D0-A894-69C48A56F594}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patient_Testing_Mapper", "Patient_Testing_Mapper\Patient_Testing_Mapper.csproj", "{13700E0E-853F-44D0-A894-69C48A56F594}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicianAvailability_Testing_Mapper", "PhysicianAvailability_Testing_Mapper\PhysicianAvailability_Testing_Mapper.csproj", "{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Testing_Mapper", "PhysicianAvailability_Testing_Mapper\PhysicianAvailability_Testing_Mapper.csproj", "{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorControllerTesting", "DoctorControllerTesting\DoctorControllerTesting.csproj", "{D6E44E9D-2146-4BB5-A59D-5A71374FD465}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E44E9D-2146-4BB5-A59D-5A71374FD465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E44E9D-2146-4BB5-A59D-5A71374FD465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E44E9D-2146-4BB5-A59D-5A71374FD465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E44E9D-2146-4BB5-A59D-5A71374FD465}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
