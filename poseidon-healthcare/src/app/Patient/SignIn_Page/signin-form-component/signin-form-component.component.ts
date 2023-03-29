@@ -56,7 +56,8 @@ export class SigninFormComponentComponent {
 
         // This is where you can handle the successful response
         console.log("success");
-        this.router.navigate(['patient_profile']);
+        alert("Registered successfully")
+        this.router.navigate(['service_home']);
       });
 
     console.log(f);

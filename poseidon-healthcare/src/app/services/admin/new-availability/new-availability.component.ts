@@ -7,6 +7,7 @@ import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 import { getAvailableDoc, AdminServiceService , physician_Available} from '../admin-service.service';
 import { pipe, catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 const moment = _rollupMoment || _moment;
 
@@ -64,7 +65,8 @@ export class NewAvailabilityComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private dialogref: MatDialogRef<NewAvailabilityComponent>,
-    private adminservice: AdminServiceService) {
+    private adminservice: AdminServiceService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -78,6 +80,11 @@ export class NewAvailabilityComponent implements OnInit {
 
       this.startDate = new Date(Number(start_date[2]), Number(start_date[1]) - 1, Number(start_date[0]));
       this.endDate = new Date(Number(end_date[2]), Number(end_date[1]) - 1, Number(end_date[0]));
+
+      // console.log(this.startDate);
+      // console.log(this.endDate);
+      
+      
     })
     // console.log(this.doctor_available.availableFrom);
   }
@@ -85,6 +92,10 @@ export class NewAvailabilityComponent implements OnInit {
   add_availability() {
     this.fromdateinput = moment(this.fromDate).format('DD/MM/YYYY')
     this.todateinput = moment(this.toDate).format('DD/MM/YYYY') 
+
+    console.log(this.fromdateinput);
+    console.log(this.todateinput);
+  
   
     this.physician.physician_email = this.data.docemail;
     this.physician.availablefrom = this.fromdateinput;
@@ -109,6 +120,10 @@ export class NewAvailabilityComponent implements OnInit {
 
       this.adminservice.updateDocAvailStatus(this.doctor_available).subscribe(data => {
         console.log(data);
+
+        this.router.navigateByUrl('', {skipLocationChange: false}).then(() => {
+          this.router.navigate(['admin-available-doc'])
+        })
       })
       console.log("get doctors");
       
