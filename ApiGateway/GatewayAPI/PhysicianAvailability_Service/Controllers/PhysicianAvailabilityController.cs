@@ -72,7 +72,7 @@ namespace PhysicianAvailabilityService.Controllers
                 }
                 else
                 {
-                    return NotFound("No dotor");
+                    return BadRequest("No dotor");
                 }
             }
 
