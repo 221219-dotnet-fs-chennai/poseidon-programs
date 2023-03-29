@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ServicePatientService } from 'src/app/Patient/service-patient.service';
+
 
 export interface TestDetails {
-  Id: number,
-  TestName: string,
-  Result: string,
-  Notes: string,
-
+  id: number;
+  visitDetailsId: number;
+  testName: string;
+  result: string;
+  notes: string;
 }
 
 @Component({
@@ -16,16 +18,39 @@ export interface TestDetails {
   styleUrls: ['./nurse-pat-history-dialog.component.css']
 })
 export class NursePatHistoryDialogComponent {
-  constructor(private dialogRef: MatDialogRef<NursePatHistoryDialogComponent>) {
+  constructor(private dialogRef: MatDialogRef<NursePatHistoryDialogComponent>,private service: ServicePatientService) {
 
   }
-  Tests: TestDetails[] = [
-    { Id: 1, TestName: "Eye", Result: "good", Notes: "use computer glass" },
-    { Id: 2, TestName: "Eye", Result: "good", Notes: "use computer glass" },
-    { Id: 3, TestName: "Eye", Result: "good", Notes: "use computer glass" },
-  ];
 
-  testData = new MatTableDataSource(this.Tests);
+  tList: any = [];
+  testList: TestDetails[] = [];
+  testData: any;
+  ngOnInit() {
+
+    this.getTests();
+  }
+
+  getTests() {
+    this.service
+      .getTestForAVisit(JSON.parse(localStorage.getItem('currentVisitId')!))
+      .subscribe((res) => {
+        this.tList = res;
+        for (var t of this.tList) {
+          var te: TestDetails = {
+            id: t.id,
+            visitDetailsId: t.visitDetailsId,
+            testName: t.testName,
+            result: t.result,
+            notes: t.notes,
+          };
+          this.testList.push(te);
+        }
+        console.log(this.testList);
+        // this.tList = res;
+        this.testData = new MatTableDataSource(this.testList);
+      });
+  }
 
   displayedColumns: string[] = ['Id', 'TestName', 'Result', 'Notes'];
+  index: number = 0;
 }
