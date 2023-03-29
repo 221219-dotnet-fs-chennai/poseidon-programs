@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { MatDialogRef } from '@angular/material/dialog';
+import { ServicePatientService } from 'src/app/Patient/service-patient.service';
 
 export interface PrescriptionData {
-  Id: number,
-  Medicine: string,
-  Dosage: string,
-  Notes: string,
-
+  id: number;
+  visitDetailsId: number;
+  prescriptionName: string;
+  dosage: string;
+  notes: string;
 }
+
 
 @Component({
   selector: 'app-nurse-pat-history-prescription',
@@ -18,17 +19,41 @@ export interface PrescriptionData {
   styleUrls: ['./nurse-pat-history-prescription.component.css']
 })
 export class NursePatHistoryPrescriptionComponent {
-  constructor(private dialogRef: MatDialogRef<NursePatHistoryPrescriptionComponent>) {
+  constructor(private dialogRef: MatDialogRef<NursePatHistoryPrescriptionComponent>,private service: ServicePatientService) {
 
   }
-  Prescriptions: PrescriptionData[] = [
-    { Id: 1, Medicine: "Paracetamol", Dosage: "1-0-1", Notes: "after food" },
-    { Id: 2, Medicine: "Dolo", Dosage: "1-0-1", Notes: "after food" },
-    { Id: 3, Medicine: "Pan40", Dosage: "1-0-1", Notes: "after food" },
+  prescriptionList: any = [];
+  listOfPrescription: PrescriptionData[] = [];
+  PrescriptionData: any;
 
-  ];
 
-  Prescription = new MatTableDataSource(this.Prescriptions);
 
-  displayedColumns: string[] = ['Id', 'TestName', 'Result', 'Notes'];
+
+  ngOnInit(): void {
+    this.getPrescription();
+  }
+
+  getPrescription() {
+    this.service
+      .getPrescription(JSON.parse(localStorage.getItem('currentVisitId')!))
+      .subscribe((res) => {
+        this.prescriptionList = res;
+        for (var p of this.prescriptionList) {
+          var pres: PrescriptionData = {
+            id: p.id,
+            visitDetailsId: p.visitDetailsId,
+            prescriptionName: p.prescriptionName,
+            dosage: p.dosage,
+            notes: p.notes,
+          };
+          this.listOfPrescription.push(pres);
+        }
+        console.log(this.prescriptionList);
+
+        this.PrescriptionData = new MatTableDataSource(this.listOfPrescription);
+      });
+  }
+
+  displayedColumns: string[] = ['Id', 'Medicine', 'Dosage', 'Notes'];
+  index: number = 0;
 }
