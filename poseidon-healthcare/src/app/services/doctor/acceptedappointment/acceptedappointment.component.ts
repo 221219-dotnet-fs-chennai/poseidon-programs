@@ -124,8 +124,9 @@ export class AcceptedappointmentComponent {
       this.dataSource.paginator.firstPage();
     }
   }
-  to_updateMedInfo() {
-    this.router.navigate(['update_medInfo']);
+  to_updateMedInfo(id:number) {
+    this.router.navigate(['/update_medInfo']);
+    this.doc.appointment_num = id;
   }
 
 }
