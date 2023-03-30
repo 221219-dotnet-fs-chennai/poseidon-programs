@@ -1,5 +1,4 @@
-﻿
-using FluentAPI.Entities;
+﻿using FluentAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,4 +62,3 @@ namespace FluentAPI
         }
     }
 }
-

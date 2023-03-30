@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BussinessLogic;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using BussinessLogic;
 using Models;
 
-namespace PhysicianAvailabilityService.Controllers
+namespace PhysicianAvailability.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
