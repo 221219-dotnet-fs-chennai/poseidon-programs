@@ -13,6 +13,10 @@ namespace Email_Service.Controllers
 
             switch(status)
             {
+                case 0:
+                    subject = "Your appointment status of Poseidon healthcare";
+                    body = "Your appointment for visit poseidon health care is booked successfully.\nPlease wait for doctor to accept your appointment";
+                    break;
                 case 1:
                     subject = "Your appointment status of Poseidon healthcare";
                     body = "Your Appointment for visit poseidon health care is accepted.\nKindly check your status on Poseidon Healthcare website";
