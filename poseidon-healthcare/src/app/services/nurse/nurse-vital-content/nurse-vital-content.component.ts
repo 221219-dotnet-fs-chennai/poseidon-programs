@@ -52,14 +52,4 @@ allergyData(id:any){
     });
   }
 }
-
-
-  
-  
-
-  
-
-
-
-
 }
