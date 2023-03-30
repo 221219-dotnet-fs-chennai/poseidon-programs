@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,7 +67,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-           
+
 
             mlogic.Verify(x => x.GetDoctrAv(id), Times.AtLeastOnce());
         }
@@ -98,7 +98,7 @@ namespace DoctorControllerTesting
         [Fact]
         public void GetDoctorByStatusBadRequest()
         {
-            IEnumerable<Model.doctor_availability> phrmock=null;
+            IEnumerable<Model.doctor_availability> phrmock = null;
             var id = fixture.Create<bool>();
             mlogic.Setup(x => x.getDocByStatus(id)).Returns(phrmock);
             //Act
@@ -110,7 +110,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-            
+
 
             mlogic.Verify(x => x.getDocByStatus(id), Times.AtLeastOnce());
 
@@ -122,10 +122,10 @@ namespace DoctorControllerTesting
         {
             var phrmock = fixture.Create<Model.doctor_availability>();
             var id = fixture.Create<string>();
-            mlogic.Setup(x => x.UpdateDoctorAv(phrmock,id)).Returns(phrmock);
-           
+            mlogic.Setup(x => x.UpdateDoctorAv(phrmock, id)).Returns(phrmock);
+
             //Act
-            var result = dac.Put(id,phrmock);
+            var result = dac.Put(id, phrmock);
 
             //Assert
 
@@ -137,13 +137,13 @@ namespace DoctorControllerTesting
                 .Should().NotBeNull()
                 .And.BeOfType(phrmock.GetType());
 
-            mlogic.Verify(x => x.UpdateDoctorAv(phrmock,id), Times.AtLeastOnce());
+            mlogic.Verify(x => x.UpdateDoctorAv(phrmock, id), Times.AtLeastOnce());
         }
         [Fact]
 
         public void UpdateDoctorAvailabilityBadRequest()
         {
-            Model.doctor_availability phrmock = null ;
+            Model.doctor_availability phrmock = null;
             var id = fixture.Create<string>();
             mlogic.Setup(x => x.UpdateDoctorAv(phrmock, id)).Returns(phrmock);
 
@@ -156,7 +156,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-            
+
 
             mlogic.Verify(x => x.UpdateDoctorAv(phrmock, id), Times.AtLeastOnce());
         }
@@ -166,7 +166,7 @@ namespace DoctorControllerTesting
         public void AddDoctoravailability()
         {
             var phrmock = fixture.Create<Model.doctor_availability>();
-          //  var id = fixture.Create<string>();
+            //  var id = fixture.Create<string>();
             mlogic.Setup(x => x.ADD(phrmock)).Returns(phrmock);
 
             //Act
@@ -189,7 +189,7 @@ namespace DoctorControllerTesting
 
         public void AddDoctoravailabilityBadRequest()
         {
-            Model.doctor_availability phrmock = null ;
+            Model.doctor_availability phrmock = null;
             //  var id = fixture.Create<string>();
             mlogic.Setup(x => x.ADD(phrmock)).Returns(phrmock);
 
@@ -202,7 +202,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-          
+
 
             mlogic.Verify(x => x.ADD(phrmock), Times.AtLeastOnce());
         }

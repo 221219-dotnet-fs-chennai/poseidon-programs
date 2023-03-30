@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,7 +54,7 @@ namespace DoctorControllerTesting
         [Fact]
         public void GetAllDoctorsBadRequest()
         {
-            IEnumerable<Model.doctorr> phrmock = null ;
+            IEnumerable<Model.doctorr> phrmock = null;
             //var id = fixture.Create<string>();
             mlogic.Setup(x => x.GetAllDocts()).Returns(phrmock);
             //Act
@@ -66,7 +66,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-            
+
             mlogic.Verify(x => x.GetAllDocts(), Times.AtLeastOnce());
 
 
@@ -98,7 +98,7 @@ namespace DoctorControllerTesting
         [Fact]
         public void GetParticulardoctorBadRequest()
         {
-            Model.doctorr phrmock=null;
+            Model.doctorr phrmock = null;
             var id = fixture.Create<string>();
             mlogic.Setup(x => x.GetDoct(id)).Returns(phrmock);
             //Act
@@ -110,7 +110,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-           
+
             mlogic.Verify(x => x.GetDoct(id), Times.AtLeastOnce());
 
 
@@ -142,7 +142,7 @@ namespace DoctorControllerTesting
         [Fact]
         public void AddDoctorBadRequest()
         {
-           Model.doctorr phrmock=null;
+            Model.doctorr phrmock = null;
             //var id = fixture.Create<string>();
             mlogic.Setup(x => x.ADD(phrmock)).Returns(phrmock);
             //Act
@@ -154,7 +154,7 @@ namespace DoctorControllerTesting
 
             result.Should().BeAssignableTo<BadRequestObjectResult>();
 
-            
+
 
             mlogic.Verify(x => x.ADD(phrmock), Times.AtLeastOnce());
 
