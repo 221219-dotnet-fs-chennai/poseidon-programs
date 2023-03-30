@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
@@ -47,8 +47,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Model
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Service", "PhysicianAvailability_Service\PhysicianAvailability_Service.csproj", "{8FF16A21-9FFD-41E9-A1CD-DD27BE4506FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allergy_Testing_Mappers", "Testing_Mappers\Allergy_Testing_Mappers.csproj", "{BA10C148-BE03-4190-8B2C-7040CA3040EF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointment_Testing_Mappers", "Appointment_Testing_Mappers\Appointment_Testing_Mappers.csproj", "{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doctor_Testing_Mappers", "Doctor_Testing_Mappers\Doctor_Testing_Mappers.csproj", "{5A182761-C62B-47A2-8FD6-5CE9A5DD9B22}"
@@ -57,7 +55,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patient_Testing_Mapper", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianAvailability_Testing_Mapper", "PhysicianAvailability_Testing_Mapper\PhysicianAvailability_Testing_Mapper.csproj", "{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doctor_Controller_Testing", "Doctor_Controller_Testing\Doctor_Controller_Testing.csproj", "{74D9519F-44BF-42F6-9C56-A2A5EFDC1FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allergy_Testing_Mappers", "Allergy_Testing_Mappers\Allergy_Testing_Mappers.csproj", "{2BAE4EEB-9EEA-4031-A860-3901ABB0A5BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppoitmentService_Test", "AppoitmentService_Test\AppoitmentService_Test.csproj", "{25F27695-93A3-4EE7-8DC5-C5621DF9F255}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicianServiceTestApi", "PhysicianServiceTestApi\PhysicianServiceTestApi.csproj", "{46B39679-8965-4CEA-9FDE-19F9A00D3CF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientService_Testapi", "PatientService_Testapi\PatientService_Testapi.csproj", "{4C466356-6057-444A-ABFC-BEE29B124211}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllergyServiceTest", "AllergyServiceTest\AllergyServiceTest.csproj", "{8B89FDEA-8880-4183-8CFC-372C9C91CC1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,10 +159,6 @@ Global
 		{8FF16A21-9FFD-41E9-A1CD-DD27BE4506FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF16A21-9FFD-41E9-A1CD-DD27BE4506FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF16A21-9FFD-41E9-A1CD-DD27BE4506FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA10C148-BE03-4190-8B2C-7040CA3040EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA10C148-BE03-4190-8B2C-7040CA3040EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA10C148-BE03-4190-8B2C-7040CA3040EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA10C148-BE03-4190-8B2C-7040CA3040EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93C8DE66-9FAA-4EF8-A48C-44A0A739A1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -173,10 +175,26 @@ Global
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1093B41E-B82C-4B4A-A6A9-03FD08CAF490}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74D9519F-44BF-42F6-9C56-A2A5EFDC1FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74D9519F-44BF-42F6-9C56-A2A5EFDC1FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74D9519F-44BF-42F6-9C56-A2A5EFDC1FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74D9519F-44BF-42F6-9C56-A2A5EFDC1FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BAE4EEB-9EEA-4031-A860-3901ABB0A5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BAE4EEB-9EEA-4031-A860-3901ABB0A5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BAE4EEB-9EEA-4031-A860-3901ABB0A5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BAE4EEB-9EEA-4031-A860-3901ABB0A5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F27695-93A3-4EE7-8DC5-C5621DF9F255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F27695-93A3-4EE7-8DC5-C5621DF9F255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F27695-93A3-4EE7-8DC5-C5621DF9F255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F27695-93A3-4EE7-8DC5-C5621DF9F255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B39679-8965-4CEA-9FDE-19F9A00D3CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B39679-8965-4CEA-9FDE-19F9A00D3CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B39679-8965-4CEA-9FDE-19F9A00D3CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B39679-8965-4CEA-9FDE-19F9A00D3CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C466356-6057-444A-ABFC-BEE29B124211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C466356-6057-444A-ABFC-BEE29B124211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C466356-6057-444A-ABFC-BEE29B124211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C466356-6057-444A-ABFC-BEE29B124211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B89FDEA-8880-4183-8CFC-372C9C91CC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B89FDEA-8880-4183-8CFC-372C9C91CC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B89FDEA-8880-4183-8CFC-372C9C91CC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B89FDEA-8880-4183-8CFC-372C9C91CC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
