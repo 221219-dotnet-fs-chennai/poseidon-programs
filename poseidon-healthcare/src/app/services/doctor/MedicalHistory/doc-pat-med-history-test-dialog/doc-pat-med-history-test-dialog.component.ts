@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DoctorService } from 'src/app/doctor.service';
 
 @Component({
   selector: 'app-doc-pat-med-history-test-dialog',
@@ -9,20 +11,44 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DocPatMedHistoryTestDialogComponent {
 
-
+  testData:any;
+  testResult:any;
   
-  constructor(private dialogRef: MatDialogRef<DocPatMedHistoryTestDialogComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<DocPatMedHistoryTestDialogComponent>,public doc:DoctorService) {}
     
-   
+  // id
+  // : 
+  // 38
+  // notes
+  // : 
+  // "heavy leakage"
+  // result
+  // : 
+  // "success"
+  // testName
+  // : 
+  // "urine test
+
+
+
+
+   ngOnInit(){
+    console.log(this.data.dataKey)
+    const vid = this.data.dataKey;
+    this.doc.GetTestResultsByVisitId(vid).subscribe(response =>{
+      console.log(response);
+      this.testData = new MatTableDataSource(response);
+    })
+
+   }
     
-  }
+  
    Tests: TestDetails[] = [
      { Id: 1, TestName: "Eye", Result: "good", Notes: "use computer glass" },
      { Id: 2, TestName: "Eye", Result: "good", Notes: "use computer glass" },
     { Id:3, TestName: "Eye", Result: "good", Notes: "use computer glass" },
    ];
   
-  testData = new MatTableDataSource(this.Tests);
 
   displayedColumns: string[] = ['Id','TestName','Result','Notes'];
 }

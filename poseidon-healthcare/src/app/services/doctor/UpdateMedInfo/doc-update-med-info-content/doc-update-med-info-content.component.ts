@@ -34,6 +34,7 @@ export class DocUpdateMedInfoContentComponent {
       console.log(response);
       this.myVisitDetails = response;
       this.doc.VisitId = response.id;
+      this.doc.PatientId = response.patientId;
 
       this.doc.GetAllergyDetailsByVisitID(response.id).subscribe(response =>{
         console.log(response);
