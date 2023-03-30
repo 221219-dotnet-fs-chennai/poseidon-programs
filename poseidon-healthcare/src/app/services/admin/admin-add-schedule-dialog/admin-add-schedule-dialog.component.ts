@@ -72,7 +72,7 @@ export class AdminAddScheduleDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data.phyemail);    
+    // console.log(this.data.phyemail);    
     this.adminservice.getDoctorsAvailablebyEmail(this.data.phyemail).subscribe(response => {
       // console.log(response);
       this.doctor_available = response;
