@@ -176,5 +176,23 @@ export class AdminServiceService {
     const body = JSON.stringify(this.doctors);
 
     return this.httpclient.post('https://localhost:7292/poseidonhc/Add_Doctor', body, { headers: headers })
+
+  }
+
+  addAvailability(email : string){
+    this.doctor_avail_status.doctorEmail = email;
+    this.doctor_avail_status.availableFrom = "none";
+    this.doctor_avail_status.availableTo = "none";
+    this.doctor_avail_status.scheduleStatus = false;
+
+    const headers = { 'content-type': 'application/json' };
+    const body1 = JSON.stringify(this.doctor_avail_status);
+
+    // console.log(this.doctor_avail_status);
+    
+    // console.log(body1);
+
+    return this.httpclient.post('https://localhost:7292/poseidonhc/add_doc_avail', body1, {headers: headers})
+
   }
 }

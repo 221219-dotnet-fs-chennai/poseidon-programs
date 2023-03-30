@@ -2,7 +2,7 @@
     <div class="btns">
         <mat-form-field appearance="fill">
             <mat-label>Pick a Date</mat-label>
-            <input matInput [matDatepicker]="formpicker" name="date" ngModel #Date='ngModel'
+            <input matInput [min]="startDate" [matDatepicker]="formpicker" name="date" ngModel #Date='ngModel'
                 (dateInput)="setDate($event.value)">
             <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
             <mat-datepicker-toggle matIconSuffix [for]="formpicker"></mat-datepicker-toggle>

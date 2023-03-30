@@ -71,6 +71,8 @@ export interface appointment {
 export class PatAppointmentContentComponent implements OnInit {
   date = new FormControl(moment());
 
+  startDate = new Date();
+
   constructor(
     private router: Router,
     public dialog: MatDialog,

@@ -117,6 +117,7 @@ import { DigitToValuePipe } from './Patient/Appointment_history/digit-to-value.p
 import { AdminAvailableDoctorComponent } from './services/admin/admin-available-doctor/admin-available-doctor.component';
 import { AdminAddScheduleDialogComponent } from './services/admin/admin-add-schedule-dialog/admin-add-schedule-dialog.component';
 import { AdminAvailDeleteDialogboxComponent } from './services/admin/admin-avail-delete-dialogbox/admin-avail-delete-dialogbox.component';
+import { DocUpdateAvailabilityComponent } from './services/doctor/doc-update-availability/doc-update-availability.component';
 
 
 @NgModule({
@@ -208,7 +209,8 @@ import { AdminAvailDeleteDialogboxComponent } from './services/admin/admin-avail
     DigitToValuePipe,
     AdminAvailableDoctorComponent,
     AdminAddScheduleDialogComponent,
-    AdminAvailDeleteDialogboxComponent
+    AdminAvailDeleteDialogboxComponent,
+    DocUpdateAvailabilityComponent
   ],
 
   imports: [
