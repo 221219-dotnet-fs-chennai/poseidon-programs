@@ -33,15 +33,17 @@ export class AdminAvailableDoctorComponent implements OnInit {
       // console.log(data);
 
       this.availableDocs.forEach(element => {
-        this.adminservice.getDoctorsbyEmail(element.doctorEmail).subscribe(response => {
-          // console.log("respone");
-          // console.log(response);
-          this.doctor_objects.push(response);
-          // console.log(this.doctor_objects);
+        if (element.availableFrom != "none") {
+          this.adminservice.getDoctorsbyEmail(element.doctorEmail).subscribe(response => {
+            // console.log("respone");
+            // console.log(response);
+            this.doctor_objects.push(response);
+            // console.log(this.doctor_objects);
 
-          this.dataSource = new MatTableDataSource(this.doctor_objects);
-          this.dataSource.paginator = this.paginator;
-        })
+            this.dataSource = new MatTableDataSource(this.doctor_objects);
+            this.dataSource.paginator = this.paginator;
+          })
+        }
       });
     })
   }

@@ -80,7 +80,7 @@ export class AdminAddScheduleDialogComponent implements OnInit {
       var start_date = this.doctor_available.availableFrom.split('/');
       var end_date = this.doctor_available.availableTo.split('/');
 
-      this.startDate = new Date(Number(start_date[2]), Number(start_date[1]) - 1, Number(start_date[0]));
+      this.startDate = new Date();
       this.endDate = new Date(Number(end_date[2]), Number(end_date[1]) - 1, Number(end_date[0]));
     })
 

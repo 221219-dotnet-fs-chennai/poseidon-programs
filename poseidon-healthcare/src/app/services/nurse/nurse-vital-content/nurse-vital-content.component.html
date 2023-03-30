@@ -51,7 +51,7 @@
       <mat-form-field  appearance="fill">
         <mat-label>Allergies</mat-label>
         <mat-select multiple [(ngModel)]="selectedValues" name="allergieees">
-          <mat-option *ngFor="let a of allergyList" [value]="a">{{a}}</mat-option>
+          <mat-option *ngFor="let a of allergyList" [value]="a"></mat-option>
         </mat-select>
         
       </mat-form-field>
