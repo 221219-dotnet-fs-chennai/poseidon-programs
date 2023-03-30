@@ -34,7 +34,7 @@
 
       <ng-container matColumnDef="button1">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element"><a routerLink="/patient_medHistory"  class="button isactive" (click)=" to_updateMedInfo()">Update</a></td>
+        <td mat-cell *matCellDef="let element"><a routerLink="/patient_medHistory"  class="button isactive" (click)="to_updateMedInfo(element.id)">Update</a></td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

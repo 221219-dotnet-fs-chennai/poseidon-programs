@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Appointments } from './appointments';
-
-
+import { TestDetail } from './services/doctor/UpdateMedInfo/doc-med-info-edit-dialog/doc-med-info-edit-dialog.component';
+import { TestDetail1 } from './services/doctor/UpdateMedInfo/doc-add-test-dialog/doc-add-test-dialog.component';
+import { Prescription } from './services/doctor/UpdateMedInfo/doc-med-info-add-prescription-dialog/doc-med-info-add-prescription-dialog.component';
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
   Doctor_name:any;
   appointment_num:number;
-
+  TestId:number;
+  VisitId:number;
+  pageRefresh:boolean = false;
   constructor(private http:HttpClient) { }
 
   urlAppointment = "https://localhost:7292/poseidonhc";
 
-  // https://localhost:7267/api/Appointment/AcceptanceAndEmail?AcceptanceNo=0&Email=string
-  // https://localhost:7267/api/Appointment/AcceptanceAndEmail/0/string
-  // https://localhost:7292/poseidonhc/AcceptanceAndEmail/0/string
 
 
   
@@ -51,6 +51,62 @@ export class DoctorService {
     return this.http.get<any>(url);
   }
 
+  // https://localhost:7292/poseidonhc/GetVisitDetailsByAcceptanceId/43
+  public GetVisitDetailsByAcceptanceId(AcceptanceID:number){
+    const url = `${this.urlAppointment}/GetVisitDetailsByAcceptanceId/${AcceptanceID}`;
+    return this.http.get<any>(url);
+  }
+
+  // https://localhost:7292/poseidonhc/allery/84
+
+  public GetAllergyDetailsByVisitID(VisitId:number){
+    const url = `${this.urlAppointment}/allery/${VisitId}`;
+    return this.http.get<any>(url);
+  }
+
+  // https://localhost:7292/poseidonhc/GetTestListbyid/84
+  public GetTestResultsByVisitId(VisitId:number){
+    const url = `${this.urlAppointment}/GetTestListbyid/${VisitId}`
+    return this.http.get<any>(url);
+  }
+
+  // public putContacts(contact:contact,id:any):Observable<any>{
+  //   const url = `https://localhost:7118/UpdateContacts/${id}`
+  //   return this.http.put<any>(url,contact)
+  // }
+  // https://localhost:7102/api/Test/UpdateTest/14
+
+  public PutUpdateTest(TestID:number,TestDetail:TestDetail){
+
+    const url = `${this.urlAppointment}/UpdateTest/${TestID}`
+    return this.http.put<any>(url,TestDetail);
+
+
+  }
+
+  public DeleteTest(testID:number){
+    const url = `${this.urlAppointment}/DeleteTest/${testID}`
+    return this.http.delete<any>(url);
+  }
+
+  // /poseidonhc/AddTest
+  public AddTest(TestDetails:TestDetail1){
+    const url = `${this.urlAppointment}/AddTest`
+    return this.http.post<any>(url,TestDetails);
+  }
+
+  // /poseidonhc/GetPrescriptionById/{id}
+
+  public ViewPrescription(VisitID:number){
+    const url = `${this.urlAppointment}/GetPrescriptionById/${VisitID}`;
+    return this.http.get<any>(url);
+  }
+  // /poseidonhc/AddPrescription
+
+  public AddPriscription(Pres:Prescription){
+    const url = `${this.urlAppointment}/AddPrescription`
+    return this.http.post<any>(url,Pres);
+  }
 
  
   

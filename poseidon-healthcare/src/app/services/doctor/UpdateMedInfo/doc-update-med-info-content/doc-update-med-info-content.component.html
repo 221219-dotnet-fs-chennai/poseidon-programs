@@ -5,28 +5,30 @@
                 width="25px" height="25px" alt=""></button>
     </div>
 
+    
+
     <div class="detail-container">
         <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
             <div><span>
-                    <h3>Blood Pressure : <span>120/80 mm hg</span></h3>
+                    <h3>Blood Pressure : <span>{{myVisitDetails.bloodPressureDiastolic}}/{{myVisitDetails.bloodPressureSystolic}} mm hg</span></h3>
                 </span></div>
 
             <div><span>
-                    <h3>Temperature : <span>102</span></h3>
+                    <h3>Temperature : <span>{{myVisitDetails.bodyTemperature}}</span></h3>
                 </span></div>
             <div><span>
-                    <h3>Blood Group : <span>AB+</span></h3>
+                    <h3>Blood Group : <span>{{myVisitDetails.bloodGroup}}</span></h3>
                 </span>
             </div>
             <div><span>
-                    <h3>Height : <span>174 cm</span></h3>
+                    <h3>Height : <span>{{myVisitDetails.height}}</span></h3>
                 </span>
             </div>
         </div>
 
         <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
             <div><span>
-                    <h3>Weight : <span>65 kg</span></h3>
+                    <h3>Weight : <span>{{myVisitDetails.weight}}</span></h3>
                 </span></div>
 
             <div><span>
@@ -34,13 +36,18 @@
                 </span></div>
 
             <div><span>
-                    <h3>Allergies : <span>Pet allergy, Dust allergy</span></h3>
+                    <h3>Allergies : <div *ngFor="let al of allergies">
+                        <span>{{al.allergyName}}</span>
+                    </div>
+
+                    </h3>
+                    
                 </span>
             </div>
         </div>
     </div>
 
-    <app-doc-update-med-info-table></app-doc-update-med-info-table>
+    <app-doc-update-med-info-table [TestId] ="myVisitDetails.id" ></app-doc-update-med-info-table>
 
     <div class="btnSection" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="30px">
         <button class="btns" mat-flat-button (click)="openAddPrescription()">Add Prescription</button>
