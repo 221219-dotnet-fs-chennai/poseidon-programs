@@ -14,6 +14,7 @@ export class DoctorService {
   TestId:number;
   VisitId:number;
   pageRefresh:boolean = false;
+  PatientId:number;
   constructor(private http:HttpClient) { }
 
   urlAppointment = "https://localhost:7292/poseidonhc";
@@ -108,8 +109,26 @@ export class DoctorService {
     return this.http.post<any>(url,Pres);
   }
 
+  // /poseidonhc/Get_by_ID/{id}
+
+  public GetPatientById(patId:number){
+    const url = `${this.urlAppointment}/Get_by_ID/${patId}`;
+    return this.http.get<any>(url);
+  }
+
  
-  
+  // poseidonhc/GetVisitDetailsById/{id}
+
+  public GetVisitByPatientId(patId:number){
+    const url = `${this.urlAppointment}/GetVisitDetailsById/${patId}`;
+    return this.http.get<any>(url);
+
+  }
+
+  public GetVisitDetailsById(){
+    const url = `${this.urlAppointment}`;
+    return
+  }
   
 
 

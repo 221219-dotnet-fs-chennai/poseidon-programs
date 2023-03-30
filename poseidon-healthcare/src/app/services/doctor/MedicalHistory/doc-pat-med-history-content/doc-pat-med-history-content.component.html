@@ -1,3 +1,34 @@
+<!-- 
+address
+: 
+""
+contactNumber
+: 
+""
+dob
+: 
+"16/12/2001"
+email
+: 
+""
+firstName
+: 
+"abdul"
+gender
+: 
+"M"
+id
+: 
+13
+lastName
+: 
+"Aleem"
+password
+: 
+"Abdul123"
+title
+: 
+"Mr" -->
 <div class="container">
     <div fxLayoutAlign="end">
         <button mat-fab (click)="to_UpdateMedInfo()"><img src="../../../../assets/arrow-left-long-solid.svg"
@@ -7,30 +38,30 @@
     <div class="detail-container">
         <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
             <div><span>
-                    <h3>Name : <span>Mahesh</span></h3>
+                    <h3>Name : <span>{{patientDetails.firstName}}</span></h3>
                 </span></div>
 
             <div><span>
-                    <h3>Email : <span>mahesh@gmail.com</span></h3>
+                    <h3>Email : <span>{{patientDetails.email}}</span></h3>
                 </span></div>
 
             <div><span>
-                    <h3>Blood Group : <span>AB+</span></h3>
+                    <h3>Gender : <span>{{patientDetails.gender}}</span></h3>
                 </span>
             </div>
         </div>
 
         <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
             <div><span>
-                    <h3>Age : <span>22</span></h3>
+                    <h3>Age : <span>{{patientDetails.dob}}</span></h3>
                 </span></div>
 
             <div><span>
-                    <h3>Phone : <span>9891199111</span></h3>
+                    <h3>Phone : <span>{{patientDetails.contactNumber}}</span></h3>
                 </span></div>
 
             <div><span>
-                    <h3>Address : <span>Chennai</span></h3>
+                    <h3>Address : <span>{{patientDetails.address}}</span></h3>
                 </span>
             </div>
         </div>
@@ -40,7 +71,47 @@
 
     <h2>Observations History</h2>
 
+    <!-- appointmentId
+: 
+12
+bloodGroup
+: 
+"string"
+bloodPressureDiastolic
+: 
+0
+bloodPressureSystolic
+: 
+80
+bodyTemperature
+: 
+97
+height
+: 
+4
+id
+: 
+38
+keyNotes
+: 
+"abnormal behaviour"
+nurseEmail
+: 
+"string"
+patientId
+: 
+13
+physicianEmail
+: 
+"diana@doctor.com"
+respirationRate
+: 
+14
+weight
+: 
+53 -->
 
+    <div *ngFor="let i of VisitDetailsList">
     <div class="card-area flex-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px"
         fxLayout.lt-md="column">
         <mat-card>
@@ -48,7 +119,7 @@
                 <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
                     <div>
                         <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
+                            <h3>{{i.physicianEmail}}<span id="spl"></span></h3>
                         </span>
                     </div>
                     <div>
@@ -65,158 +136,16 @@
             </div>
             <mat-card-actions>
                 <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
+                    <button mat-flat-button id="test" (click)="openDialog(i.id)">Tests</button>
+                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog(i.id)">Prescriptions</button>
+                    <button mat-flat-button id="vital-details" (click)="openvitals(i.id)">Vitals</button>
                 </div>
             </mat-card-actions>
         </mat-card>
 
-        <mat-card>
-            <mat-card-header class="flex-container">
-                <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
-                    <div>
-                        <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
-                        </span>
-                    </div>
-                    <div>
-                        <h3>15 Mar 2023</h3>
-                    </div>
+       
 
-                </div>
-            </mat-card-header>
-
-
-            <div fxLayoutAlign="center">
-                <img src="../../../../assets/medical-history.png" alt="medical report" width="100px" height="100px"
-                    id="card-icon">
-            </div>
-            <mat-card-actions>
-                <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-header class="flex-container">
-                <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
-                    <div>
-                        <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
-                        </span>
-                    </div>
-                    <div>
-                        <h3>15 Mar 2023</h3>
-                    </div>
-
-                </div>
-            </mat-card-header>
-
-
-            <div fxLayoutAlign="center">
-                <img src="../../../../assets/medical-history.png" alt="medical report" width="100px" height="100px"
-                    id="card-icon">
-            </div>
-            <mat-card-actions>
-                <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-header class="flex-container">
-                <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
-                    <div>
-                        <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
-                        </span>
-                    </div>
-                    <div>
-                        <h3>15 Mar 2023</h3>
-                    </div>
-
-                </div>
-            </mat-card-header>
-
-
-            <div fxLayoutAlign="center">
-                <img src="../../../../assets/medical-history.png" alt="medical report" width="100px" height="100px"
-                    id="card-icon">
-            </div>
-            <mat-card-actions>
-                <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-header class="flex-container">
-                <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
-                    <div>
-                        <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
-                        </span>
-                    </div>
-                    <div>
-                        <h3>15 Mar 2023</h3>
-                    </div>
-
-                </div>
-            </mat-card-header>
-
-
-            <div fxLayoutAlign="center">
-                <img src="../../../../assets/medical-history.png" alt="medical report" width="100px" height="100px"
-                    id="card-icon">
-            </div>
-            <mat-card-actions>
-                <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-
-        <mat-card>
-            <mat-card-header class="flex-container">
-                <div class="head-card" fxLayout="row" fxLayout="center" fxLayoutGap="150px">
-                    <div>
-                        <span>
-                            <h3>Doctor <span id="spl">(dentist)</span></h3>
-                        </span>
-                    </div>
-                    <div>
-                        <h3>15 Mar 2023</h3>
-                    </div>
-
-                </div>
-            </mat-card-header>
-
-
-            <div fxLayoutAlign="center">
-                <img src="../../../../assets/medical-history.png" alt="medical report" width="100px" height="100px"
-                    id="card-icon">
-            </div>
-            <mat-card-actions>
-                <div class="actions" fxLayout="row">
-                    <button mat-flat-button id="test" (click)="openDialog()">Tests</button>
-                    <button mat-flat-button id="prescriptions" (click)="openPrescriptionDialog()">Prescriptions</button>
-                    <button mat-flat-button id="vital-details" (click)="openvitals()">Vitals</button>
-                </div>
-            </mat-card-actions>
-        </mat-card>
-
+    </div>
     </div>
 
 
