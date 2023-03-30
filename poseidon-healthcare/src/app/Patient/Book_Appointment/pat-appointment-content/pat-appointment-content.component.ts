@@ -70,6 +70,7 @@ export interface appointment {
 })
 export class PatAppointmentContentComponent implements OnInit {
   date = new FormControl(moment());
+  fromDate: Moment;
 
   startDate = new Date();
 
@@ -77,7 +78,7 @@ export class PatAppointmentContentComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private service: ServicePatientService
-  ) {}
+  ) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(PatReasonDialogComponent, {
       data: {},
@@ -109,12 +110,12 @@ export class PatAppointmentContentComponent implements OnInit {
     var nDate = new Date(f);
     this.showAll = false;
     this.selectedDate = this.getCorrectDate(nDate);
-    this.appointmentDate =
-      nDate.getDate() +
-      '/' +
-      (nDate.getMonth() + 1) +
-      '/' +
-      nDate.getFullYear();
+    this.appointmentDate = moment(this.fromDate).format('DD/MM/YYYY')
+    // nDate.getDate() +
+    // '/' +
+    // (nDate.getMonth() + 1) +
+    // '/' +
+    // nDate.getFullYear();
     this.newAppointment.date = this.appointmentDate;
     console.log(this.newAppointment.date);
   }
@@ -130,8 +131,10 @@ export class PatAppointmentContentComponent implements OnInit {
       this.availabilityList = res;
       for (var doctor of this.availabilityList) {
         var toDate = moment(doctor.availableTo, 'DD/MM/YYYY').toDate();
+        var fromDate = moment(doctor.availablefrom, 'DD/MM/YYYY').toDate();
         var AvailTo = this.getCorrectDate(toDate);
-        if (AvailTo > this.TodayDate) {
+        var AvailFrom = this.getCorrectDate(fromDate);
+        if ((fromDate >= AvailFrom && fromDate <= AvailTo)) {
           console.log(doctor.physician_email);
           var doctors: availability = {
             name: doctor.physician_email.split('.')[0],
