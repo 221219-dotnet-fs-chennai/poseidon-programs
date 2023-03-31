@@ -32,6 +32,10 @@ export class PatReasonDialogComponent {
       )
       .subscribe((response) => {
         // This is where you can handle the successful response
+        alert('Appointment Booked');
+        this.service.sendBookedEmail().subscribe(res=>{
+          console.log("email sent");
+        })
         console.log('success');
       });
   }
