@@ -160,6 +160,7 @@ export class ServicePatientService {
   appointmentRootUrl = 'https://localhost:7267/api/Appointment/';
   physicianAvaRootUrl = 'https://localhost:7140/api/PhysicianAvailability/';
   AllergyRootUrl = 'https://localhost:7182/api';
+  EmailServiceRoot = 'https://localhost:7292';
 
   //NEW PATIENT REGISTRATION
   addPatient(patient: any) {
@@ -291,5 +292,12 @@ export class ServicePatientService {
   }
   public getAllergies(id: number) {
     return this.http.get(this.AllergyRootUrl + '/Allergy/Fetch/' + id);
+  }
+
+  public sendBookedEmail(){
+    var headers = { 'content-type': 'application/json' };
+    var body = "";
+    var toMail=localStorage.getItem('currentUserEmail');
+    return this.http.post(this.EmailServiceRoot+'/poseidonhc/sendEmail/'+toMail+'/'+0,body,{headers:headers});
   }
 }
