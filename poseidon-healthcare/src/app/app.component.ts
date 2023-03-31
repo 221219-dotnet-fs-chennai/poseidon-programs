@@ -19,6 +19,9 @@ export class AppComponent {
     this.auth.user$.subscribe((profile) => {
       this.doc.Doctor_name = profile?.email;
 
+
+     localStorage.setItem('doctorEmail',profile?.email);
+      console.log(profile?.email);
       console.log(profile?.email?.split('@')[1]);
       this.ext = profile?.email?.split('@')[1]
       myauth.AuthorizeFunc(this.ext);

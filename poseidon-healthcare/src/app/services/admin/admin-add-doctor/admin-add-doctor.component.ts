@@ -44,7 +44,7 @@ export class AdminAddDoctorComponent {
   constructor(private router: Router, private adminservice: AdminServiceService) {
   }
   
-  onSubmit(f: NgForm) {
+  onSubmit(f: any) {
     this.adminservice.addDoctors(f).pipe(
       catchError(error => {
         const statusCode = error.status;
@@ -54,8 +54,20 @@ export class AdminAddDoctorComponent {
         console.log(response);
         console.log("Added successfully");
       })
-      console.log(f);
+      
+      console.log(f.email);
+
       alert("Doctor added successfully");
+
+      this.adminservice.getDoctorsbyEmail(f.email).subscribe(res => {
+        // console.log(res);  
+
+        this.adminservice.addAvailability(f.email).subscribe(data => {
+          console.log(data);
+          
+        })
+      })
+
       this.router.navigate(['adminhome'])
   }
 

@@ -1,37 +1,36 @@
 <app-doctor-nav> </app-doctor-nav>
 <h3>Hello Doctor!</h3>
 
-<div class="link_cards">
-    <mat-grid-list cols="4" rowHeight="400px">
-        <mat-grid-tile></mat-grid-tile>
-        <mat-grid-tile class="gritems">
-            <a  class="service-card" routerLink="/docacceptedappointments"><img src="../../../assets/patient.png" alt="Patient" width="60px"
-                height="60px"><br>
-                 Accepted Appointment</a>
-        </mat-grid-tile>
 
-        <mat-grid-tile >
-            <a class="service-card1" routerLink="/doctdapp" ><img src="../../../assets/doctor.png" alt="Doctor" width="60px" height="60px">
-                <br>
-            Pending Appointment
-        </a>
+<div class="container">
+    <div class="navigation-cards" fxLayoutAlign="center" fxLayoutGap="60px" fxLayout="row wrap">
+        <mat-card class="nav-card" (click)="to_accpetedAppointment()">
+            <mat-card-content >
+            <div fxLayoutAlign="center"><img class="images" src="../../../../assets/doctor.png" alt="book_appointment" width="70px" height="70px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h2>Accepted Appointments</h2>
+            </mat-card-footer>
+        </mat-card>
 
-        </mat-grid-tile>
-        <mat-grid-tile></mat-grid-tile>
+        <mat-card class="nav-card" (click)="to_pendingAppointment()">
+            <mat-card-content>
+                <div fxLayoutAlign="center"><img class="images" src="../../../../assets/patient.png"
+                        alt="Medical History" width="70px" height="70px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h2>Pending Appointments</h2>
+            </mat-card-footer>
+        </mat-card>
 
-    </mat-grid-list>
-    
-<!-- 
-    <a class="service-card" routerLink="/nurse_profile"><img src="../../../assets/nurse.png" alt="Nurse" width="60px" height="60px"></a>
-    <a class="service-card" routerLink="/adminprofile"><img src="../../../assets/admin.png" alt="Admin" width="60px" height="60px"></a> -->
-
-
+        <mat-card class="nav-card" (click)="add_available()">
+            <mat-card-content>
+                <div fxLayoutAlign="center"><img class="images" src="../../../../assets/calendar.png"
+                        alt="Appointment History" width="70px" height="70px"></div>
+            </mat-card-content>
+            <mat-card-footer>
+                <h2>Update Availability</h2>
+            </mat-card-footer>
+        </mat-card>
+    </div>
 </div>
-
-
-<!-- <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list> -->
