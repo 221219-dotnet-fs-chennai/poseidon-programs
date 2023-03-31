@@ -27,12 +27,7 @@ export class DocPatMedHistoryPrescriptionDialogComponent {
     })
 
   }
-  Prescriptions: PrescriptionData[] = [
-    { Id: 1, Medicine: "Paracetamol", Dosage: "1-0-1", Notes: "after food" },
-    { Id: 2, Medicine: "Dolo", Dosage: "1-0-1", Notes: "after food" },
-     { Id: 3, Medicine: "Pan40", Dosage: "1-0-1", Notes: "after food" },
-    
-  ];
+ 
   
 
   displayedColumns: string[] = ['Id','TestName','Result','Notes'];
