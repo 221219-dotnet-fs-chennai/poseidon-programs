@@ -58,7 +58,7 @@ export class AcceptedappointmentComponent {
 
  
 
-  displayedColumns: string[] = ['id', 'name', 'bookeddate', 'notes','button1'];
+  displayedColumns: string[] = ['id', 'name', 'bookeddate', 'notes','button1','button2'];
   // dataSource: MatTableDataSource<UserData>;
   // dataSource = new MatTableDataSource<any>(this.doc.Patient_Details);
   dataSource:any;
@@ -127,6 +127,18 @@ export class AcceptedappointmentComponent {
   to_updateMedInfo(id:number) {
     this.router.navigate(['/update_medInfo']);
     this.doc.appointment_num = id;
+  }
+
+  toCompleteConsultation(id:number){
+    console.log(id);
+    this.doc.PutAcceptancebyId(id,3).subscribe(response =>{
+      console.log(response);
+      alert("Completed Successfully!!!")
+      this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/docacceptedappointments']);
+    }); 
+    })
+
   }
 
 }
