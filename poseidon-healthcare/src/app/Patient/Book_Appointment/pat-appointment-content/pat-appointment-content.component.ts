@@ -70,7 +70,7 @@ export interface appointment {
 })
 export class PatAppointmentContentComponent implements OnInit {
   date = new FormControl(moment());
-  fromDate: Moment;
+  bookDate: Date;
 
   startDate = new Date();
 
@@ -107,26 +107,21 @@ export class PatAppointmentContentComponent implements OnInit {
 
   //SETS SELECTED DATE AND SETS APPOINTMENT DATE TO NEW APPOINTMENT OBJECT
   setDate(f: Date) {
+    this.doctorsList.length = 0;
+    
     var nDate = new Date(f);
     this.showAll = false;
     this.selectedDate = this.getCorrectDate(nDate);
-    this.appointmentDate = moment(this.fromDate).format('DD/MM/YYYY')
+    this.bookDate = this.getCorrectDate(nDate);
+    this.appointmentDate = moment(this.bookDate).format('DD/MM/YYYY')
     // nDate.getDate() +
     // '/' +
     // (nDate.getMonth() + 1) +
     // '/' +
     // nDate.getFullYear();
     this.newAppointment.date = this.appointmentDate;
-    console.log(this.newAppointment.date);
-  }
+    console.log("select " + this.bookDate);
 
-  //GETTING TODAY'S DATE IN DATE FORMAT
-  nowDate: Date = new Date();
-  TodayDate: Date = this.getCorrectDate(this.nowDate);
-
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.service.getAllAvailableDoctors().subscribe((res) => {
       this.availabilityList = res;
       for (var doctor of this.availabilityList) {
@@ -134,7 +129,12 @@ export class PatAppointmentContentComponent implements OnInit {
         var fromDate = moment(doctor.availablefrom, 'DD/MM/YYYY').toDate();
         var AvailTo = this.getCorrectDate(toDate);
         var AvailFrom = this.getCorrectDate(fromDate);
-        if ((fromDate >= AvailFrom && fromDate <= AvailTo)) {
+
+
+        console.log("book " + this.bookDate);
+        
+
+        if ((this.bookDate >= AvailFrom && this.bookDate <= AvailTo)) {
           console.log(doctor.physician_email);
           var doctors: availability = {
             name: doctor.physician_email.split('.')[0],
@@ -149,6 +149,43 @@ export class PatAppointmentContentComponent implements OnInit {
         }
       }
     });
+
+  }
+
+  //GETTING TODAY'S DATE IN DATE FORMAT
+  nowDate: Date = new Date();
+  TodayDate: Date = this.getCorrectDate(this.nowDate);
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    // this.service.getAllAvailableDoctors().subscribe((res) => {
+    //   this.availabilityList = res;
+    //   for (var doctor of this.availabilityList) {
+    //     var toDate = moment(doctor.availableTo, 'DD/MM/YYYY').toDate();
+    //     var fromDate = moment(doctor.availablefrom, 'DD/MM/YYYY').toDate();
+    //     var AvailTo = this.getCorrectDate(toDate);
+    //     var AvailFrom = this.getCorrectDate(fromDate);
+
+
+    //     console.log("book " + this.bookDate);
+        
+
+    //     if ((fromDate >= AvailFrom && fromDate <= AvailTo)) {
+    //       console.log(doctor.physician_email);
+    //       var doctors: availability = {
+    //         name: doctor.physician_email.split('.')[0],
+    //         email: doctor.physician_email,
+    //         dept: doctor.physician_email.split('.')[1].split('@')[0],
+    //         availablefrom: this.getCorrectDate(
+    //           moment(doctor.availablefrom, 'DD/MM/YYYY').toDate()
+    //         ),
+    //         availableTo: AvailTo,
+    //       };
+    //       this.doctorsList.push(doctors);
+    //     }
+    //   }
+    // });
 
     console.log(this.doctorsList);
   }
