@@ -39,7 +39,7 @@ namespace Email_Service.Controllers
 
             client.Port = 587;
 
-            client.Credentials = new NetworkCredential("yuvamanikandan15@gmail.com", "eezyhztxehlzszoz");
+            client.Credentials = new NetworkCredential("healthcareposeidon@gmail.com", "xqllhshwscxxwqjp");
 
             client.UseDefaultCredentials = false;
 
