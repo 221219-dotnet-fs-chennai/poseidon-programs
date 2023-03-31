@@ -47,14 +47,14 @@ export class ServicenurseService {
   {
     return this.http.get("https://localhost:7292/poseidonhc/Get_all_appointment",{headers:this.httpOptions.headers});
   }
-  public serviceUrl="https://localhost:7292/poseidonhc/updateby_patID";
+  public serviceUrl="https://localhost:7292/poseidonhc/updatebyAppointMentNo";
 
   public update(data:any):Observable<any>{
-      return this.http.put(`${this.serviceUrl}/${data.patientId}`, {
+      return this.http.put(`${this.serviceUrl}/${data.id}/${data.acceptance}`, {
         
         "reason": data.reason,
         "date": data.date,
-        "acceptance": 2,
+        "acceptance": data.acceptance,
         "patientId": data.patientId,
         "physicianEmail": data.physicianEmail,
         "submissionDate": data.submissionDate
