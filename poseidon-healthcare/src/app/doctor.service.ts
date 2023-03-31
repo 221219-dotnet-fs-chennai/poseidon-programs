@@ -15,6 +15,7 @@ export class DoctorService {
   VisitId:number;
   pageRefresh:boolean = false;
   PatientId:number;
+  EmailPatientId:number;
   constructor(private http:HttpClient) { }
 
   urlAppointment = "https://localhost:7292/poseidonhc";
@@ -125,11 +126,17 @@ export class DoctorService {
 
   }
 
-  public GetVisitDetailsById(){
-    const url = `${this.urlAppointment}`;
-    return
-  }
+  // public GetVisitDetailsById(){
+  //   const url = `${this.urlAppointment}`;
+  //   return
+  // }
   
+  // /poseidonhc/sendEmail/{email}/{status}
+
+  public EmailSender(Email:string,Status:number){
+    const url = `${this.urlAppointment}/sendEmail/${Email}/${Status}`
+    return this.http.post<any>(url,null);
+  }
 
 
 

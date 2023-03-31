@@ -18,18 +18,7 @@ export class DocMedInfoEditDialogComponent {
 constructor(private dialog: MatDialogRef<DocMedInfoEditDialogComponent>,public doc:DoctorService,public router:Router) {}
 
 
-// const contacts = new contact(this.name,this.category,this.phnum);
-// this.contactservice.putContacts(contacts,this.id).subscribe((response:any)=>{
-//  console.log(response);
-// Notes
-// : 
-// ""
-// Result
-// : 
-// ""
-// Test
-// : 
-// "
+
    onSubmit(f: any) {
     const TestDetails=  new TestDetail(this.doc.VisitId,f.Test,f.Result,f.Notes);
     // console.log(f,this.doc.TestId,this.doc.VisitId);

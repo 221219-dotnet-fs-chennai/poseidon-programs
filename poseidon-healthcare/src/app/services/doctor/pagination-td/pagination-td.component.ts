@@ -71,11 +71,14 @@ getPatByID(id:Number){
     //   this.dataSource.paginator = this.paginator;
     // }
 
-  onAcceptHandler(i:any){
+  onAcceptHandler(i:any,patientId:number){
     // alert("wow");
     console.log(i);
     this.dialog.open(DialogElementsExampleDialog);
     this.doc.appointment_num = i;
+    this.doc.EmailPatientId = patientId;
+
+
   
 
   }
@@ -84,9 +87,11 @@ getPatByID(id:Number){
   //   this.dialog.closeAll();
   // }
 
-  onRejectHandler(i:number){
+  onRejectHandler(i:number,patientId:number){
     this.dialog.open(DialogElementsForReject);
     this.doc.appointment_num = i;
+    this.doc.EmailPatientId = patientId;
+
 
   }
 
@@ -154,6 +159,12 @@ export class DialogElementsExampleDialog {
     this.doc.PutAcceptancebyId(this.doc.appointment_num,1).subscribe(response =>{
       alert(response+"accepted");
       console.log(response);
+    this.doc.GetPatientDetailsByID(this.doc.EmailPatientId).subscribe(response=>{
+        this.doc.EmailSender(response.email,1).subscribe(response=>{
+          console.log(response);
+        })
+      })
+      // this.doc.EmailSender()
 
       this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/doctdapp']);
@@ -200,6 +211,11 @@ export class DialogElementsForReject {
     this.doc.PutAcceptancebyId(this.doc.appointment_num,4).subscribe(response =>{
       alert(response+"accepted");
       console.log(response);
+      this.doc.GetPatientDetailsByID(this.doc.EmailPatientId).subscribe(response=>{
+        this.doc.EmailSender(response.email,4).subscribe(response=>{
+          console.log(response);
+        })
+      })
 
       this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/doctdapp']);

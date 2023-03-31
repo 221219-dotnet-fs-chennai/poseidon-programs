@@ -40,12 +40,12 @@
 
     <ng-container matColumnDef="button1">
       <th mat-header-cell *matHeaderCellDef> </th>
-      <td mat-cell *matCellDef="let element">     <a (click)="onAcceptHandler(element.id)" class="button isactive">Accept</a></td>
+      <td mat-cell *matCellDef="let element">     <a (click)="onAcceptHandler(element.id,element.patientId)" class="button isactive">Accept</a></td>
     </ng-container>
 
     <ng-container matColumnDef="button2">
       <th mat-header-cell *matHeaderCellDef> </th>
-      <td mat-cell *matCellDef="let element">  <a (click)="onRejectHandler(element.id)" class="button isdark ">Reject </a> </td>
+      <td mat-cell *matCellDef="let element">  <a (click)="onRejectHandler(element.id,element.patientId)" class="button isdark ">Reject </a> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
