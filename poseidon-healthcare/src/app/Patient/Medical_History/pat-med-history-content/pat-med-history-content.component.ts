@@ -32,6 +32,8 @@ export interface visitHistory {
   styleUrls: ['./pat-med-history-content.component.css'],
 })
 export class PatMedHistoryContentComponent implements OnInit {
+  load: boolean = true;
+  show: boolean = true;
   constructor(
     private router: Router,
     public dialog: MatDialog,
@@ -99,6 +101,11 @@ export class PatMedHistoryContentComponent implements OnInit {
         console.log(this.MedicalHistoryArray);
         this.MostRecentMedicalHistory =
           this.MedicalHistoryArray[this.MedicalHistoryArray.length - 1];
+        if (this.MostRecentMedicalHistory != null) {
+          this.load = false;
+        } else {
+          this.show = false;
+        }
         console.log(this.MostRecentMedicalHistory);
       }
     });

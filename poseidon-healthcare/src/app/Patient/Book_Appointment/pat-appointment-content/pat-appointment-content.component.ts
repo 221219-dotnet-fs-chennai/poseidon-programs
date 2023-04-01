@@ -71,6 +71,9 @@ export interface appointment {
 export class PatAppointmentContentComponent implements OnInit {
   date = new FormControl(moment());
   bookDate: Date;
+  show: boolean = true;
+  dateCheck: boolean = false;
+  load: boolean = true;
 
   startDate = new Date();
 
@@ -78,7 +81,7 @@ export class PatAppointmentContentComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private service: ServicePatientService
-  ) { }
+  ) {}
   openDialog(): void {
     const dialogRef = this.dialog.open(PatReasonDialogComponent, {
       data: {},
@@ -94,7 +97,6 @@ export class PatAppointmentContentComponent implements OnInit {
   doctorsList: availability[] = [];
   appointmentDate!: string;
   selectedDate!: Date;
-  showAll: boolean = true;
 
   newAppointment: appointment = {
     reason: '',
@@ -108,19 +110,20 @@ export class PatAppointmentContentComponent implements OnInit {
   //SETS SELECTED DATE AND SETS APPOINTMENT DATE TO NEW APPOINTMENT OBJECT
   setDate(f: Date) {
     this.doctorsList.length = 0;
-    
+
     var nDate = new Date(f);
-    this.showAll = false;
+
     this.selectedDate = this.getCorrectDate(nDate);
     this.bookDate = this.getCorrectDate(nDate);
-    this.appointmentDate = moment(this.bookDate).format('DD/MM/YYYY')
+    this.appointmentDate = moment(this.bookDate).format('DD/MM/YYYY');
+    this.dateCheck = true;
     // nDate.getDate() +
     // '/' +
     // (nDate.getMonth() + 1) +
     // '/' +
     // nDate.getFullYear();
     this.newAppointment.date = this.appointmentDate;
-    console.log("select " + this.bookDate);
+    console.log('select ' + this.bookDate);
 
     this.service.getAllAvailableDoctors().subscribe((res) => {
       this.availabilityList = res;
@@ -130,11 +133,10 @@ export class PatAppointmentContentComponent implements OnInit {
         var AvailTo = this.getCorrectDate(toDate);
         var AvailFrom = this.getCorrectDate(fromDate);
 
+        console.log('book ' + this.bookDate);
 
-        console.log("book " + this.bookDate);
-        
-
-        if ((this.bookDate >= AvailFrom && this.bookDate <= AvailTo)) {
+        if (this.bookDate >= AvailFrom && this.bookDate <= AvailTo) {
+          this.show = true;
           console.log(doctor.physician_email);
           var doctors: availability = {
             name: doctor.physician_email.split('.')[0],
@@ -147,9 +149,12 @@ export class PatAppointmentContentComponent implements OnInit {
           };
           this.doctorsList.push(doctors);
         }
+        if (this.doctorsList.length == 0) {
+          this.load = false;
+          this.show = false;
+        }
       }
     });
-
   }
 
   //GETTING TODAY'S DATE IN DATE FORMAT
@@ -167,9 +172,7 @@ export class PatAppointmentContentComponent implements OnInit {
     //     var AvailTo = this.getCorrectDate(toDate);
     //     var AvailFrom = this.getCorrectDate(fromDate);
 
-
     //     console.log("book " + this.bookDate);
-        
 
     //     if ((fromDate >= AvailFrom && fromDate <= AvailTo)) {
     //       console.log(doctor.physician_email);

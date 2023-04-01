@@ -90,3 +90,7 @@ mat-card-content {
     background-color: #444343 !important;
     color:white;
 }
+
+#spinner{
+    margin-top: 20%
+}

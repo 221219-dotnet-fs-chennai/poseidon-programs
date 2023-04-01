@@ -15,30 +15,20 @@
         </div>
     </div>
 
-    <div *ngIf="!showAll" class="card-area flex-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px"
-        fxLayout.lt-md="column">
-        <div *ngFor="let doctors of doctorsList">
-
-            <mat-card *ngIf="selectedDate<=doctors.availableTo">
-                <mat-card-header class="flex-container" fxLayout="row">
-                    <span>
-                        <h3>{{doctors.name}}<span id="spl">({{doctors.dept}})</span></h3>
-                    </span>
-                </mat-card-header>
-
-
-                <div fxLayoutAlign="center">
-                    <img src="../../../../assets/doctor_appointment.png" alt="medical report" width="100px"
-                        height="100px" id="card-icon">
-                </div>
-                <mat-card-actions><button mat-flat-button id="book" (click)="openDialog()"
-                        (click)="setAppointment(doctors.email)">Book</button></mat-card-actions>
-            </mat-card>
-        </div>
-
+    <div *ngIf="!dateCheck" fxLayoutAlign="center" id="dateMessage">
+        <h1>Please pick a date to see the available doctors</h1>
     </div>
 
-    <div *ngIf="showAll" class="card-area flex-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px"
+
+    <div *ngIf="dateCheck">
+        <h2 id="availdoc">Available Doctors on {{bookDate | dateformatter}}</h2>
+    
+        <div fxLayoutAlign="center" *ngIf="load">
+            <mat-spinner></mat-spinner>
+        </div>
+
+   
+    <div class="card-area flex-container" *ngIf="show" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px"
         fxLayout.lt-md="column">
         <div *ngFor="let doctors of doctorsList">
 
@@ -54,9 +44,7 @@
                     <img src="../../../../assets/doctor_appointment.png" alt="medical report" width="100px"
                         height="100px" id="card-icon">
                 </div>
-                <mat-card-actions><button mat-flat-button id="book" *ngIf="!showAll" (click)="openDialog()"
-                        (click)="setAppointment(doctors.email)">Book</button>
-                    <button mat-flat-button disabled id="book" *ngIf="showAll" (click)="openDialog()"
+                <mat-card-actions><button mat-flat-button id="book"  (click)="openDialog()"
                         (click)="setAppointment(doctors.email)">Book</button>
                 </mat-card-actions>
             </mat-card>
@@ -64,6 +52,10 @@
 
     </div>
 
+    <div *ngIf="!show" fxLayoutAlign="center" id="dateMessage">
+        <h1>Sorry, we don't have any available doctors on this date</h1>
+    </div>
+    </div>
 
 
 

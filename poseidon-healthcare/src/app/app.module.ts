@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
-
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +13,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core';
-
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,16 +34,15 @@ import { ServiceHomeComponent } from './Service/service-home/service-home.compon
 import { ServiceNavbarComponent } from './Service/service-navbar/service-navbar.component';
 import { ServiceContentComponent } from './Service/service-content/service-content.component';
 
-
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 
 import { LoginLogoutComponent } from './services/authservices/login-logout/login-logout.component';
 
-import { AuthModule } from '@auth0/auth0-angular'; ``
+import { AuthModule } from '@auth0/auth0-angular';
+``;
 import { NursehomeComponent } from './services/nurse/nursehome/nursehome.component';
 import { AdminhomeComponent } from './services/admin/adminhome/adminhome.component';
-
 
 import { PatientProfileNavbarComponent } from './Patient/Patient_Profile/patient-profile-navbar/patient-profile-navbar.component';
 import { PatientProfileHomeComponent } from './Patient/Patient_Profile/patient-profile-home/patient-profile-home.component';
@@ -118,7 +114,9 @@ import { AdminAvailableDoctorComponent } from './services/admin/admin-available-
 import { AdminAddScheduleDialogComponent } from './services/admin/admin-add-schedule-dialog/admin-add-schedule-dialog.component';
 import { AdminAvailDeleteDialogboxComponent } from './services/admin/admin-avail-delete-dialogbox/admin-avail-delete-dialogbox.component';
 import { DocUpdateAvailabilityComponent } from './services/doctor/doc-update-availability/doc-update-availability.component';
-
+import { DateformatterPipe } from './Patient/dateformatter.pipe';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -210,7 +208,8 @@ import { DocUpdateAvailabilityComponent } from './services/doctor/doc-update-ava
     AdminAvailableDoctorComponent,
     AdminAddScheduleDialogComponent,
     AdminAvailDeleteDialogboxComponent,
-    DocUpdateAvailabilityComponent
+    DocUpdateAvailabilityComponent,
+    DateformatterPipe,
   ],
 
   imports: [
@@ -239,18 +238,18 @@ import { DocUpdateAvailabilityComponent } from './services/doctor/doc-update-ava
     FlexLayoutModule,
     MatNativeDateModule,
     HttpClientModule,
-
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
 
     AuthModule.forRoot({
       domain: 'dev-4o16n0ly4u0mxvll.us.auth0.com',
       clientId: '8moNAcVOTwfw9svEb3vGDPD89Me1QyDG',
       authorizationParams: {
-        redirect_uri: window.location.origin
-      }
+        redirect_uri: window.location.origin,
+      },
     }),
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
