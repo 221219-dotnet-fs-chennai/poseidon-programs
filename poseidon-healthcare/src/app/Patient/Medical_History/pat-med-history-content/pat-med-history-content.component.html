@@ -1,4 +1,15 @@
-<div class="container">
+
+
+<div *ngIf="!show" fxLayoutAlign="center">
+    <h1>Sorry, you don't have any medical history for now.</h1>
+</div>
+
+<div *ngIf="load" fxLayoutAlign="center" id="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+
+
+<div class="container" *ngIf="show">
     <div fxLayoutAlign="end">
         <button mat-fab (click)="to_profile()"><img src="../../../../assets/arrow-left-long-solid.svg" width="25px"
                 height="25px" alt=""></button>

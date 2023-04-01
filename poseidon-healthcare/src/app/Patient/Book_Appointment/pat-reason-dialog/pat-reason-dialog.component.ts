@@ -9,6 +9,7 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { ServicePatientService } from '../../service-patient.service';
 import { catchError, throwError, pipe } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-pat-reason-dialog',
   templateUrl: './pat-reason-dialog.component.html',
@@ -17,7 +18,8 @@ import { catchError, throwError, pipe } from 'rxjs';
 export class PatReasonDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<PatReasonDialogComponent>,
-    private service: ServicePatientService
+    private service: ServicePatientService,
+    private snackbar: MatSnackBar
   ) {}
 
   onSubmit(f: NgForm) {
@@ -32,10 +34,12 @@ export class PatReasonDialogComponent {
       )
       .subscribe((response) => {
         // This is where you can handle the successful response
-        alert('Appointment Booked');
-        this.service.sendBookedEmail().subscribe(res=>{
-          console.log("email sent");
-        })
+        this.snackbar.open('Appointment booked successfully', 'Ok', {
+          duration: 3000,
+        });
+        this.service.sendBookedEmail().subscribe((res) => {
+          console.log('email sent');
+        });
         console.log('success');
       });
   }
