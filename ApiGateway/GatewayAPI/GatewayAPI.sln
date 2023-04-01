@@ -66,6 +66,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllergyServiceTest", "Aller
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doctor_Controller_Testing", "Doctor_Controller_Testing\Doctor_Controller_Testing.csproj", "{764EA0B2-43A4-484B-BD0C-616D6FEF537D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "audit_service", "..\..\..\ApiGateway\audit_service\audit_service.csproj", "{B3C32546-481B-4AB5-95CD-05D5A55E1ED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -200,6 +202,10 @@ Global
 		{764EA0B2-43A4-484B-BD0C-616D6FEF537D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{764EA0B2-43A4-484B-BD0C-616D6FEF537D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{764EA0B2-43A4-484B-BD0C-616D6FEF537D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C32546-481B-4AB5-95CD-05D5A55E1ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C32546-481B-4AB5-95CD-05D5A55E1ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C32546-481B-4AB5-95CD-05D5A55E1ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C32546-481B-4AB5-95CD-05D5A55E1ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
