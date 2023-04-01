@@ -46,7 +46,7 @@
                  <mat-grid-tile>
                     <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input type="password" name="password" matInput ngModel #password='ngModel' (change)="getValue(password.value)" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                    <input type="password" name="password" matInput ngModel #password='ngModel' (change)="getValue(password.value)" [(ngModel)]="newPassword" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
                     <mat-error *ngIf="password.touched && (password.invalid||password.errors?.pattern)">Invalid password format</mat-error>
                 </mat-form-field>
                  </mat-grid-tile>
@@ -54,9 +54,9 @@
                  <mat-grid-tile>
                     <mat-form-field appearance="outline">
                     <mat-label>Confirm Password</mat-label>
-                    <input type="password" name="Confirmpassword" matInput ngModel #Confirmpassword='ngModel' (change)='getValue(Confirmpassword.value)' required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" >
-                    <mat-error *ngIf="Confirmpassword.touched && (Confirmpassword.invalid ||Confirmpassword.errors?.pattern)">Invalid password format</mat-error>
-                   
+                    <input type="password" name="Confirmpassword" matInput ngModel #Confirmpassword='ngModel' [(ngModel)]="confirmPassword" (change)='getValue(Confirmpassword.value)' (change)="checkPassword()" required  >
+                    <!-- <mat-error *ngIf="Confirmpassword.touched && (Confirmpassword.invalid ||Confirmpassword.errors?.pattern)">Invalid password format</mat-error> -->
+                    <mat-error *ngIf="!passMatch">passwords are not matching</mat-error>
                 </mat-form-field>
                  </mat-grid-tile>
              
@@ -92,9 +92,9 @@
                 </mat-form-field>
             
                 <button mat-button disabled class="signin-button"
-                    *ngIf="FirstName.invalid || LastName.invalid || dob.invalid || Email.invalid || password.invalid || Confirmpassword.invalid || gender.invalid || Address.invalid"><span
+                    *ngIf="FirstName.invalid || LastName.invalid || dob.invalid || Email.invalid || password.invalid || Confirmpassword.invalid || gender.invalid || Address.invalid ||!passMatch"><span
                         class="s_span">SignIn</span></button>
-                <button mat-button type="submit" class="signin-button" *ngIf="FirstName.valid && LastName.valid && dob.valid && Email.valid && password.valid && Confirmpassword.valid && gender.valid && Address.valid"><span class="s_span">SignIn</span></button>
+                <button mat-button type="submit" class="signin-button" *ngIf="FirstName.valid && LastName.valid && dob.valid && Email.valid && password.valid && Confirmpassword.valid && gender.valid && Address.valid && passMatch"><span class="s_span">SignIn</span></button>
 
         </form>
     </mat-card-content>
