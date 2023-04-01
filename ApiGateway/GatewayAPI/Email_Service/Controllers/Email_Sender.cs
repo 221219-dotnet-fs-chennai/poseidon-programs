@@ -28,7 +28,7 @@ namespace Email_Service.Controllers
             }
             MailMessage message = new MailMessage();
 
-            message = new MailMessage("yuvamanikandan15@gmail.com", email);
+            message = new MailMessage("healthcareposeidon@gmail.com", email);
 
             message.Subject = subject;
             message.Body = body;
