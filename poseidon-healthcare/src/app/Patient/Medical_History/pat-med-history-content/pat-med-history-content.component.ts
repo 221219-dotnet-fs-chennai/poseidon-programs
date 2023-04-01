@@ -33,7 +33,7 @@ export interface visitHistory {
 })
 export class PatMedHistoryContentComponent implements OnInit {
   load: boolean = true;
-  show: boolean = true;
+  show: boolean = false;
   constructor(
     private router: Router,
     public dialog: MatDialog,
@@ -80,6 +80,13 @@ export class PatMedHistoryContentComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     this.service.getMedicalHistory().subscribe((res) => {
       this.visitHistoryArray = res;
+      if (this.visitHistoryArray.length != 0) {
+        this.load = false;
+        this.show = true;
+      } else {
+        this.load = false;
+        this.show = false;
+      }
       for (var visit of this.visitHistoryArray) {
         var eachVisit: visitHistory = {
           id: visit.id,
@@ -101,11 +108,7 @@ export class PatMedHistoryContentComponent implements OnInit {
         console.log(this.MedicalHistoryArray);
         this.MostRecentMedicalHistory =
           this.MedicalHistoryArray[this.MedicalHistoryArray.length - 1];
-        if (this.MostRecentMedicalHistory != null) {
-          this.load = false;
-        } else {
-          this.show = false;
-        }
+
         console.log(this.MostRecentMedicalHistory);
       }
     });

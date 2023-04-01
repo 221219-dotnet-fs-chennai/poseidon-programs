@@ -1,21 +1,21 @@
 
 
-<div *ngIf="!show" fxLayoutAlign="center">
-    <h1>Sorry, you don't have any medical history for now.</h1>
-</div>
-
-<div *ngIf="load" fxLayoutAlign="center" id="spinner">
-    <mat-spinner></mat-spinner>
-</div>
 
 
-<div class="container" *ngIf="show">
+
+<div class="container" >
     <div fxLayoutAlign="end">
         <button mat-fab (click)="to_profile()"><img src="../../../../assets/arrow-left-long-solid.svg" width="25px"
                 height="25px" alt=""></button>
     </div>
 
-    <div class="detail-container">
+  
+    
+    <div *ngIf="load" fxLayoutAlign="center" id="spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="detail-container" *ngIf="show">
         <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
             <div><span>
                     <h3>Name : <span>{{BasicDetails.firstName+" "+BasicDetails.lastName}}</span></h3>
@@ -53,6 +53,10 @@
     </div>
 
     <h2>Observations History</h2>
+
+    <div *ngIf="!show" fxLayoutAlign="center">
+        <h1>Sorry, you don't have any medical history for now.</h1>
+    </div>
 
 
     <div class="card-area flex-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px"

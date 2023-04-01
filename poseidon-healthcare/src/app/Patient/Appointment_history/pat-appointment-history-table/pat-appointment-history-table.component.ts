@@ -26,6 +26,7 @@ export class PatAppointmentHistoryTableComponent
   currentUser: any;
   load: boolean = true;
   show: boolean = false;
+  empty: boolean = false;
 
   constructor(private service: ServicePatientService) {
     // this.service.getData().subscribe((data) => {
@@ -61,9 +62,15 @@ export class PatAppointmentHistoryTableComponent
       this.listOfAppointment = data;
 
       this.dataSource = new MatTableDataSource(this.listOfAppointment);
-      if (this.dataSource.length != 0) {
+      if (this.listOfAppointment.length != 0) {
+        console.log(this.listOfAppointment.length);
         this.load = false;
         this.show = true;
+        this.empty = false;
+      } else {
+        this.show = false;
+        this.load = false;
+        this.empty = true;
       }
       this.dataSource.paginator = this.paginator;
       console.log('list of appointment', this.dataSource);
