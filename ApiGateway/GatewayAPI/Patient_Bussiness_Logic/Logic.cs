@@ -121,6 +121,11 @@ namespace Patient_Bussiness_Logic
             return repo.ExistingPatient(email);
         }
 
+        public bool isExistPhone(string phone)
+        {
+            return repo.isExistPhone(phone);
+        }
+
 
 
         //Test

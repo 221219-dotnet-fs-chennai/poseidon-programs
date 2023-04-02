@@ -29,6 +29,7 @@ namespace Patient_Bussiness_Logic
 
         //patient Exist
         public bool PatientIsExist(string email);
+        public bool isExistPhone(string phone);
 
         //Test
 
