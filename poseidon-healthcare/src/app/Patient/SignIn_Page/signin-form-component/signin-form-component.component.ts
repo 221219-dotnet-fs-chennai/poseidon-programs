@@ -5,7 +5,11 @@ import {
   FormGroup,
   NgForm,
   Validators,
+  NG_VALIDATORS,
+  Validator,
+  ValidationErrors,
 } from '@angular/forms';
+import { Directive, Input } from '@angular/core';
 import { ServicePatientService } from '../../service-patient.service';
 import { pipe, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -21,6 +25,7 @@ import {
 
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const moment = _rollupMoment || _moment;
 
@@ -60,6 +65,9 @@ export class SigninFormComponentComponent {
       if (this.confirmPassword != this.newPassword) {
         this.passMatch = false;
         console.log('passwords not matching');
+        this.snackbar.open('passwords are not matching', 'Ok', {
+          duration: 3000,
+        });
       } else {
         this.passMatch = true;
         console.log('passwords matching');
@@ -67,9 +75,41 @@ export class SigninFormComponentComponent {
     }
   }
 
-  constructor(private service: ServicePatientService, private router: Router) {}
+  constructor(
+    private service: ServicePatientService,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {}
 
   date = new FormControl(moment());
+  EmailExist: boolean;
+  PhoneExist: boolean;
+
+  isExistEmail(f: any) {
+    this.service.isExistEmail(f).subscribe((res) => {
+      if (res == true) {
+        this.snackbar.open('Email already exists', 'Ok', {
+          duration: 3000,
+        });
+        this.EmailExist = true;
+      } else {
+        this.EmailExist = false;
+      }
+    });
+  }
+
+  isExistPhone(f: any) {
+    this.service.isExistPhone(f).subscribe((res) => {
+      if (res == true) {
+        this.snackbar.open('Phone already exists', 'Ok', {
+          duration: 3000,
+        });
+        this.PhoneExist = true;
+      } else {
+        this.PhoneExist = false;
+      }
+    });
+  }
 
   onSubmit(f: NgForm) {
     this.service
