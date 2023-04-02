@@ -93,7 +93,7 @@ export interface visitDetail {
   providedIn: 'root',
 })
 export class ServicePatientService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // VARIABLE DECLARATIONS
 
@@ -294,10 +294,21 @@ export class ServicePatientService {
     return this.http.get(this.AllergyRootUrl + '/Allergy/Fetch/' + id);
   }
 
-  public sendBookedEmail(){
+  public sendBookedEmail() {
     var headers = { 'content-type': 'application/json' };
-    var body = "";
-    var toMail=localStorage.getItem('currentUserEmail');
-    return this.http.post(this.EmailServiceRoot+'/poseidonhc/sendEmail/'+toMail+'/'+0,body,{headers:headers});
+    var body = '';
+    var toMail = localStorage.getItem('currentUserEmail');
+    return this.http.post(
+      this.EmailServiceRoot + '/poseidonhc/sendEmail/' + toMail + '/' + 0,
+      body,
+      { headers: headers }
+    );
+  }
+
+  public isExistEmail(email: string) {
+    return this.http.get(this.rootURL + '/Patient/PatientExist/' + email);
+  }
+  public isExistPhone(phone: string) {
+    return this.http.get(this.rootURL + '/Patient/phoneNo/isExist/' + phone);
   }
 }
