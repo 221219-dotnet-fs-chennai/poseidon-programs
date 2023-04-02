@@ -209,6 +209,32 @@ namespace EF_Layer
 
         }
 
+        public bool isExistPhone(string phone)
+        {
+            var pat = context.Patients;
+
+
+            var query = (from p in pat
+                         where p.ContactNumber == phone
+                         select p).FirstOrDefault();
+            try
+            {
+                if (phone == query.ContactNumber)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+
+        }
+
         //test methods
         public Test AddTest(Test test)
         {

@@ -140,5 +140,24 @@ namespace Patient_Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("phoneNo/isExist/{phone}")]
+
+        public IActionResult phoneIsExist([FromRoute]string phone)
+        {
+            try
+            {
+                var value = logic.isExistPhone(phone);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
