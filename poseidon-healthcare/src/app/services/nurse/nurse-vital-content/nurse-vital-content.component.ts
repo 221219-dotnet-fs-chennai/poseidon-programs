@@ -37,7 +37,13 @@ export class NurseVitalContentComponent implements OnInit {
         this.router.navigate(['nurse_appointment'])
       })
     })
-
+    this.vitalsService.postBg(bg).subscribe(data => {console.log(data)});
+    this.vitalsService.postBpd(bp).subscribe(data => {console.log(data)});
+    this.vitalsService.postBps(bps).subscribe(data => {console.log(data)});
+    this.vitalsService.postHeight(height).subscribe(data => {console.log(data)});
+    this.vitalsService.postTemp(temp).subscribe(data => {console.log(data)});
+    this.vitalsService.postResp(rr).subscribe(data => {console.log(data)});
+    this.vitalsService.postWeight(weight).subscribe(data => {console.log(data)});
     this.dialogRef.close();
   }
 

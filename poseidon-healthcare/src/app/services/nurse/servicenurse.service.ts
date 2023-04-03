@@ -85,6 +85,62 @@ export class ServicenurseService {
       "notes": "none"
     })
   }
+
+  public postBg(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddBloodGroup",{
+
+      "patientId": this.myData.patientId,
+      "date": this.myData.submissionDate,
+      "value": data
+
+    })
+  }
+  public postBps(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddBloodPressureSystolic",{
+      "patientId": this.myData.patientId,
+      "date": this.myData.submissionDate,
+      "value": data
+    })
+  }
+  
+  public postBpd(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddBloodPressureDiastolic",{
+      "patientId": this.myData.patientId,
+      "date":this.myData.submissionDate,
+      "value": data
+    })
+  }
+
+  public postTemp(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddBodyTemperature",{
+      "patientId": this.myData.patientId,
+      "date": this.myData.submissionDate,
+      "value": data
+    })
+  }
+  public postHeight(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddHeight",{
+      "patientId": this.myData.patientId,
+      "date": this.myData.submissionDate,
+      "value": data
+    })
+  }
+
+  public postWeight(data:any):Observable<any>{
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddWeight",{
+      "patientId": this.myData.patientId,
+      "date":this.myData.submissionDate,
+      "value": data
+    })
+  }
+
+  public postResp(data:any){
+    return this.http.post("https://localhost:7292/poseidonhc/auditAddRespiration",{
+      "patientId": this.myData.patientId,
+      "date": this.myData.submissionDate,
+      "value": data
+    })
+  }
   public myData:any;
   public medPatientData:any;
 }
