@@ -93,7 +93,7 @@ export interface visitDetail {
   providedIn: 'root',
 })
 export class ServicePatientService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // VARIABLE DECLARATIONS
 
@@ -196,28 +196,8 @@ export class ServicePatientService {
     var headers;
     var body;
     console.log('update call');
-    this.currentUser = JSON.parse(localStorage.getItem('LoggedInUserId')!);
-    console.log(this.currentUser);
-    this.getDetailsForProfile(this.currentUser).subscribe((res) => {
-      this.patientData = res;
-    });
-    console.log(this.patientData);
-
-    (this.updatedPatient.firstName = this.patientData.firstName),
-      (this.updatedPatient.lastName = this.patientData.lastName),
-      (this.updatedPatient.dob = this.patientData.dob),
-      (this.updatedPatient.gender = this.patientData.gender),
-      (this.updatedPatient.password = this.patientData.password),
-      (this.updatedPatient.title = this.patientData.title);
-
-    console.log(updatedDetails);
-    (this.updatedPatient.Id = id),
-      (this.updatedPatient.email = updatedDetails.email);
-    this.updatedPatient.address = updatedDetails.address;
-    this.updatedPatient.contactNumber = updatedDetails.contactNumber;
-    console.log(this.updatedPatient);
     headers = { 'content-type': 'application/json' };
-    body = JSON.stringify(this.updatedPatient);
+    body = JSON.stringify(updatedDetails);
     console.log(body);
 
     console.log(body);
@@ -294,10 +274,21 @@ export class ServicePatientService {
     return this.http.get(this.AllergyRootUrl + '/Allergy/Fetch/' + id);
   }
 
-  public sendBookedEmail(){
+  public sendBookedEmail() {
     var headers = { 'content-type': 'application/json' };
-    var body = "";
-    var toMail=localStorage.getItem('currentUserEmail');
-    return this.http.post(this.EmailServiceRoot+'/poseidonhc/sendEmail/'+toMail+'/'+0,body,{headers:headers});
+    var body = '';
+    var toMail = localStorage.getItem('currentUserEmail');
+    return this.http.post(
+      this.EmailServiceRoot + '/poseidonhc/sendEmail/' + toMail + '/' + 0,
+      body,
+      { headers: headers }
+    );
+  }
+
+  public isExistEmail(email: string) {
+    return this.http.get(this.rootURL + '/Patient/PatientExist/' + email);
+  }
+  public isExistPhone(phone: string) {
+    return this.http.get(this.rootURL + '/Patient/phoneNo/isExist/' + phone);
   }
 }
