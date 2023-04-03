@@ -4,11 +4,25 @@ import { Router } from '@angular/router';
 import { ServicePatientService } from '../../service-patient.service';
 import { catchError, throwError } from 'rxjs';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { trigger, transition, style, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-login-form-component',
   templateUrl: './login-form-component.component.html',
   styleUrls: ['./login-form-component.component.css'],
+  animations: [
+    trigger('fadeAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('300ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('300ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class LoginFormComponentComponent {
   public showPassword: boolean = true;
@@ -56,4 +70,10 @@ export class LoginFormComponentComponent {
   }
 
   getValue(f: any) {}
+
+  public showChatbot = false;
+
+  public toggleChatbot(): void {
+    this.showChatbot = !this.showChatbot;
+  }
 }
