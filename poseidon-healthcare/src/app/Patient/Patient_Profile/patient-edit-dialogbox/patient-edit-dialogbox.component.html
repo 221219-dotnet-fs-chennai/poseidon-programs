@@ -12,7 +12,7 @@
       <mat-label>Phone</mat-label>
       <input type="tel" name="contactNumber"matInput ngModel #phone='ngModel' [(ngModel)]="phoneNo"  (change)="getValue(phone)"
         pattern="^[9876]\d{9}$">
-      <mat-error *ngIf="phone.touched && (phone.invalid||phone.errors?.pattern)">Invalid email format</mat-error>
+      <mat-error *ngIf="phone.touched && (phone.invalid||phone.errors?.pattern)">Invalid phone number format</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline">

@@ -117,6 +117,7 @@ import { DocUpdateAvailabilityComponent } from './services/doctor/doc-update-ava
 import { DateformatterPipe } from './Patient/dateformatter.pipe';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HelpBotComponent } from './common/help-bot/help-bot.component';
 
 @NgModule({
   declarations: [
@@ -210,6 +211,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AdminAvailDeleteDialogboxComponent,
     DocUpdateAvailabilityComponent,
     DateformatterPipe,
+    HelpBotComponent,
   ],
 
   imports: [
