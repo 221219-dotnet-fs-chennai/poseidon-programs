@@ -56,14 +56,18 @@
                                 <form class="example-form">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Email</mat-label>
-                                        <input matInput placeholder="xzy@gmail.com">
+                                        <input name="Email" matInput ngModel [(ngModel)]="email"
+                                            placeholder="xzy@gmail.com">
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Enter your problem</mat-label>
-                                        <textarea matInput placeholder="type your problem here"></textarea>
+                                        <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                            placeholder="type your problem here"></textarea>
                                     </mat-form-field>
-                                    <div><button class="buttons" type="submit">Submit</button></div>
+                                    <div><button class="buttons submit-button" type="submit"
+                                            (click)="onSubmit()">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -100,14 +104,18 @@
                                 <form class="example-form">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Email</mat-label>
-                                        <input matInput placeholder="xzy@gmail.com">
+                                        <input name="Email" matInput ngModel [(ngModel)]="email"
+                                            placeholder="xzy@gmail.com">
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Enter your problem</mat-label>
-                                        <textarea matInput placeholder="type your problem here"></textarea>
+                                        <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                            placeholder="type your problem here"></textarea>
                                     </mat-form-field>
-                                    <div><button class="buttons" type="button">Submit</button></div>
+                                    <div><button class="buttons submit-button" type="submit"
+                                            (click)="onSubmit()">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -141,14 +149,18 @@
                                 <form class="example-form">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Email</mat-label>
-                                        <input matInput placeholder="xzy@gmail.com">
+                                        <input name="Email" matInput ngModel [(ngModel)]="email"
+                                            placeholder="xzy@gmail.com">
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Enter your problem</mat-label>
-                                        <textarea matInput placeholder="type your problem here"></textarea>
+                                        <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                            placeholder="type your problem here"></textarea>
                                     </mat-form-field>
-                                    <div><button class="buttons" type="button">Submit</button></div>
+                                    <div><button class="buttons submit-button" type="submit"
+                                            (click)="onSubmit()">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -182,14 +194,18 @@
                                 <form class="example-form">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Email</mat-label>
-                                        <input matInput placeholder="xzy@gmail.com">
+                                        <input name="Email" matInput ngModel [(ngModel)]="email"
+                                            placeholder="xzy@gmail.com">
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Enter your problem</mat-label>
-                                        <textarea matInput placeholder="type your problem here"></textarea>
+                                        <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                            placeholder="type your problem here"></textarea>
                                     </mat-form-field>
-                                    <div><button class="buttons" type="button">Submit</button></div>
+                                    <div><button class="buttons submit-button" type="submit"
+                                            (click)="onSubmit()">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -223,33 +239,38 @@
                                 <form class="example-form">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Email</mat-label>
-                                        <input matInput placeholder="xzy@gmail.com">
+                                        <input name="Email" matInput ngModel [(ngModel)]="email"
+                                            placeholder="xzy@gmail.com">
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field class="example-full-width">
                                         <mat-label>Enter your problem</mat-label>
-                                        <textarea matInput placeholder="type your problem here"></textarea>
+                                        <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                            placeholder="type your problem here"></textarea>
                                     </mat-form-field>
-                                    <div><button class="buttons" type="button">Submit</button></div>
+                                    <div><button class="buttons submit-button" type="submit"
+                                            (click)="onSubmit()">Submit</button></div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div *ngSwitchCase="6">
+                    <p class="left-side">Sorry to here that... please type your email and your problem.
+                        we'll try to resolve it soon</p>
                     <form class="example-form">
-                        <p class="left-side">Sorry to here that... please type your email and your problem.
-                            we'll try to resolve it soon</p>
                         <mat-form-field class="example-full-width">
                             <mat-label>Email</mat-label>
-                            <input matInput placeholder="xzy@gmail.com">
+                            <input name="Email" matInput ngModel [(ngModel)]="email" placeholder="xzy@gmail.com">
                         </mat-form-field>
                         <br>
                         <mat-form-field class="example-full-width">
                             <mat-label>Enter your problem</mat-label>
-                            <textarea matInput placeholder="type your problem here"></textarea>
+                            <textarea name="complain" matInput ngModel [(ngModel)]="complain"
+                                placeholder="type your problem here"></textarea>
                         </mat-form-field>
-                        <div><button class="buttons submit-button" type="button">Submit</button></div>
+                        <div><button class="buttons submit-button" type="submit" (click)="onSubmit()">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

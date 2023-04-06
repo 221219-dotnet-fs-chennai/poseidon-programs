@@ -28,4 +28,9 @@ export class AdminprofileComponent {
   {
     this.router.navigate(['admin_add_doc'])
   }
+
+  to_show_comp()
+  {
+    this.router.navigate(['admin-show-complain'])
+  }
 }
