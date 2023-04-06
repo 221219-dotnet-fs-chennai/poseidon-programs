@@ -35,6 +35,7 @@ import { AdminPatientInfoComponent } from './services/admin/admin-patient-info/a
 import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin-add-doctor.component';
 import { NursePatHomeComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-home/nurse-pat-home.component';
 import { AdminAvailableDoctorComponent } from './services/admin/admin-available-doctor/admin-available-doctor.component';
+import { AdminShowComplainsComponent } from './services/admin/admin-show-complains/admin-show-complains.component';
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -50,7 +51,6 @@ const routes: Routes = [
   // { path: 'nursehome', component: NurseProfilePageComponent,canActivate:[AuthGuard] },
   //  {path:'dochome',component:DoctorhomeComponent},
   { path: 'doctdapp', component: DoctorTodayappointmentComponent, canActivate: [AuthGuard] },
-
   { path: 'nursehome', component: NurseProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'dochome', component: DoctorhomeComponent },
   { path: 'patient_profile', component: PatientProfileHomeComponent },
@@ -66,7 +66,8 @@ const routes: Routes = [
   { path: 'admin_patient_info', component: AdminPatientInfoComponent },
   { path: 'admin_add_doc', component: AdminAddDoctorComponent },
   { path: 'nurse-pat-info', component: NursePatHomeComponent },
-  { path: 'admin-available-doc', component: AdminAvailableDoctorComponent }
+  { path: 'admin-available-doc', component: AdminAvailableDoctorComponent },
+  { path: 'admin-show-complain', component: AdminShowComplainsComponent}
 
 ]
 

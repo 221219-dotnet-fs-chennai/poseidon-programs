@@ -118,6 +118,7 @@ import { DateformatterPipe } from './Patient/dateformatter.pipe';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HelpBotComponent } from './common/help-bot/help-bot.component';
+import { AdminShowComplainsComponent } from './services/admin/admin-show-complains/admin-show-complains.component';
 
 @NgModule({
   declarations: [
@@ -212,6 +213,7 @@ import { HelpBotComponent } from './common/help-bot/help-bot.component';
     DocUpdateAvailabilityComponent,
     DateformatterPipe,
     HelpBotComponent,
+    AdminShowComplainsComponent,
   ],
 
   imports: [
