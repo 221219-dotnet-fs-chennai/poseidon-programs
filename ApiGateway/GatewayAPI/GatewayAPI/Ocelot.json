@@ -302,6 +302,44 @@
       ]
     },
 
+    // complaint
+    {
+      "UpstreamPathTemplate": "/poseidonhc/getcomplaintbyEmail/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Complaint/getcomplaintbyEmail/{email}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7006
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/GetallCompalins",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Complaint/GetallCompalins",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7006
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/poseidonhc/addComplaint",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Complaint/addComplaint",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7006
+        }
+      ]
+    },
+
     // audit
     {
       "UpstreamPathTemplate": "/poseidonhc/auditAddBloodGroup",
