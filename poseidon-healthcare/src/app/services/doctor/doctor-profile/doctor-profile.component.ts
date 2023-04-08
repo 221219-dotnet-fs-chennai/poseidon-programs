@@ -15,10 +15,12 @@ export class DoctorProfileComponent {
 
   add_available()
   {
-    const dRef = this.dialog.open(DocUpdateAvailabilityComponent, {
-      width: '500px',
-      data: { }
-    });
+    // const dRef = this.dialog.open(DocUpdateAvailabilityComponent, {
+    //   width: '500px',
+    //   data: { }
+    // });
+
+    this.router.navigate(['/docotorupdateavailablity']);
   }
 
   to_accpetedAppointment(){
