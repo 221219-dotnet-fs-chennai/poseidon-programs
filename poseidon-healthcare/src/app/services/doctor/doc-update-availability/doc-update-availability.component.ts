@@ -5,6 +5,8 @@ import { FormControl, NgForm } from '@angular/forms';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 
@@ -48,7 +50,8 @@ export class DocUpdateAvailabilityComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private dialogref: MatDialogRef<DocUpdateAvailabilityComponent>,
     private service: AdminServiceService,
-    private router: Router) {
+    private router: Router,
+    private _snackBar: MatSnackBar) {
   }
 
   startDate = new Date();
@@ -69,7 +72,10 @@ export class DocUpdateAvailabilityComponent {
   todateinput: string;
 
 
-
+  openSnackBar() {
+    this._snackBar.open("Updated!!","",{
+      duration: 3000});
+  }
 
   add_availability() {
     this.fromdateinput = moment(this.fromDate).format('DD/MM/YYYY')
@@ -81,6 +87,8 @@ export class DocUpdateAvailabilityComponent {
 
     this.service.updateDocAvailStatus(this.doctors).subscribe(res => {
       console.log(res);
+      this.openSnackBar();
+
 
     })
 
