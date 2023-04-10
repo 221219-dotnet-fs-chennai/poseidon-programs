@@ -138,6 +138,25 @@ export class DoctorService {
     return this.http.post<any>(url,null);
   }
 
+  // https://localhost:7119/api/Doctor/particular/anu.general%40doctor.com
+  // Get_particular_doctor/{email}
+
+  public GetDoctorDetails(Email:string){
+    const ogDocMail = Email.replace(/@/g,"%40")
+    const url = `${this.urlAppointment}/Get_particular_doctor/${ogDocMail}`;
+    return this.http.get<any>(url);
+  }
+
+  // /poseidonhc/FindDoctorByEmailID/{EmailID}
+
+  public GetDoctorAvailablityByEmail(Email:string){
+    const ogDocMail = Email.replace(/@/g,"%40")
+    const url = `${this.urlAppointment}/FindDoctorByEmailID/${ogDocMail}`;
+    return this.http.get<any>(url);
+
+  }
+
+
 
 
   Patient_Details: any[] = [

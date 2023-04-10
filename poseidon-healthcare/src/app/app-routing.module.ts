@@ -36,6 +36,9 @@ import { AdminAddDoctorComponent } from './services/admin/admin-add-doctor/admin
 import { NursePatHomeComponent } from './services/nurse/nurse_pat_medical_info/nurse-pat-home/nurse-pat-home.component';
 import { AdminAvailableDoctorComponent } from './services/admin/admin-available-doctor/admin-available-doctor.component';
 import { AdminShowComplainsComponent } from './services/admin/admin-show-complains/admin-show-complains.component';
+import { UpdateavailablityComponent } from './services/doctor/updateavailablity/updateavailablity.component';
+
+
 
 const routes: Routes = [
   { path: '', component: MainhomeComponent },
@@ -67,7 +70,8 @@ const routes: Routes = [
   { path: 'admin_add_doc', component: AdminAddDoctorComponent },
   { path: 'nurse-pat-info', component: NursePatHomeComponent },
   { path: 'admin-available-doc', component: AdminAvailableDoctorComponent },
-  { path: 'admin-show-complain', component: AdminShowComplainsComponent}
+  { path: 'admin-show-complain', component: AdminShowComplainsComponent},
+  {path:'docotorupdateavailablity',component:UpdateavailablityComponent}
 
 ]
 
