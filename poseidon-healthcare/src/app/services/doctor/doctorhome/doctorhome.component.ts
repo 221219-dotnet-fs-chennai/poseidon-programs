@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 })
 export class DoctorhomeComponent {
   constructor(private router: Router) { }
+
+  
   
   to_services() {
     this.router.navigate(['service_home']);
