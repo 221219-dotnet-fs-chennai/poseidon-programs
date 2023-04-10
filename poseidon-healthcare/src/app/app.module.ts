@@ -119,6 +119,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HelpBotComponent } from './common/help-bot/help-bot.component';
 import { AdminShowComplainsComponent } from './services/admin/admin-show-complains/admin-show-complains.component';
+import { UpdateavailablityComponent } from './services/doctor/updateavailablity/updateavailablity.component';
 
 @NgModule({
   declarations: [
@@ -214,6 +215,7 @@ import { AdminShowComplainsComponent } from './services/admin/admin-show-complai
     DateformatterPipe,
     HelpBotComponent,
     AdminShowComplainsComponent,
+    UpdateavailablityComponent,
   ],
 
   imports: [
