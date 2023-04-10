@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DocUpdateAvailabilityComponent } from '../doc-update-availability/doc-update-availability.component';
-
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -11,7 +11,20 @@ import { DocUpdateAvailabilityComponent } from '../doc-update-availability/doc-u
 })
 export class DoctorProfileComponent {
 
-  constructor(private dialog: MatDialog,private router:Router) { }
+  constructor(private dialog: MatDialog,private router:Router,private auth:AuthService) { }
+
+  ngOnInit(){
+    console.log(this.auth.getAccessTokenSilently.toString);
+    this.auth.user$.subscribe(response =>{
+      console.log(response);
+
+      this.auth.getAccessTokenSilently
+    })
+
+  
+
+  }
+
 
   add_available()
   {
