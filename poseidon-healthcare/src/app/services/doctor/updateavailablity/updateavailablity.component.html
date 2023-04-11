@@ -1,63 +1,47 @@
 <app-doctor-nav></app-doctor-nav>
+
 <div class="container">
     <div fxLayoutAlign="end">
-        <button mat-fab routerLink="/doctorhome" ><img src="../../../../assets/arrow-left-long-solid.svg"
-                width="25px" height="25px" alt=""></button>
+        <button mat-fab routerLink="/doctorhome"><img src="../../../../assets/arrow-left-long-solid.svg" width="25px"
+                height="25px" alt=""></button>
     </div>
+</div>
 
-    <!-- dept
-: 
-"Orthopaedic"
-email
-: 
-"srinu.orthopaedic@doctor.com"
-name
-: 
-"Srinu" -->
+<div class="detail-container">
+    <mat-card class="content-container">
+        <mat-card-content>
+            <span>
+                <h3>Name : <span>{{doctorDetails.name}}</span></h3>
+            </span>
+        </mat-card-content>
 
-    <div class="detail-container">
-        <div class="details" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
-            <div><span>
-                    <h3>Name : <span>{{doctorDetails.name}}</span></h3>
-                </span></div>
+        <mat-card-content>
+            <span>
+                <h3>Email : <span>{{doctorDetails.email}}</span></h3>
+            </span>
+        </mat-card-content>
 
-            <div><span>
-                    <h3>Email : <span>{{doctorDetails.email}}</span></h3>
-                </span></div>
+        <mat-card-content>
+            <span>
+                <h3>Specialization : <span>{{doctorDetails.dept}}</span></h3>
+            </span>
+        </mat-card-content>
 
-            <div><span>
-                    <h3>Specialization : <span>{{doctorDetails.dept}}</span></h3>
+        <mat-card-content>
+            <div *ngFor="let i of doctorAvailablity">
+                <span>
+                    <h3>
+                        Scheduled Availablity : &nbsp; &nbsp; &nbsp;
+                        From : <span>{{i.availablefrom}}</span> &nbsp; &nbsp;
+                        To : <span>{{i.availableTo}}</span>
+                    </h3>                    
                 </span>
             </div>
-        </div>
+        </mat-card-content>
 
-        <a class="button isactive" (click)="add_available()">Upate Your Availablity</a>
+        <mat-card-actions align="end">
+            <a class="button isactive" (click)="add_available()">Upate Your Availablity</a>
+        </mat-card-actions>
 
-    </div>
-
-    <!-- availableTo
-: 
-"21/04/2023"
-availablefrom
-: 
-"10/04/2023" -->
-
-    <div class="container newcont">
-        <h1>Scheduled Availablity</h1>
-
-        <div class="avail" *ngFor="let i of doctorAvailablity">
-            <div class="details" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="30px">
-                <div><span>
-                        <h3>From : <span>{{i.availablefrom}}</span></h3>
-                    </span></div>
-
-                    <div><span>
-                        <h3>To : <span>{{i.availableTo}}</span></h3>
-                    </span></div>
-    
-                
-            </div>
-        </div>
+    </mat-card>
 </div>
-</div>
-
